@@ -1,0 +1,18 @@
+GLIB    := C:\gtk+-2.16.6
+CC      := gcc
+CFLAGS  := -mms-bitfields -ansi -Wall
+INCPATH := -I"${GLIB}\include\glib-2.0" -I"${GLIB}\lib\glib-2.0\include"
+LIBS    := -L"${GLIB}\lib" -lgobject-2.0
+TARGET  := TestGObject2
+OBJS    := main.o
+
+all: $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET) ${LIBS}
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCPATH) -c $<
+
+clean:
+	del *.bak
+	del *.o
+	del $(TARGET).exe

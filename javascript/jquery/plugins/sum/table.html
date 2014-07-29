@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>sum plugin</title>
+	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="plugin.js"></script>	
+</head>
+<body>
+	<table id="inventory">
+		<thead>
+			<tr class="one">
+				<th>물품</th> <th>수량</th> <th>가격</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr id="sum" class="two">
+				<td>합계</td><td></td> <td></td>
+			</tr>
+			<tr id="average">	
+				<td>평균</td> <td></td> <td></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>스팸</td> <td>4</td> <td>200000</td>
+			</tr>
+			<tr>
+				<td>통닭</td> <td>10</td> <td>2110000</td>
+			</tr>
+			<tr>
+				<td>개구리</td> <td>50</td> <td>10000000</td>
+			</tr>
+		</tbody>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready (function () {
+					var $inventory  = $('#inventory tbody');
+					var quantities = $inventory.find ('td:nth-child(2)')
+					.map (function (index, qty) {
+						return $(qty).text ();
+						}).get ();
+					var sum = $.sum (quantities);
+					$('#sum').find ('td:nth-child(2)').text (sum);
+					});
+		</script>
+	</body>
+</html>

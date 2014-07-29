@@ -1,0 +1,11 @@
+./android list target // 안드로이드 버전 아이디 확인
+
+./android create project \
+--target <target-id> \
+--name <application name> \
+--path <path-to-workspace> \ ex) --path ./buttonEx
+--activity <MainActivity name> \
+--package <package name>
+
+./ant debug // 프로젝트 빌드
+./adb install <./bin/apk file name> // install app into device.

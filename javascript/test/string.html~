@@ -1,0 +1,20 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>String</title>
+	
+</head>
+<body>
+	<script type="text/javascript" charset="utf-8">
+		var foo = new String ("a");
+		var bar = new String ("a");
+		document.writeln (foo === bar); //true
+		document.writeln (foo == bar); //false
+		document.writeln ('-----------------');
+		var integer = new Number (10);
+		var floatnum = new Number (10);
+		document.writeln (integer == floatnum); // false
+	</script>
+</body>
+</html>

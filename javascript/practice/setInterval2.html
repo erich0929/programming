@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>setinterval2</title>
+		<script type="text/javascript" charset="utf-8">
+			var i = 0;
+			window.onload = function () {
+				timer = setInterval (
+					function () {
+						document.getElementById ('result').innerHTML += i++ % 10;
+						if (i == 10) clearInterval (timer);
+					}, 1000);
+			}
+		</script>
+	</head>
+<body>
+	<div id="result">
+		결과 : 
+	</div>
+</body>
+</html>

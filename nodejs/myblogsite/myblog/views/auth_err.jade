@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title Aritlce
+    link(rel='stylesheet', href='/stylesheets/yaml/core/base.min.css')
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    script(src='/javascripts/jquery-2.1.0.min.js')
+    script(src='/javascripts/signup.js')
+  body
+   nav#nav
+     div.ym-wrapper
+       div.ym-hlist
+         span(style='float:left; margin-top : 10px; padding : 0.5em 1.5em;')
+           a(href='/' style='font-size : 20px; color : white') HGTech
+         ul(style='float:right;')
+           li 
+             a(href='/') Home
+           li 
+             a(href='#') Dashboard
+           if !session.user
+            li 
+             a(href='/signup?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Sign up
+            li
+             a(href='/login?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Login
+           else
+            li
+             a(href='#') Admin
+   header
+     div.ym-wrapper
+       div.ym-wbox
+         h1 HGTech Blog
+   div.ym-wrapper
+     div.ym-wbox
+      p
+       h3= 'Sorry, Your request seems to be expried. please try again.'
+      p
+       a.ym-button.ym-next(href='/') Go to Home.
+       a.ym-button.ym-next(href='/signup') Retry Signup.
+       a.ym-button.ym-next(href='#{returnUrl}') Go back to where you be.

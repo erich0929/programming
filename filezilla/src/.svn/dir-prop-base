@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 144
+FileZilla.ncb
+FileZilla.opensdf
+FileZilla.sdf
+FileZilla.suo
+FileZilla.v11.suo
+FileZilla.v12.suo
+Makefile
+Makefile.in
+bin
+lib
+Dependencies.props
+
+END

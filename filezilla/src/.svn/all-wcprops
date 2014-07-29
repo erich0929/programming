@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/5387/FileZilla3/trunk/src
+END
+Dependencies.props.example
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/5336/FileZilla3/trunk/src/Dependencies.props.example
+END
+FileZilla.sln
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/5335/FileZilla3/trunk/src/FileZilla.sln
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/5340/FileZilla3/trunk/src/Makefile.am
+END

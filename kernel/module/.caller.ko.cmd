@@ -1,0 +1,1 @@
+cmd_/home/erich0929/programming/kernel/module/caller.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.8.0-38-generic/scripts/module-common.lds --build-id  -o /home/erich0929/programming/kernel/module/caller.ko /home/erich0929/programming/kernel/module/caller.o /home/erich0929/programming/kernel/module/caller.mod.o

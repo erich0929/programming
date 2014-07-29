@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 79
+.deps
+Debug
+Makefile.in
+Makefile
+Release
+fzsftp.vcproj.*
+fzsftp.ncb
+fzsftp.suo
+
+END

@@ -1,0 +1,16 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>This</title>
+	<script type="text/javascript" charset="utf-8">
+		var func = function () { return this; }
+	</script>
+</head>
+<body>
+	<script type="text/javascript" charset="utf-8">
+		document.writeln (this === window);
+		alert (this === window);
+	</script>
+</body>
+</html>

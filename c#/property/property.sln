@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "property", "property\property.csproj", "{37275AC0-47BC-4740-8295-B4763309FE72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37275AC0-47BC-4740-8295-B4763309FE72}.Debug|x86.ActiveCfg = Debug|x86
+		{37275AC0-47BC-4740-8295-B4763309FE72}.Debug|x86.Build.0 = Debug|x86
+		{37275AC0-47BC-4740-8295-B4763309FE72}.Release|x86.ActiveCfg = Release|x86
+		{37275AC0-47BC-4740-8295-B4763309FE72}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = property\property.csproj
+	EndGlobalSection
+EndGlobal

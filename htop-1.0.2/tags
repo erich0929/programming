@@ -1,0 +1,1250 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACPresence	BatteryMeter.h	/^} ACPresence;$/;"	t	typeref:enum:ACPresence_
+ACPresence_	BatteryMeter.h	/^typedef enum ACPresence_ {$/;"	g
+AC_ABSENT	BatteryMeter.h	/^   AC_ABSENT,$/;"	e	enum:ACPresence_
+AC_ERROR	BatteryMeter.h	/^   AC_ERROR$/;"	e	enum:ACPresence_
+AC_PRESENT	BatteryMeter.h	/^   AC_PRESENT,$/;"	e	enum:ACPresence_
+ANY	scripts/MakeHeader.py	/^ANY=1$/;"	v
+Affinity	Affinity.h	/^} Affinity;$/;"	t	typeref:struct:Affinity_
+AffinityPanel_eventHandler	AffinityPanel.c	/^static HandlerResult AffinityPanel_eventHandler(Panel* this, int ch) {$/;"	f	file:
+AffinityPanel_getAffinity	AffinityPanel.c	/^Affinity* AffinityPanel_getAffinity(Panel* this) {$/;"	f
+AffinityPanel_new	AffinityPanel.c	/^Panel* AffinityPanel_new(ProcessList* pl, Affinity* affinity) {$/;"	f
+Affinity_	Affinity.h	/^typedef struct Affinity_ {$/;"	s
+Affinity_add	Affinity.c	/^void Affinity_add(Affinity* this, int id) {$/;"	f
+Affinity_delete	Affinity.c	/^void Affinity_delete(Affinity* this) {$/;"	f
+Affinity_new	Affinity.c	/^Affinity* Affinity_new() {$/;"	f
+AllCPUs2Meter	CPUMeter.c	/^MeterType AllCPUs2Meter = {$/;"	v
+AllCPUsMeter	CPUMeter.c	/^MeterType AllCPUsMeter = {$/;"	v
+AllCPUsMeter_done	CPUMeter.c	/^static void AllCPUsMeter_done(Meter* this) {$/;"	f	file:
+AllCPUsMeter_getRange	CPUMeter.c	/^static void AllCPUsMeter_getRange(Meter* this, int* start, int* count) {$/;"	f	file:
+AllCPUsMeter_init	CPUMeter.c	/^static void AllCPUsMeter_init(Meter* this) {$/;"	f	file:
+AllCPUsMeter_setMode	CPUMeter.c	/^static void AllCPUsMeter_setMode(Meter* this, int mode) {$/;"	f	file:
+AvailableColumnsFunctions	CategoriesPanel.c	/^static const char* AvailableColumnsFunctions[] = {"      ", "      ", "      ", "      ", "Add   ", "      ", "      ", "      ", "      ", "Done  ", NULL};$/;"	v	file:
+AvailableColumnsPanel	AvailableColumnsPanel.h	/^} AvailableColumnsPanel;$/;"	t	typeref:struct:AvailableColumnsPanel_
+AvailableColumnsPanel_	AvailableColumnsPanel.h	/^typedef struct AvailableColumnsPanel_ {$/;"	s
+AvailableColumnsPanel_delete	AvailableColumnsPanel.c	/^static void AvailableColumnsPanel_delete(Object* object) {$/;"	f	file:
+AvailableColumnsPanel_eventHandler	AvailableColumnsPanel.c	/^static HandlerResult AvailableColumnsPanel_eventHandler(Panel* super, int ch) {$/;"	f	file:
+AvailableColumnsPanel_new	AvailableColumnsPanel.c	/^AvailableColumnsPanel* AvailableColumnsPanel_new(Settings* settings, Panel* columns, ScreenManager* scr) {$/;"	f
+AvailableMetersFunctions	CategoriesPanel.c	/^static const char* AvailableMetersFunctions[] = {"      ", "      ", "      ", "      ", "Add L ", "Add R ", "      ", "      ", "      ", "Done  ", NULL};$/;"	v	file:
+AvailableMetersPanel	AvailableMetersPanel.h	/^} AvailableMetersPanel;$/;"	t	typeref:struct:AvailableMetersPanel_
+AvailableMetersPanel_	AvailableMetersPanel.h	/^typedef struct AvailableMetersPanel_ {$/;"	s
+AvailableMetersPanel_addHeader	AvailableMetersPanel.c	/^static inline void AvailableMetersPanel_addHeader(Header* header, Panel* panel, MeterType* type, int param, HeaderSide side) {$/;"	f	file:
+AvailableMetersPanel_delete	AvailableMetersPanel.c	/^static void AvailableMetersPanel_delete(Object* object) {$/;"	f	file:
+AvailableMetersPanel_eventHandler	AvailableMetersPanel.c	/^static HandlerResult AvailableMetersPanel_eventHandler(Panel* super, int ch) {$/;"	f	file:
+AvailableMetersPanel_new	AvailableMetersPanel.c	/^AvailableMetersPanel* AvailableMetersPanel_new(Settings* settings, Panel* leftMeters, Panel* rightMeters, ScreenManager* scr) {$/;"	f
+BAR_BORDER	CRT.h	/^   BAR_BORDER,$/;"	e	enum:ColorElements_
+BAR_METERMODE	Meter.h	/^   BAR_METERMODE,$/;"	e	enum:__anon1
+BAR_SHADOW	CRT.h	/^   BAR_SHADOW,$/;"	e	enum:ColorElements_
+BATTERY	CRT.h	/^   BATTERY,$/;"	e	enum:ColorElements_
+BLOCKED	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+BREAK_LOOP	Panel.h	/^   BREAK_LOOP$/;"	e	enum:HandlerResult_
+BarMeterMode	Meter.c	/^static MeterMode BarMeterMode = {$/;"	v	file:
+BarMeterMode_characters	Meter.c	/^static char BarMeterMode_characters[] = "|#*@$%&";$/;"	v	file:
+BarMeterMode_draw	Meter.c	/^static void BarMeterMode_draw(Meter* this, int x, int y, int w) {$/;"	f	file:
+BatteryMeter	BatteryMeter.c	/^MeterType BatteryMeter = {$/;"	v
+BatteryMeter_attributes	BatteryMeter.c	/^int BatteryMeter_attributes[] = {$/;"	v
+BatteryMeter_setValues	BatteryMeter.c	/^static void BatteryMeter_setValues(Meter * this, char *buffer, int len) {$/;"	f	file:
+Black	CRT.c	31;"	d	file:
+Black	CRT.h	24;"	d
+Blue	CRT.c	35;"	d	file:
+Blue	CRT.h	28;"	d
+CGROUP	Process.h	/^   CGROUP,$/;"	e	enum:ProcessField_
+CHECKITEM_CLASS	CheckItem.c	/^char* CHECKITEM_CLASS = "CheckItem";$/;"	v
+CHECKITEM_CLASS	CheckItem.c	30;"	d	file:
+CHECKITEM_CLASS	CheckItem.h	25;"	d
+CHECK_BOX	CRT.h	/^   CHECK_BOX,$/;"	e	enum:ColorElements_
+CHECK_MARK	CRT.h	/^   CHECK_MARK,$/;"	e	enum:ColorElements_
+CHECK_TEXT	CRT.h	/^   CHECK_TEXT,$/;"	e	enum:ColorElements_
+CLOCK	CRT.h	/^   CLOCK,$/;"	e	enum:ColorElements_
+CMAJFLT	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+CMINFLT	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+CNCLWB	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+CNSWAP	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+COLORSCHEME_BLACKNIGHT	CRT.c	29;"	d	file:
+COLORSCHEME_BLACKNIGHT	CRT.h	22;"	d
+COLORSCHEME_BLACKONWHITE	CRT.c	26;"	d	file:
+COLORSCHEME_BLACKONWHITE	CRT.h	19;"	d
+COLORSCHEME_BLACKONWHITE2	CRT.c	27;"	d	file:
+COLORSCHEME_BLACKONWHITE2	CRT.h	20;"	d
+COLORSCHEME_DEFAULT	CRT.c	24;"	d	file:
+COLORSCHEME_DEFAULT	CRT.h	17;"	d
+COLORSCHEME_MIDNIGHT	CRT.c	28;"	d	file:
+COLORSCHEME_MIDNIGHT	CRT.h	21;"	d
+COLORSCHEME_MONOCHROME	CRT.c	25;"	d	file:
+COLORSCHEME_MONOCHROME	CRT.h	18;"	d
+COMM	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+COPY	scripts/MakeHeader.py	/^COPY=2$/;"	v
+COPYRIGHT	htop.c	43;"	d	file:
+COPYRIGHT	htop.h	16;"	d
+CPUData	ProcessList.h	/^} CPUData;$/;"	t	typeref:struct:CPUData_
+CPUData_	ProcessList.h	/^typedef struct CPUData_ {$/;"	s
+CPUMeter	CPUMeter.c	/^MeterType CPUMeter = {$/;"	v
+CPUMeter_attributes	CPUMeter.c	/^int CPUMeter_attributes[] = {$/;"	v
+CPUMeter_display	CPUMeter.c	/^static void CPUMeter_display(Object* cast, RichString* out) {$/;"	f	file:
+CPUMeter_init	CPUMeter.c	/^static void CPUMeter_init(Meter* this) {$/;"	f	file:
+CPUMeter_setValues	CPUMeter.c	/^static void CPUMeter_setValues(Meter* this, char* buffer, int size) {$/;"	f	file:
+CPU_GUEST	CRT.h	/^   CPU_GUEST,$/;"	e	enum:ColorElements_
+CPU_IOWAIT	CRT.h	/^   CPU_IOWAIT,$/;"	e	enum:ColorElements_
+CPU_IRQ	CRT.h	/^   CPU_IRQ,$/;"	e	enum:ColorElements_
+CPU_KERNEL	CRT.h	/^   CPU_KERNEL,$/;"	e	enum:ColorElements_
+CPU_NICE	CRT.h	/^   CPU_NICE,$/;"	e	enum:ColorElements_
+CPU_NORMAL	CRT.h	/^   CPU_NORMAL,$/;"	e	enum:ColorElements_
+CPU_SOFTIRQ	CRT.h	/^   CPU_SOFTIRQ,$/;"	e	enum:ColorElements_
+CPU_STEAL	CRT.h	/^   CPU_STEAL,$/;"	e	enum:ColorElements_
+CRT_colorScheme	CRT.c	/^int CRT_colorScheme = 0;$/;"	v
+CRT_colors	CRT.c	/^int CRT_colors[LAST_COLORELEMENT] = { 0 };$/;"	v
+CRT_cursorX	CRT.c	/^int CRT_cursorX = 0;$/;"	v
+CRT_delay	CRT.c	/^int CRT_delay = 0;$/;"	v
+CRT_disableDelay	CRT.c	/^void CRT_disableDelay() {$/;"	f
+CRT_done	CRT.c	/^void CRT_done() {$/;"	f
+CRT_enableDelay	CRT.c	/^void CRT_enableDelay() {$/;"	f
+CRT_fatalError	CRT.c	/^void CRT_fatalError(const char* note) {$/;"	f
+CRT_handleSIGSEGV	CRT.c	/^static void CRT_handleSIGSEGV(int sgn) {$/;"	f	file:
+CRT_handleSIGTERM	CRT.c	/^static void CRT_handleSIGTERM(int sgn) {$/;"	f	file:
+CRT_hasColors	CRT.c	/^static bool CRT_hasColors;$/;"	v	file:
+CRT_init	CRT.c	/^void CRT_init(int delay, int colorScheme) {$/;"	f
+CRT_readKey	CRT.c	/^int CRT_readKey() {$/;"	f
+CRT_setColors	CRT.c	/^void CRT_setColors(int colorScheme) {$/;"	f
+CRT_termType	CRT.c	/^char* CRT_termType;$/;"	v
+CRT_termType	CRT.h	/^char* CRT_termType;$/;"	v
+CSTIME	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+CTID	Process.h	/^   CTID, VPID,$/;"	e	enum:ProcessField_
+CUSTOM_METERMODE	Meter.h	/^   CUSTOM_METERMODE = 0,$/;"	e	enum:__anon1
+CUTIME	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+CategoriesFunctions	htop.c	/^static const char* CategoriesFunctions[] = {"      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "Done  ", NULL};$/;"	v	file:
+CategoriesPanel	CategoriesPanel.h	/^} CategoriesPanel;$/;"	t	typeref:struct:CategoriesPanel_
+CategoriesPanel_	CategoriesPanel.h	/^typedef struct CategoriesPanel_ {$/;"	s
+CategoriesPanel_delete	CategoriesPanel.c	/^static void CategoriesPanel_delete(Object* object) {$/;"	f	file:
+CategoriesPanel_eventHandler	CategoriesPanel.c	/^static HandlerResult CategoriesPanel_eventHandler(Panel* super, int ch) {$/;"	f	file:
+CategoriesPanel_makeColorsPage	CategoriesPanel.c	/^static void CategoriesPanel_makeColorsPage(CategoriesPanel* this) {$/;"	f	file:
+CategoriesPanel_makeColumnsPage	CategoriesPanel.c	/^static void CategoriesPanel_makeColumnsPage(CategoriesPanel* this) {$/;"	f	file:
+CategoriesPanel_makeDisplayOptionsPage	CategoriesPanel.c	/^static void CategoriesPanel_makeDisplayOptionsPage(CategoriesPanel* this) {$/;"	f	file:
+CategoriesPanel_makeMetersPage	CategoriesPanel.c	/^void CategoriesPanel_makeMetersPage(CategoriesPanel* this) {$/;"	f
+CategoriesPanel_new	CategoriesPanel.c	/^CategoriesPanel* CategoriesPanel_new(Settings* settings, ScreenManager* scr) {$/;"	f
+CharType	RichString.h	40;"	d
+CharType	RichString.h	46;"	d
+CheckItem	CheckItem.h	/^} CheckItem;$/;"	t	typeref:struct:CheckItem_
+CheckItem_	CheckItem.h	/^typedef struct CheckItem_ {$/;"	s
+CheckItem_delete	CheckItem.c	/^static void CheckItem_delete(Object* cast) {$/;"	f	file:
+CheckItem_display	CheckItem.c	/^static void CheckItem_display(Object* cast, RichString* out) {$/;"	f	file:
+CheckItem_get	CheckItem.c	/^bool CheckItem_get(CheckItem* this) {$/;"	f
+CheckItem_new	CheckItem.c	/^CheckItem* CheckItem_new(char* text, bool* ref, bool value) {$/;"	f
+CheckItem_set	CheckItem.c	/^void CheckItem_set(CheckItem* this, bool value) {$/;"	f
+ClockMeter	ClockMeter.c	/^MeterType ClockMeter = {$/;"	v
+ClockMeter_attributes	ClockMeter.c	/^int ClockMeter_attributes[] = {$/;"	v
+ClockMeter_setValues	ClockMeter.c	/^static void ClockMeter_setValues(Meter* this, char* buffer, int size) {$/;"	f	file:
+ColorElements	CRT.h	/^} ColorElements;$/;"	t	typeref:enum:ColorElements_
+ColorElements_	CRT.h	/^typedef enum ColorElements_ {$/;"	g
+ColorPair	CRT.c	22;"	d	file:
+ColorPair	CRT.h	15;"	d
+ColorSchemes	ColorsPanel.c	/^static const char* ColorSchemes[] = {$/;"	v	file:
+ColorsFunctions	CategoriesPanel.c	/^static const char* ColorsFunctions[] = {"      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "Done  ", NULL};$/;"	v	file:
+ColorsPanel	ColorsPanel.h	/^} ColorsPanel;$/;"	t	typeref:struct:ColorsPanel_
+ColorsPanel_	ColorsPanel.h	/^typedef struct ColorsPanel_ {$/;"	s
+ColorsPanel_EventHandler	ColorsPanel.c	/^static HandlerResult ColorsPanel_EventHandler(Panel* super, int ch) {$/;"	f	file:
+ColorsPanel_delete	ColorsPanel.c	/^static void ColorsPanel_delete(Object* object) {$/;"	f	file:
+ColorsPanel_new	ColorsPanel.c	/^ColorsPanel* ColorsPanel_new(Settings* settings, ScreenManager* scr) {$/;"	f
+ColumnsFunctions	CategoriesPanel.c	/^static const char* ColumnsFunctions[] = {"      ", "      ", "      ", "      ", "      ", "      ", "MoveUp", "MoveDn", "Remove", "Done  ", NULL};$/;"	v	file:
+ColumnsPanel	ColumnsPanel.h	/^} ColumnsPanel;$/;"	t	typeref:struct:ColumnsPanel_
+ColumnsPanel_	ColumnsPanel.h	/^typedef struct ColumnsPanel_ {$/;"	s
+ColumnsPanel_delete	ColumnsPanel.c	/^static void ColumnsPanel_delete(Object* object) {$/;"	f	file:
+ColumnsPanel_eventHandler	ColumnsPanel.c	/^static HandlerResult ColumnsPanel_eventHandler(Panel* super, int ch) {$/;"	f	file:
+ColumnsPanel_fieldNameToIndex	ColumnsPanel.c	/^int ColumnsPanel_fieldNameToIndex(const char* name) {$/;"	f
+ColumnsPanel_new	ColumnsPanel.c	/^ColumnsPanel* ColumnsPanel_new(Settings* settings, ScreenManager* scr) {$/;"	f
+ColumnsPanel_update	ColumnsPanel.c	/^void ColumnsPanel_update(Panel* super) {$/;"	f
+CreateProcess	ltmain.sh	/^   CreateProcess().  We must quote the arguments since Win32 CreateProcess()$/;"	f
+Cyan	CRT.c	37;"	d	file:
+Cyan	CRT.h	30;"	d
+DEFAULT_COLOR	CRT.h	/^   DEFAULT_COLOR,$/;"	e	enum:ColorElements_
+DEFAULT_DELAY	Settings.c	18;"	d	file:
+DEFAULT_DELAY	Settings.h	12;"	d
+DEFAULT_SIZE	Vector.h	17;"	d
+DisplayOptionsFunctions	CategoriesPanel.c	/^static const char* DisplayOptionsFunctions[] = {"      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "Done  ", NULL};$/;"	v	file:
+DisplayOptionsPanel	DisplayOptionsPanel.h	/^} DisplayOptionsPanel;$/;"	t	typeref:struct:DisplayOptionsPanel_
+DisplayOptionsPanel_	DisplayOptionsPanel.h	/^typedef struct DisplayOptionsPanel_ {$/;"	s
+DisplayOptionsPanel_delete	DisplayOptionsPanel.c	/^static void DisplayOptionsPanel_delete(Object* object) {$/;"	f	file:
+DisplayOptionsPanel_eventHandler	DisplayOptionsPanel.c	/^static HandlerResult DisplayOptionsPanel_eventHandler(Panel* super, int ch) {$/;"	f	file:
+DisplayOptionsPanel_new	DisplayOptionsPanel.c	/^DisplayOptionsPanel* DisplayOptionsPanel_new(Settings* settings, ScreenManager* scr) {$/;"	f
+DrawDot	Meter.c	330;"	d	file:
+DrawDot	Meter.h	119;"	d
+DualColCPUsMeter_draw	CPUMeter.c	/^static void DualColCPUsMeter_draw(Meter* this, int x, int y, int w) {$/;"	f	file:
+ENDCODE	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+EVENT_SETSELECTED	Panel.h	25;"	d
+EXIT_SIGNAL	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+FAILED_SEARCH	CRT.h	/^   FAILED_SEARCH,$/;"	e	enum:ColorElements_
+FLAGS	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+FUNCTIONBAR_CLASS	FunctionBar.c	/^char* FUNCTIONBAR_CLASS = "FunctionBar";$/;"	v
+FUNCTIONBAR_CLASS	FunctionBar.c	35;"	d	file:
+FUNCTIONBAR_CLASS	FunctionBar.h	27;"	d
+FUNCTION_BAR	CRT.h	/^   FUNCTION_BAR,$/;"	e	enum:ColorElements_
+FUNCTION_KEY	CRT.h	/^   FUNCTION_KEY,$/;"	e	enum:ColorElements_
+ForeachProcessFn	htop.c	/^typedef bool(*ForeachProcessFn)(Process*, size_t);$/;"	t	file:
+ForeachProcessFn	htop.h	/^typedef bool(*ForeachProcessFn)(Process*, size_t);$/;"	t
+FunctionBar	FunctionBar.h	/^} FunctionBar;$/;"	t	typeref:struct:FunctionBar_
+FunctionBar_	FunctionBar.h	/^typedef struct FunctionBar_ {$/;"	s
+FunctionBar_FEvents	FunctionBar.c	/^static int FunctionBar_FEvents[] = {KEY_F(1), KEY_F(2), KEY_F(3), KEY_F(4), KEY_F(5), KEY_F(6), KEY_F(7), KEY_F(8), KEY_F(9), KEY_F(10)};$/;"	v	file:
+FunctionBar_FKeys	FunctionBar.c	/^static const char* FunctionBar_FKeys[] = {"F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", NULL};$/;"	v	file:
+FunctionBar_FLabels	FunctionBar.c	/^static const char* FunctionBar_FLabels[] = {"      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", NULL};$/;"	v	file:
+FunctionBar_delete	FunctionBar.c	/^void FunctionBar_delete(Object* cast) {$/;"	f
+FunctionBar_draw	FunctionBar.c	/^void FunctionBar_draw(const FunctionBar* this, char* buffer) {$/;"	f
+FunctionBar_drawAttr	FunctionBar.c	/^void FunctionBar_drawAttr(const FunctionBar* this, char* buffer, int attr) {$/;"	f
+FunctionBar_new	FunctionBar.c	/^FunctionBar* FunctionBar_new(const char** functions, const char** keys, int* events) {$/;"	f
+FunctionBar_setLabel	FunctionBar.c	/^void FunctionBar_setLabel(FunctionBar* this, int event, const char* text) {$/;"	f
+FunctionBar_synthesizeEvent	FunctionBar.c	/^int FunctionBar_synthesizeEvent(const FunctionBar* this, int pos) {$/;"	f
+GIGABYTE	SwapMeter.c	26;"	d	file:
+GIGABYTE	SwapMeter.h	16;"	d
+GRAPH_1	CRT.h	/^   GRAPH_1,$/;"	e	enum:ColorElements_
+GRAPH_2	CRT.h	/^   GRAPH_2,$/;"	e	enum:ColorElements_
+GRAPH_3	CRT.h	/^   GRAPH_3,$/;"	e	enum:ColorElements_
+GRAPH_4	CRT.h	/^   GRAPH_4,$/;"	e	enum:ColorElements_
+GRAPH_5	CRT.h	/^   GRAPH_5,$/;"	e	enum:ColorElements_
+GRAPH_6	CRT.h	/^   GRAPH_6,$/;"	e	enum:ColorElements_
+GRAPH_7	CRT.h	/^   GRAPH_7,$/;"	e	enum:ColorElements_
+GRAPH_8	CRT.h	/^   GRAPH_8,$/;"	e	enum:ColorElements_
+GRAPH_9	CRT.h	/^   GRAPH_9,$/;"	e	enum:ColorElements_
+GRAPH_METERMODE	Meter.h	/^   GRAPH_METERMODE,$/;"	e	enum:__anon1
+GraphData	Meter.h	/^} GraphData;$/;"	t	typeref:struct:GraphData_
+GraphData_	Meter.h	/^typedef struct GraphData_ {$/;"	s
+GraphMeterMode	Meter.c	/^static MeterMode GraphMeterMode = {$/;"	v	file:
+GraphMeterMode_characters	Meter.c	/^static const char* GraphMeterMode_characters = "^`'-.,_~'`-.,_~'`-.,_";$/;"	v	file:
+GraphMeterMode_colors	Meter.c	/^static int GraphMeterMode_colors[21] = {$/;"	v	file:
+GraphMeterMode_draw	Meter.c	/^static void GraphMeterMode_draw(Meter* this, int x, int y, int w) {$/;"	f	file:
+Green	CRT.c	33;"	d	file:
+Green	CRT.h	26;"	d
+HANDLED	Panel.h	/^   HANDLED,$/;"	e	enum:HandlerResult_
+HAVE_CURSES_H	config.h	14;"	d
+HAVE_DIRENT_H	config.h	18;"	d
+HAVE_DLFCN_H	config.h	21;"	d
+HAVE_EXECINFO_H	config.h	24;"	d
+HAVE_INTTYPES_H	config.h	30;"	d
+HAVE_LIBM	config.h	36;"	d
+HAVE_LIBNCURSESW	config.h	42;"	d
+HAVE_MEMMOVE	config.h	45;"	d
+HAVE_MEMORY_H	config.h	48;"	d
+HAVE_NATIVE_AFFINITY	config.h	51;"	d
+HAVE_NCURSESW_CURSES_H	config.h	54;"	d
+HAVE_STDBOOL_H	config.h	73;"	d
+HAVE_STDINT_H	config.h	76;"	d
+HAVE_STDLIB_H	config.h	79;"	d
+HAVE_STRDUP	config.h	82;"	d
+HAVE_STRINGS_H	config.h	85;"	d
+HAVE_STRING_H	config.h	88;"	d
+HAVE_STRNCASECMP	config.h	91;"	d
+HAVE_STRSTR	config.h	94;"	d
+HAVE_SYS_PARAM_H	config.h	105;"	d
+HAVE_SYS_STAT_H	config.h	108;"	d
+HAVE_SYS_TIME_H	config.h	111;"	d
+HAVE_SYS_TYPES_H	config.h	114;"	d
+HAVE_TASKSTATS	config.h	117;"	d
+HAVE_UNISTD_H	config.h	120;"	d
+HAVE__BOOL	config.h	126;"	d
+HEADER_Affinity	Affinity.h	4;"	d
+HEADER_AffinityPanel	AffinityPanel.h	4;"	d
+HEADER_AvailableColumnsPanel	AvailableColumnsPanel.h	4;"	d
+HEADER_AvailableMetersPanel	AvailableMetersPanel.h	4;"	d
+HEADER_BatteryMeter	BatteryMeter.h	4;"	d
+HEADER_CPUMeter	CPUMeter.h	4;"	d
+HEADER_CRT	CRT.h	4;"	d
+HEADER_CategoriesPanel	CategoriesPanel.h	4;"	d
+HEADER_CheckItem	CheckItem.h	4;"	d
+HEADER_ClockMeter	ClockMeter.h	4;"	d
+HEADER_ColorsPanel	ColorsPanel.h	4;"	d
+HEADER_ColumnsPanel	ColumnsPanel.h	4;"	d
+HEADER_DisplayOptionsPanel	DisplayOptionsPanel.h	4;"	d
+HEADER_FunctionBar	FunctionBar.h	4;"	d
+HEADER_Hashtable	Hashtable.h	4;"	d
+HEADER_Header	Header.h	4;"	d
+HEADER_HostnameMeter	HostnameMeter.h	4;"	d
+HEADER_IOPriority	IOPriority.h	4;"	d
+HEADER_IOPriorityPanel	IOPriorityPanel.h	4;"	d
+HEADER_ListItem	ListItem.h	4;"	d
+HEADER_LoadAverageMeter	LoadAverageMeter.h	4;"	d
+HEADER_MemoryMeter	MemoryMeter.h	4;"	d
+HEADER_Meter	Meter.h	4;"	d
+HEADER_MetersPanel	MetersPanel.h	4;"	d
+HEADER_Object	Object.h	4;"	d
+HEADER_OpenFilesScreen	OpenFilesScreen.h	4;"	d
+HEADER_Panel	Panel.h	4;"	d
+HEADER_Process	Process.h	4;"	d
+HEADER_ProcessList	ProcessList.h	4;"	d
+HEADER_RichString	RichString.h	4;"	d
+HEADER_ScreenManager	ScreenManager.h	4;"	d
+HEADER_Settings	Settings.h	4;"	d
+HEADER_SignalsPanel	SignalsPanel.h	4;"	d
+HEADER_String	String.h	4;"	d
+HEADER_SwapMeter	SwapMeter.h	4;"	d
+HEADER_TasksMeter	TasksMeter.h	4;"	d
+HEADER_TraceScreen	TraceScreen.h	4;"	d
+HEADER_UptimeMeter	UptimeMeter.h	4;"	d
+HEADER_UsersTable	UsersTable.h	4;"	d
+HEADER_Vector	Vector.h	4;"	d
+HEADER_htop	htop.h	4;"	d
+HELP_BOLD	CRT.h	/^   HELP_BOLD,$/;"	e	enum:ColorElements_
+HORIZONTAL	ScreenManager.h	/^   HORIZONTAL$/;"	e	enum:Orientation_
+HOSTNAME	CRT.h	/^   HOSTNAME,$/;"	e	enum:ColorElements_
+HandlerResult	Panel.h	/^} HandlerResult;$/;"	t	typeref:enum:HandlerResult_
+HandlerResult_	Panel.h	/^typedef enum HandlerResult_ {$/;"	g
+Hashtable	Hashtable.h	/^typedef struct Hashtable_ Hashtable;$/;"	t	typeref:struct:Hashtable_
+HashtableItem	Hashtable.h	/^typedef struct HashtableItem {$/;"	s
+HashtableItem	Hashtable.h	/^} HashtableItem;$/;"	t	typeref:struct:HashtableItem
+HashtableItem_new	Hashtable.c	/^static HashtableItem* HashtableItem_new(unsigned int key, void* value) {$/;"	f	file:
+Hashtable_	Hashtable.h	/^struct Hashtable_ {$/;"	s
+Hashtable_PairFunction	Hashtable.h	/^typedef void(*Hashtable_PairFunction)(int, void*, void*);$/;"	t
+Hashtable_count	Hashtable.c	/^int Hashtable_count(Hashtable* this) {$/;"	f
+Hashtable_delete	Hashtable.c	/^void Hashtable_delete(Hashtable* this) {$/;"	f
+Hashtable_foreach	Hashtable.c	/^void Hashtable_foreach(Hashtable* this, Hashtable_PairFunction f, void* userData) {$/;"	f
+Hashtable_get	Hashtable.c	/^inline void* Hashtable_get(Hashtable* this, unsigned int key) {$/;"	f
+Hashtable_isConsistent	Hashtable.c	/^static bool Hashtable_isConsistent(Hashtable* this) {$/;"	f	file:
+Hashtable_new	Hashtable.c	/^Hashtable* Hashtable_new(int size, bool owner) {$/;"	f
+Hashtable_put	Hashtable.c	/^void Hashtable_put(Hashtable* this, unsigned int key, void* value) {$/;"	f
+Hashtable_remove	Hashtable.c	/^void* Hashtable_remove(Hashtable* this, unsigned int key) {$/;"	f
+Header	Header.h	/^} Header;$/;"	t	typeref:struct:Header_
+HeaderSide	Header.h	/^} HeaderSide;$/;"	t	typeref:enum:HeaderSide_
+HeaderSide_	Header.h	/^typedef enum HeaderSide_ {$/;"	g
+Header_	Header.h	/^typedef struct Header_ {$/;"	s
+Header_addMeter	Header.c	/^Meter* Header_addMeter(Header* this, MeterType* type, int param, HeaderSide side) {$/;"	f
+Header_calculateHeight	Header.c	/^int Header_calculateHeight(Header* this) {$/;"	f
+Header_createMeter	Header.c	/^void Header_createMeter(Header* this, char* name, HeaderSide side) {$/;"	f
+Header_defaultMeters	Header.c	/^void Header_defaultMeters(Header* this, int cpuCount) {$/;"	f
+Header_delete	Header.c	/^void Header_delete(Header* this) {$/;"	f
+Header_draw	Header.c	/^void Header_draw(const Header* this) {$/;"	f
+Header_new	Header.c	/^Header* Header_new(ProcessList* pl) {$/;"	f
+Header_readMeterMode	Header.c	/^MeterModeId Header_readMeterMode(Header* this, int i, HeaderSide side) {$/;"	f
+Header_readMeterName	Header.c	/^char* Header_readMeterName(Header* this, int i, HeaderSide side) {$/;"	f
+Header_reinit	Header.c	/^void Header_reinit(Header* this) {$/;"	f
+Header_setMode	Header.c	/^void Header_setMode(Header* this, int i, MeterModeId mode, HeaderSide side) {$/;"	f
+Header_size	Header.c	/^int Header_size(Header* this, HeaderSide side) {$/;"	f
+HostnameMeter	HostnameMeter.c	/^MeterType HostnameMeter = {$/;"	v
+HostnameMeter_attributes	HostnameMeter.c	/^int HostnameMeter_attributes[] = {$/;"	v
+HostnameMeter_setValues	HostnameMeter.c	/^static void HostnameMeter_setValues(Meter* this, char* buffer, int size) {$/;"	f	file:
+IGNORED	Panel.h	/^   IGNORED,$/;"	e	enum:HandlerResult_
+INCSEARCH_MAX	htop.c	41;"	d	file:
+INCSEARCH_MAX	htop.h	14;"	d
+IOPRIO_CLASS_BE	IOPriority.h	/^   IOPRIO_CLASS_BE,$/;"	e	enum:__anon2
+IOPRIO_CLASS_IDLE	IOPriority.h	/^   IOPRIO_CLASS_IDLE,$/;"	e	enum:__anon2
+IOPRIO_CLASS_NONE	IOPriority.h	/^   IOPRIO_CLASS_NONE,$/;"	e	enum:__anon2
+IOPRIO_CLASS_RT	IOPriority.h	/^   IOPRIO_CLASS_RT,$/;"	e	enum:__anon2
+IOPRIO_CLASS_SHIFT	IOPriority.h	26;"	d
+IOPRIO_PRIO_MASK	IOPriority.h	27;"	d
+IOPRIO_WHO_PROCESS	IOPriority.h	24;"	d
+IOPriority	IOPriority.h	/^typedef int IOPriority;$/;"	t
+IOPriorityPanel_getIOPriority	IOPriorityPanel.c	/^IOPriority IOPriorityPanel_getIOPriority(Panel* this) {$/;"	f
+IOPriorityPanel_new	IOPriorityPanel.c	/^Panel* IOPriorityPanel_new(IOPriority currPrio) {$/;"	f
+IOPriority_Idle	IOPriority.h	39;"	d
+IOPriority_None	IOPriority.h	38;"	d
+IOPriority_class	IOPriority.h	29;"	d
+IOPriority_data	IOPriority.h	30;"	d
+IOPriority_error	IOPriority.h	36;"	d
+IOPriority_tuple	IOPriority.h	34;"	d
+IO_PRIORITY	Process.h	/^   IO_PRIORITY,$/;"	e	enum:ProcessField_
+IO_RATE	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+IO_READ_RATE	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+IO_WRITE_RATE	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+ITREALVALUE	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+IncBuffer	htop.c	/^} IncBuffer;$/;"	t	typeref:struct:IncBuffer_	file:
+IncBuffer_	htop.c	/^typedef struct IncBuffer_ {$/;"	s	file:
+IncBuffer_reset	htop.c	/^static void IncBuffer_reset(IncBuffer* inc) {$/;"	f	file:
+KEY_CTRLB	Panel.c	74;"	d	file:
+KEY_CTRLB	Panel.h	61;"	d
+KEY_CTRLF	Panel.c	73;"	d	file:
+KEY_CTRLF	Panel.h	60;"	d
+KEY_CTRLN	Panel.c	71;"	d	file:
+KEY_CTRLN	Panel.h	58;"	d
+KEY_CTRLP	Panel.c	72;"	d	file:
+KEY_CTRLP	Panel.h	59;"	d
+KILOBYTE	SwapMeter.c	24;"	d	file:
+KILOBYTE	SwapMeter.h	14;"	d
+KSTKEIP	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+KSTKESP	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+LARGE_NUMBER	CRT.h	/^   LARGE_NUMBER,$/;"	e	enum:ColorElements_
+LAST_COLORELEMENT	CRT.h	/^   LAST_COLORELEMENT$/;"	e	enum:ColorElements_
+LAST_METERMODE	Meter.h	/^   LAST_METERMODE$/;"	e	enum:__anon1
+LAST_PROCESSFIELD	Process.h	/^   LAST_PROCESSFIELD$/;"	e	enum:ProcessField_
+LEDMeterMode	Meter.c	/^static MeterMode LEDMeterMode = {$/;"	v	file:
+LEDMeterMode_digits	Meter.c	/^static const char* LEDMeterMode_digits[3][10] = {$/;"	v	file:
+LEDMeterMode_draw	Meter.c	/^static void LEDMeterMode_draw(Meter* this, int x, int y, int w) {$/;"	f	file:
+LEDMeterMode_drawDigit	Meter.c	/^static void LEDMeterMode_drawDigit(int x, int y, int n) {$/;"	f	file:
+LED_COLOR	CRT.h	/^   LED_COLOR,$/;"	e	enum:ColorElements_
+LED_METERMODE	Meter.h	/^   LED_METERMODE,$/;"	e	enum:__anon1
+LEFT_HEADER	Header.h	/^   LEFT_HEADER,$/;"	e	enum:HeaderSide_
+LISTITEM_CLASS	ListItem.c	/^char* LISTITEM_CLASS = "ListItem";$/;"	v
+LISTITEM_CLASS	ListItem.c	32;"	d	file:
+LISTITEM_CLASS	ListItem.h	24;"	d
+LOAD	CRT.h	/^   LOAD,$/;"	e	enum:ColorElements_
+LOAD_AVERAGE_FIFTEEN	CRT.h	/^   LOAD_AVERAGE_FIFTEEN,$/;"	e	enum:ColorElements_
+LOAD_AVERAGE_FIVE	CRT.h	/^   LOAD_AVERAGE_FIVE,$/;"	e	enum:ColorElements_
+LOAD_AVERAGE_ONE	CRT.h	/^   LOAD_AVERAGE_ONE,$/;"	e	enum:ColorElements_
+LSTAT_FOLLOWS_SLASHED_SYMLINK	config.h	130;"	d
+LT_OBJDIR	config.h	134;"	d
+LeftCPUs2Meter	CPUMeter.c	/^MeterType LeftCPUs2Meter = {$/;"	v
+LeftCPUsMeter	CPUMeter.c	/^MeterType LeftCPUsMeter = {$/;"	v
+ListItem	ListItem.h	/^} ListItem;$/;"	t	typeref:struct:ListItem_
+ListItem_	ListItem.h	/^typedef struct ListItem_ {$/;"	s
+ListItem_append	ListItem.c	/^void ListItem_append(ListItem* this, char* text) {$/;"	f
+ListItem_compare	ListItem.c	/^int ListItem_compare(const void* cast1, const void* cast2) {$/;"	f
+ListItem_delete	ListItem.c	/^static void ListItem_delete(Object* cast) {$/;"	f	file:
+ListItem_display	ListItem.c	/^static void ListItem_display(Object* cast, RichString* out) {$/;"	f	file:
+ListItem_getRef	ListItem.c	/^const char* ListItem_getRef(ListItem* this) {$/;"	f
+ListItem_new	ListItem.c	/^ListItem* ListItem_new(const char* value, int key) {$/;"	f
+LoadAverageMeter	LoadAverageMeter.c	/^MeterType LoadAverageMeter = {$/;"	v
+LoadAverageMeter_attributes	LoadAverageMeter.c	/^int LoadAverageMeter_attributes[] = {$/;"	v
+LoadAverageMeter_display	LoadAverageMeter.c	/^static void LoadAverageMeter_display(Object* cast, RichString* out) {$/;"	f	file:
+LoadAverageMeter_scan	LoadAverageMeter.c	/^static inline void LoadAverageMeter_scan(double* one, double* five, double* fifteen) {$/;"	f	file:
+LoadAverageMeter_setValues	LoadAverageMeter.c	/^static void LoadAverageMeter_setValues(Meter* this, char* buffer, int size) {$/;"	f	file:
+LoadMeter	LoadAverageMeter.c	/^MeterType LoadMeter = {$/;"	v
+LoadMeter_attributes	LoadAverageMeter.c	/^int LoadMeter_attributes[] = { LOAD };$/;"	v
+LoadMeter_display	LoadAverageMeter.c	/^static void LoadMeter_display(Object* cast, RichString* out) {$/;"	f	file:
+LoadMeter_setValues	LoadAverageMeter.c	/^static void LoadMeter_setValues(Meter* this, char* buffer, int size) {$/;"	f	file:
+MAJFLT	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+MAX	CPUMeter.c	31;"	d	file:
+MAX	CPUMeter.h	20;"	d
+MAX	Header.c	48;"	d	file:
+MAX	Header.h	31;"	d
+MAX	Meter.c	112;"	d	file:
+MAX	Meter.h	90;"	d
+MAX	Panel.c	62;"	d	file:
+MAX	Panel.h	49;"	d
+MAX_NAME	ProcessList.h	32;"	d
+MAX_READ	ProcessList.h	36;"	d
+MEGABYTE	SwapMeter.c	25;"	d	file:
+MEGABYTE	SwapMeter.h	15;"	d
+MEMORY_BUFFERS	CRT.h	/^   MEMORY_BUFFERS,$/;"	e	enum:ColorElements_
+MEMORY_CACHE	CRT.h	/^   MEMORY_CACHE,$/;"	e	enum:ColorElements_
+MEMORY_USED	CRT.h	/^   MEMORY_USED,$/;"	e	enum:ColorElements_
+METER_BUFFER_LEN	Meter.c	36;"	d	file:
+METER_BUFFER_LEN	Meter.h	16;"	d
+METER_CLASS	Meter.c	/^char* METER_CLASS = "Meter";$/;"	v
+METER_CLASS	Meter.c	118;"	d	file:
+METER_CLASS	Meter.h	96;"	d
+METER_TEXT	CRT.h	/^   METER_TEXT,$/;"	e	enum:ColorElements_
+METER_VALUE	CRT.h	/^   METER_VALUE,$/;"	e	enum:ColorElements_
+MIN	CPUMeter.c	28;"	d	file:
+MIN	CPUMeter.h	17;"	d
+MIN	Meter.c	109;"	d	file:
+MIN	Meter.h	87;"	d
+MIN	Panel.c	59;"	d	file:
+MIN	Panel.h	46;"	d
+MIN	RichString.c	60;"	d	file:
+MIN	RichString.h	57;"	d
+MINFLT	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+M_DRS	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+M_DT	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+M_LRS	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+M_RESIDENT	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+M_SHARE	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+M_SIZE	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+M_TRS	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+Magenta	CRT.c	36;"	d	file:
+Magenta	CRT.h	29;"	d
+MemoryMeter	MemoryMeter.c	/^MeterType MemoryMeter = {$/;"	v
+MemoryMeter_attributes	MemoryMeter.c	/^int MemoryMeter_attributes[] = {$/;"	v
+MemoryMeter_display	MemoryMeter.c	/^static void MemoryMeter_display(Object* cast, RichString* out) {$/;"	f	file:
+MemoryMeter_setValues	MemoryMeter.c	/^static void MemoryMeter_setValues(Meter* this, char* buffer, int size) {$/;"	f	file:
+Meter	Meter.h	/^typedef struct Meter_ Meter;$/;"	t	typeref:struct:Meter_
+MeterMode	Meter.h	/^typedef struct MeterMode_ MeterMode;$/;"	t	typeref:struct:MeterMode_
+MeterModeId	Meter.h	/^} MeterModeId;$/;"	t	typeref:enum:__anon1
+MeterMode_	Meter.h	/^struct MeterMode_ {$/;"	s
+MeterType	Meter.h	/^typedef struct MeterType_ MeterType;$/;"	t	typeref:struct:MeterType_
+MeterType_	Meter.h	/^struct MeterType_ {$/;"	s
+MeterType_Done	Meter.h	/^typedef void(*MeterType_Done)(Meter*);$/;"	t
+MeterType_Init	Meter.h	/^typedef void(*MeterType_Init)(Meter*);$/;"	t
+MeterType_SetMode	Meter.h	/^typedef void(*MeterType_SetMode)(Meter*, int);$/;"	t
+Meter_	Meter.h	/^struct Meter_ {$/;"	s
+Meter_Draw	Meter.h	/^typedef void(*Meter_Draw)(Meter*, int, int, int);$/;"	t
+Meter_SetValues	Meter.h	/^typedef void(*Meter_SetValues)(Meter*, char*, int);$/;"	t
+Meter_delete	Meter.c	/^void Meter_delete(Object* cast) {$/;"	f
+Meter_displayBuffer	Meter.c	/^static inline void Meter_displayBuffer(Meter* this, char* buffer, RichString* out) {$/;"	f	file:
+Meter_modes	Meter.c	/^MeterMode* Meter_modes[] = {$/;"	v
+Meter_new	Meter.c	/^Meter* Meter_new(ProcessList* pl, int param, MeterType* type) {$/;"	f
+Meter_setCaption	Meter.c	/^void Meter_setCaption(Meter* this, const char* caption) {$/;"	f
+Meter_setMode	Meter.c	/^void Meter_setMode(Meter* this, int modeIndex) {$/;"	f
+Meter_toListItem	Meter.c	/^ListItem* Meter_toListItem(Meter* this) {$/;"	f
+Meter_types	Meter.c	/^MeterType* Meter_types[] = {$/;"	v
+MetersFunctions	CategoriesPanel.c	/^static const char* MetersFunctions[] = {"      ", "      ", "      ", "Type  ", "      ", "      ", "MoveUp", "MoveDn", "Remove", "Done  ", NULL};$/;"	v	file:
+MetersPanel	MetersPanel.h	/^} MetersPanel;$/;"	t	typeref:struct:MetersPanel_
+MetersPanel_	MetersPanel.h	/^typedef struct MetersPanel_ {$/;"	s
+MetersPanel_delete	MetersPanel.c	/^static void MetersPanel_delete(Object* object) {$/;"	f	file:
+MetersPanel_eventHandler	MetersPanel.c	/^static HandlerResult MetersPanel_eventHandler(Panel* super, int ch) {$/;"	f	file:
+MetersPanel_new	MetersPanel.c	/^MetersPanel* MetersPanel_new(Settings* settings, const char* header, Vector* meters, ScreenManager* scr) {$/;"	f
+NICE	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+NLWP	Process.h	/^   USER, TIME, NLWP, TGID,$/;"	e	enum:ProcessField_
+NSWAP	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+OBJECT_CLASS	Object.c	/^char* OBJECT_CLASS = "Object";$/;"	v
+OBJECT_CLASS	Object.c	42;"	d	file:
+OBJECT_CLASS	Object.h	36;"	d
+ONE_G	Process.c	270;"	d	file:
+ONE_G	Process.h	171;"	d
+ONE_K	Process.c	268;"	d	file:
+ONE_K	Process.h	169;"	d
+ONE_M	Process.c	269;"	d	file:
+ONE_M	Process.h	170;"	d
+Object	Object.h	/^typedef struct Object_ Object;$/;"	t	typeref:struct:Object_
+Object_	Object.h	/^struct Object_ {$/;"	s
+Object_Compare	Object.h	/^typedef int(*Object_Compare)(const void*, const void*);$/;"	t
+Object_Delete	Object.h	/^typedef void(*Object_Delete)(Object*);$/;"	t
+Object_Display	Object.h	/^typedef void(*Object_Display)(Object*, RichString*);$/;"	t
+Object_setClass	Object.c	/^void Object_setClass(void* this, char* class) {$/;"	f
+Object_setClass	Object.h	15;"	d
+OpenFilesScreen	OpenFilesScreen.h	/^} OpenFilesScreen;$/;"	t	typeref:struct:OpenFilesScreen_
+OpenFilesScreen_	OpenFilesScreen.h	/^typedef struct OpenFilesScreen_ {$/;"	s
+OpenFilesScreen_delete	OpenFilesScreen.c	/^void OpenFilesScreen_delete(OpenFilesScreen* this) {$/;"	f
+OpenFilesScreen_draw	OpenFilesScreen.c	/^static void OpenFilesScreen_draw(OpenFilesScreen* this) {$/;"	f	file:
+OpenFilesScreen_getProcessData	OpenFilesScreen.c	/^static OpenFiles_ProcessData* OpenFilesScreen_getProcessData(pid_t pid) {$/;"	f	file:
+OpenFilesScreen_new	OpenFilesScreen.c	/^OpenFilesScreen* OpenFilesScreen_new(Process* process) {$/;"	f
+OpenFilesScreen_run	OpenFilesScreen.c	/^void OpenFilesScreen_run(OpenFilesScreen* this) {$/;"	f
+OpenFilesScreen_scan	OpenFilesScreen.c	/^static void OpenFilesScreen_scan(OpenFilesScreen* this) {$/;"	f	file:
+OpenFiles_FileData	OpenFilesScreen.h	/^} OpenFiles_FileData;$/;"	t	typeref:struct:OpenFiles_FileData_
+OpenFiles_FileData_	OpenFilesScreen.h	/^typedef struct OpenFiles_FileData_ {$/;"	s
+OpenFiles_ProcessData	OpenFilesScreen.h	/^} OpenFiles_ProcessData;$/;"	t	typeref:struct:OpenFiles_ProcessData_
+OpenFiles_ProcessData_	OpenFilesScreen.h	/^typedef struct OpenFiles_ProcessData_ {$/;"	s
+Orientation	ScreenManager.h	/^} Orientation;$/;"	t	typeref:enum:Orientation_
+Orientation_	ScreenManager.h	/^typedef enum Orientation_ {$/;"	g
+PACKAGE	config.h	140;"	d
+PACKAGE_BUGREPORT	config.h	143;"	d
+PACKAGE_NAME	config.h	146;"	d
+PACKAGE_STRING	config.h	149;"	d
+PACKAGE_TARNAME	config.h	152;"	d
+PACKAGE_URL	config.h	155;"	d
+PACKAGE_VERSION	config.h	158;"	d
+PAGE_SIZE	Process.c	38;"	d	file:
+PAGE_SIZE	Process.h	18;"	d
+PAGE_SIZE_KB	Process.c	40;"	d	file:
+PAGE_SIZE_KB	Process.h	20;"	d
+PANEL_CLASS	Panel.c	/^char* PANEL_CLASS = "Panel";$/;"	v
+PANEL_CLASS	Panel.c	68;"	d	file:
+PANEL_CLASS	Panel.h	55;"	d
+PANEL_HEADER_FOCUS	CRT.h	/^   PANEL_HEADER_FOCUS,$/;"	e	enum:ColorElements_
+PANEL_HEADER_UNFOCUS	CRT.h	/^   PANEL_HEADER_UNFOCUS,$/;"	e	enum:ColorElements_
+PANEL_HIGHLIGHT_FOCUS	CRT.h	/^   PANEL_HIGHLIGHT_FOCUS,$/;"	e	enum:ColorElements_
+PANEL_HIGHLIGHT_UNFOCUS	CRT.h	/^   PANEL_HIGHLIGHT_UNFOCUS,$/;"	e	enum:ColorElements_
+PERCENT_CPU	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+PERCENT_MEM	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+PGRP	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+PID	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+PPID	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+PRIORITY	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+PROCDIR	ProcessList.h	20;"	d
+PROCDIR	config.h	161;"	d
+PROCESS	CRT.h	/^   PROCESS,$/;"	e	enum:ColorElements_
+PROCESSOR	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+PROCESS_BASENAME	CRT.h	/^   PROCESS_BASENAME,$/;"	e	enum:ColorElements_
+PROCESS_CLASS	Process.c	/^char* PROCESS_CLASS = "Process";$/;"	v
+PROCESS_CLASS	Process.c	181;"	d	file:
+PROCESS_CLASS	Process.h	159;"	d
+PROCESS_HIGH_PRIORITY	CRT.h	/^   PROCESS_HIGH_PRIORITY,$/;"	e	enum:ColorElements_
+PROCESS_LOW_PRIORITY	CRT.h	/^   PROCESS_LOW_PRIORITY,$/;"	e	enum:ColorElements_
+PROCESS_MEGABYTES	CRT.h	/^   PROCESS_MEGABYTES,$/;"	e	enum:ColorElements_
+PROCESS_R_STATE	CRT.h	/^   PROCESS_R_STATE,$/;"	e	enum:ColorElements_
+PROCESS_SHADOW	CRT.h	/^   PROCESS_SHADOW,$/;"	e	enum:ColorElements_
+PROCESS_TAG	CRT.h	/^   PROCESS_TAG,$/;"	e	enum:ColorElements_
+PROCESS_THREAD	CRT.h	/^   PROCESS_THREAD,$/;"	e	enum:ColorElements_
+PROCESS_THREAD_BASENAME	CRT.h	/^   PROCESS_THREAD_BASENAME,$/;"	e	enum:ColorElements_
+PROCESS_TREE	CRT.h	/^   PROCESS_TREE,$/;"	e	enum:ColorElements_
+PROCMEMINFOFILE	ProcessList.h	28;"	d
+PROCSTATFILE	ProcessList.h	24;"	d
+Panel	Panel.h	/^typedef struct Panel_ Panel;$/;"	t	typeref:struct:Panel_
+Panel_	Panel.h	/^struct Panel_ {$/;"	s
+Panel_EventHandler	Panel.h	/^typedef HandlerResult(*Panel_EventHandler)(Panel*, int);$/;"	t
+Panel_add	Panel.c	/^void Panel_add(Panel* this, Object* o) {$/;"	f
+Panel_delete	Panel.c	/^void Panel_delete(Object* cast) {$/;"	f
+Panel_done	Panel.c	/^void Panel_done(Panel* this) {$/;"	f
+Panel_draw	Panel.c	/^void Panel_draw(Panel* this, bool focus) {$/;"	f
+Panel_get	Panel.c	/^Object* Panel_get(Panel* this, int i) {$/;"	f
+Panel_getHeader	Panel.c	/^RichString* Panel_getHeader(Panel* this) {$/;"	f
+Panel_getSelected	Panel.c	/^Object* Panel_getSelected(Panel* this) {$/;"	f
+Panel_getSelectedIndex	Panel.c	/^int Panel_getSelectedIndex(Panel* this) {$/;"	f
+Panel_init	Panel.c	/^void Panel_init(Panel* this, int x, int y, int w, int h, char* type, bool owner) {$/;"	f
+Panel_insert	Panel.c	/^void Panel_insert(Panel* this, int i, Object* o) {$/;"	f
+Panel_move	Panel.c	/^void Panel_move(Panel* this, int x, int y) {$/;"	f
+Panel_moveSelectedDown	Panel.c	/^void Panel_moveSelectedDown(Panel* this) {$/;"	f
+Panel_moveSelectedUp	Panel.c	/^void Panel_moveSelectedUp(Panel* this) {$/;"	f
+Panel_new	Panel.c	/^Panel* Panel_new(int x, int y, int w, int h, char* type, bool owner, Object_Compare compare) {$/;"	f
+Panel_onKey	Panel.c	/^bool Panel_onKey(Panel* this, int key) {$/;"	f
+Panel_prune	Panel.c	/^void Panel_prune(Panel* this) {$/;"	f
+Panel_remove	Panel.c	/^Object* Panel_remove(Panel* this, int i) {$/;"	f
+Panel_resize	Panel.c	/^void Panel_resize(Panel* this, int w, int h) {$/;"	f
+Panel_selectByTyping	Panel.c	/^HandlerResult Panel_selectByTyping(Panel* this, int ch) {$/;"	f
+Panel_set	Panel.c	/^void Panel_set(Panel* this, int i, Object* o) {$/;"	f
+Panel_setEventHandler	Panel.c	/^void Panel_setEventHandler(Panel* this, Panel_EventHandler eh) {$/;"	f
+Panel_setHeader	Panel.c	/^inline void Panel_setHeader(Panel* this, const char* header) {$/;"	f
+Panel_setSelected	Panel.c	/^void Panel_setSelected(Panel* this, int selected) {$/;"	f
+Panel_size	Panel.c	/^int Panel_size(Panel* this) {$/;"	f
+Process	Process.h	/^} Process;$/;"	t	typeref:struct:Process_
+ProcessField	Process.h	/^} ProcessField;$/;"	t	typeref:enum:ProcessField_
+ProcessField_	Process.h	/^typedef enum ProcessField_ {$/;"	g
+ProcessList	ProcessList.h	/^} ProcessList;$/;"	t	typeref:struct:ProcessList_
+ProcessList_	ProcessList.h	/^typedef struct ProcessList_ {$/;"	s
+ProcessList_add	ProcessList.c	/^static void ProcessList_add(ProcessList* this, Process* p) {$/;"	f	file:
+ProcessList_buildTree	ProcessList.c	/^static void ProcessList_buildTree(ProcessList* this, pid_t pid, int level, int indent, int direction, bool show) {$/;"	f	file:
+ProcessList_cpuId	ProcessList.h	40;"	d
+ProcessList_delete	ProcessList.c	/^void ProcessList_delete(ProcessList* this) {$/;"	f
+ProcessList_expandTree	ProcessList.c	/^void ProcessList_expandTree(ProcessList* this) {$/;"	f
+ProcessList_get	ProcessList.c	/^Process* ProcessList_get(ProcessList* this, int idx) {$/;"	f
+ProcessList_invertSortOrder	ProcessList.c	/^void ProcessList_invertSortOrder(ProcessList* this) {$/;"	f
+ProcessList_keyAt	ProcessList.c	/^ProcessField ProcessList_keyAt(ProcessList* this, int at) {$/;"	f
+ProcessList_new	ProcessList.c	/^ProcessList* ProcessList_new(UsersTable* usersTable, Hashtable* pidWhiteList) {$/;"	f
+ProcessList_printHeader	ProcessList.c	/^void ProcessList_printHeader(ProcessList* this, RichString* header) {$/;"	f
+ProcessList_processEntries	ProcessList.c	/^static bool ProcessList_processEntries(ProcessList* this, const char* dirname, Process* parent, double period) {$/;"	f	file:
+ProcessList_readCGroupFile	ProcessList.c	/^static void ProcessList_readCGroupFile(Process* process, const char* dirname, const char* name) {$/;"	f	file:
+ProcessList_readCmdlineFile	ProcessList.c	/^static bool ProcessList_readCmdlineFile(Process* process, const char* dirname, const char* name) {$/;"	f	file:
+ProcessList_readIoFile	ProcessList.c	/^static void ProcessList_readIoFile(Process* process, const char* dirname, char* name) {$/;"	f	file:
+ProcessList_readOpenVZData	ProcessList.c	/^static void ProcessList_readOpenVZData(Process* process, const char* dirname, const char* name) {$/;"	f	file:
+ProcessList_readStatFile	ProcessList.c	/^static bool ProcessList_readStatFile(Process *process, const char* dirname, const char* name, char* command) {$/;"	f	file:
+ProcessList_readStatmFile	ProcessList.c	/^static bool ProcessList_readStatmFile(Process* process, const char* dirname, const char* name) {$/;"	f	file:
+ProcessList_readVServerData	ProcessList.c	/^static void ProcessList_readVServerData(Process* process, const char* dirname, const char* name) {$/;"	f	file:
+ProcessList_rebuildPanel	ProcessList.c	/^void ProcessList_rebuildPanel(ProcessList* this, bool flags, int following, bool userOnly, uid_t userId, bool filtering, const char* incFilter) {$/;"	f
+ProcessList_remove	ProcessList.c	/^static void ProcessList_remove(ProcessList* this, Process* p) {$/;"	f	file:
+ProcessList_scan	ProcessList.c	/^void ProcessList_scan(ProcessList* this) {$/;"	f
+ProcessList_setPanel	ProcessList.c	/^void ProcessList_setPanel(ProcessList* this, Panel* panel) {$/;"	f
+ProcessList_size	ProcessList.c	/^int ProcessList_size(ProcessList* this) {$/;"	f
+ProcessList_sort	ProcessList.c	/^void ProcessList_sort(ProcessList* this) {$/;"	f
+ProcessList_statProcessDir	ProcessList.c	/^static bool ProcessList_statProcessDir(Process* process, const char* dirname, char* name) {$/;"	f	file:
+ProcessList_treeStrAscii	ProcessList.c	/^const char *ProcessList_treeStrAscii[TREE_STR_COUNT] = {$/;"	v
+ProcessList_treeStrUtf8	ProcessList.c	/^const char *ProcessList_treeStrUtf8[TREE_STR_COUNT] = {$/;"	v
+Process_	Process.h	/^typedef struct Process_ {$/;"	s
+Process_changePriorityBy	Process.c	/^bool Process_changePriorityBy(Process* this, size_t delta) {$/;"	f
+Process_colorNumber	Process.c	/^static void Process_colorNumber(RichString* str, unsigned long long number) {$/;"	f	file:
+Process_compare	Process.c	/^int Process_compare(const void* v1, const void* v2) {$/;"	f
+Process_delete	Process.c	/^void Process_delete(Object* cast) {$/;"	f
+Process_display	Process.c	/^static void Process_display(Object* cast, RichString* out) {$/;"	f	file:
+Process_effectiveIOPriority	Process.c	625;"	d	file:
+Process_effectiveIOPriority	Process.h	195;"	d
+Process_fieldNames	Process.c	/^const char *Process_fieldNames[] = {$/;"	v
+Process_fieldTitles	Process.c	/^const char *Process_fieldTitles[] = {$/;"	v
+Process_getAffinity	Process.c	/^Affinity* Process_getAffinity(Process* this) {$/;"	f
+Process_getMaxPid	Process.c	/^void Process_getMaxPid() {$/;"	f
+Process_getuid	Process.c	/^static int Process_getuid = -1;$/;"	v	file:
+Process_humanNumber	Process.c	/^static void Process_humanNumber(Process* this, RichString* str, unsigned long number) {$/;"	f	file:
+Process_isKernelThread	Process.h	28;"	d
+Process_isThread	Process.h	36;"	d
+Process_isUserlandThread	Process.h	32;"	d
+Process_new	Process.c	/^Process* Process_new(struct ProcessList_ *pl) {$/;"	f
+Process_outputRate	Process.c	/^static inline void Process_outputRate(Process* this, RichString* str, int attr, char* buffer, int n, double rate) {$/;"	f	file:
+Process_pidCompare	Process.c	/^int Process_pidCompare(const void* v1, const void* v2) {$/;"	f
+Process_pidFormat	Process.c	/^static char* Process_pidFormat = "%7u ";$/;"	v	file:
+Process_printTime	Process.c	/^static void Process_printTime(RichString* str, unsigned long long t) {$/;"	f	file:
+Process_sendSignal	Process.c	/^void Process_sendSignal(Process* this, size_t sgn) {$/;"	f
+Process_setAffinity	Process.c	/^bool Process_setAffinity(Process* this, Affinity* affinity) {$/;"	f
+Process_setIOPriority	Process.c	/^bool Process_setIOPriority(Process* this, IOPriority ioprio) {$/;"	f
+Process_setPriority	Process.c	/^bool Process_setPriority(Process* this, int priority) {$/;"	f
+Process_toggleTag	Process.c	/^void Process_toggleTag(Process* this) {$/;"	f
+Process_tpgidFormat	Process.c	/^static char* Process_tpgidFormat = "%7u ";$/;"	v	file:
+Process_updateIOPriority	Process.c	/^IOPriority Process_updateIOPriority(Process* this) {$/;"	f
+Process_writeCommand	Process.c	/^static inline void Process_writeCommand(Process* this, int attr, int baseattr, RichString* str) {$/;"	f	file:
+Process_writeField	Process.c	/^static void Process_writeField(Process* this, RichString* str, ProcessField field) {$/;"	f	file:
+RBYTES	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+RCHAR	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+RESET_COLOR	CRT.h	/^   RESET_COLOR,$/;"	e	enum:ColorElements_
+RETSIGTYPE	config.h	164;"	d
+RICHSTRING_MAXLEN	RichString.c	13;"	d	file:
+RICHSTRING_MAXLEN	RichString.h	12;"	d
+RIGHT_HEADER	Header.h	/^   RIGHT_HEADER$/;"	e	enum:HeaderSide_
+RLIM	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+RSS	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+Red	CRT.c	32;"	d	file:
+Red	CRT.h	25;"	d
+RichString	RichString.h	/^} RichString;$/;"	t	typeref:struct:RichString_
+RichString_	RichString.h	/^typedef struct RichString_ {$/;"	s
+RichString_append	RichString.c	/^inline void RichString_append(RichString* this, int attrs, const char* data) {$/;"	f
+RichString_appendn	RichString.c	/^inline void RichString_appendn(RichString* this, int attrs, const char* data_c, int len) {$/;"	f
+RichString_begin	RichString.h	31;"	d
+RichString_beginAllocated	RichString.h	32;"	d
+RichString_end	RichString.h	33;"	d
+RichString_findChar	RichString.c	/^int RichString_findChar(RichString* this, char c, int start) {$/;"	f
+RichString_getCharVal	RichString.h	38;"	d
+RichString_getCharVal	RichString.h	44;"	d
+RichString_printVal	RichString.h	36;"	d
+RichString_printVal	RichString.h	42;"	d
+RichString_printoffnVal	RichString.h	37;"	d
+RichString_printoffnVal	RichString.h	43;"	d
+RichString_prune	RichString.c	/^void RichString_prune(RichString* this) {$/;"	f
+RichString_setAttr	RichString.c	/^void RichString_setAttr(RichString* this, int attrs) {$/;"	f
+RichString_setAttrn	RichString.c	/^inline void RichString_setAttrn(RichString* this, int attrs, int start, int finish) {$/;"	f
+RichString_setAttrn	RichString.c	/^void RichString_setAttrn(RichString* this, int attrs, int start, int finish) {$/;"	f
+RichString_setChar	RichString.h	39;"	d
+RichString_setChar	RichString.h	45;"	d
+RichString_setLen	RichString.c	/^static inline void RichString_setLen(RichString* this, int len) {$/;"	f	file:
+RichString_size	RichString.h	28;"	d
+RichString_sizeVal	RichString.h	29;"	d
+RichString_write	RichString.c	/^void RichString_write(RichString* this, int attrs, const char* data) {$/;"	f
+RightCPUs2Meter	CPUMeter.c	/^MeterType RightCPUs2Meter = {$/;"	v
+RightCPUsMeter	CPUMeter.c	/^MeterType RightCPUsMeter = {$/;"	v
+SESSION	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+SIGCATCH	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+SIGNAL	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+SKIP	scripts/MakeHeader.py	/^SKIP=3$/;"	v
+SKIPONE	scripts/MakeHeader.py	/^SKIPONE=4$/;"	v
+SSIGIGNORE	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+STARTCODE	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+STARTSTACK	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+STARTTIME	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+STATE	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+STDC_HEADERS	config.h	167;"	d
+STIME	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+ST_UID	Process.h	/^   PROCESSOR, M_SIZE, M_RESIDENT, M_SHARE, M_TRS, M_DRS, M_LRS, M_DT, ST_UID, PERCENT_CPU, PERCENT_MEM,$/;"	e	enum:ProcessField_
+SWAP	CRT.h	/^   SWAP,$/;"	e	enum:ColorElements_
+SYSCR	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+SYSCW	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+ScreenManager	ScreenManager.h	/^} ScreenManager;$/;"	t	typeref:struct:ScreenManager_
+ScreenManager_	ScreenManager.h	/^typedef struct ScreenManager_ {$/;"	s
+ScreenManager_add	ScreenManager.c	/^void ScreenManager_add(ScreenManager* this, Panel* item, FunctionBar* fuBar, int size) {$/;"	f
+ScreenManager_delete	ScreenManager.c	/^void ScreenManager_delete(ScreenManager* this) {$/;"	f
+ScreenManager_new	ScreenManager.c	/^ScreenManager* ScreenManager_new(int x1, int y1, int x2, int y2, Orientation orientation, const Header* header, bool owner) {$/;"	f
+ScreenManager_remove	ScreenManager.c	/^Panel* ScreenManager_remove(ScreenManager* this, int idx) {$/;"	f
+ScreenManager_resize	ScreenManager.c	/^void ScreenManager_resize(ScreenManager* this, int x1, int y1, int x2, int y2) {$/;"	f
+ScreenManager_run	ScreenManager.c	/^void ScreenManager_run(ScreenManager* this, Panel** lastFocus, int* lastKey) {$/;"	f
+ScreenManager_size	ScreenManager.c	/^inline int ScreenManager_size(ScreenManager* this) {$/;"	f
+Settings	Settings.h	/^} Settings;$/;"	t	typeref:struct:Settings_
+Settings_	Settings.h	/^typedef struct Settings_ {$/;"	s
+Settings_delete	Settings.c	/^void Settings_delete(Settings* this) {$/;"	f
+Settings_new	Settings.c	/^Settings* Settings_new(ProcessList* pl, Header* header, int cpuCount) {$/;"	f
+Settings_read	Settings.c	/^static bool Settings_read(Settings* this, char* fileName, int cpuCount) {$/;"	f	file:
+Settings_readMeterModes	Settings.c	/^static void Settings_readMeterModes(Settings* this, char* line, HeaderSide side) {$/;"	f	file:
+Settings_readMeters	Settings.c	/^static void Settings_readMeters(Settings* this, char* line, HeaderSide side) {$/;"	f	file:
+Settings_write	Settings.c	/^bool Settings_write(Settings* this) {$/;"	f
+Setup_run	htop.c	/^static void Setup_run(Settings* settings, const Header* header) {$/;"	f	file:
+SignalItem	SignalsPanel.h	/^} SignalItem;$/;"	t	typeref:struct:SignalItem_
+SignalItem_	SignalsPanel.h	/^typedef struct SignalItem_ {$/;"	s
+SignalsPanel	SignalsPanel.h	/^} SignalsPanel;$/;"	t	typeref:struct:SignalsPanel_
+SignalsPanel_	SignalsPanel.h	/^typedef struct SignalsPanel_ {$/;"	s
+SignalsPanel_delete	SignalsPanel.c	/^static void SignalsPanel_delete(Object* object) {$/;"	f	file:
+SignalsPanel_new	SignalsPanel.c	/^SignalsPanel* SignalsPanel_new(int x, int y, int w, int h) {$/;"	f
+SignalsPanel_reset	SignalsPanel.c	/^void SignalsPanel_reset(SignalsPanel* this) {$/;"	f
+SingleColCPUsMeter_draw	CPUMeter.c	/^static void SingleColCPUsMeter_draw(Meter* this, int x, int y, int w) {$/;"	f	file:
+String_cat	String.c	/^char* String_cat(const char* s1, const char* s2) {$/;"	f
+String_contains_i	String.c	/^int String_contains_i(const char* s, const char* match) {$/;"	f
+String_eq	String.c	/^inline int String_eq(const char* s1, const char* s2) {$/;"	f
+String_freeArray	String.c	/^void String_freeArray(char** s) {$/;"	f
+String_getToken	String.c	/^char* String_getToken(const char* line, const unsigned short int numMatch) {$/;"	f
+String_split	String.c	/^char** String_split(const char* s, char sep, int* n) {$/;"	f
+String_startsWith	String.h	12;"	d
+String_trim	String.c	/^char* String_trim(const char* in) {$/;"	f
+SwapMeter	SwapMeter.c	/^MeterType SwapMeter = {$/;"	v
+SwapMeter_attributes	SwapMeter.c	/^int SwapMeter_attributes[] = {$/;"	v
+SwapMeter_display	SwapMeter.c	/^static void SwapMeter_display(Object* cast, RichString* out) {$/;"	f	file:
+SwapMeter_humanNumber	SwapMeter.c	/^static void SwapMeter_humanNumber(char* buffer, const long int* value) {$/;"	f	file:
+SwapMeter_setValues	SwapMeter.c	/^static void SwapMeter_setValues(Meter* this, char* buffer, int len) {$/;"	f	file:
+TASKS_RUNNING	CRT.h	/^   TASKS_RUNNING,$/;"	e	enum:ColorElements_
+TEXT_METERMODE	Meter.h	/^   TEXT_METERMODE,$/;"	e	enum:__anon1
+TGID	Process.h	/^   USER, TIME, NLWP, TGID,$/;"	e	enum:ProcessField_
+TIME	Process.h	/^   USER, TIME, NLWP, TGID,$/;"	e	enum:ProcessField_
+TPGID	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+TREE_STR_BEND	ProcessList.h	/^   TREE_STR_BEND,$/;"	e	enum:TreeStr_
+TREE_STR_COUNT	ProcessList.h	/^   TREE_STR_COUNT$/;"	e	enum:TreeStr_
+TREE_STR_HORZ	ProcessList.h	/^   TREE_STR_HORZ,$/;"	e	enum:TreeStr_
+TREE_STR_OPEN	ProcessList.h	/^   TREE_STR_OPEN,$/;"	e	enum:TreeStr_
+TREE_STR_RTEE	ProcessList.h	/^   TREE_STR_RTEE,$/;"	e	enum:TreeStr_
+TREE_STR_SHUT	ProcessList.h	/^   TREE_STR_SHUT,$/;"	e	enum:TreeStr_
+TREE_STR_TEND	ProcessList.h	/^   TREE_STR_TEND,$/;"	e	enum:TreeStr_
+TREE_STR_VERT	ProcessList.h	/^   TREE_STR_VERT,$/;"	e	enum:TreeStr_
+TREE_TYPE_ASCII	ProcessList.h	/^   TREE_TYPE_ASCII,$/;"	e	enum:TreeType_
+TREE_TYPE_AUTO	ProcessList.h	/^   TREE_TYPE_AUTO,$/;"	e	enum:TreeType_
+TREE_TYPE_UTF8	ProcessList.h	/^   TREE_TYPE_UTF8,$/;"	e	enum:TreeType_
+TTY_NR	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+TasksMeter	TasksMeter.c	/^MeterType TasksMeter = {$/;"	v
+TasksMeter_attributes	TasksMeter.c	/^int TasksMeter_attributes[] = {$/;"	v
+TasksMeter_display	TasksMeter.c	/^static void TasksMeter_display(Object* cast, RichString* out) {$/;"	f	file:
+TasksMeter_setValues	TasksMeter.c	/^static void TasksMeter_setValues(Meter* this, char* buffer, int len) {$/;"	f	file:
+TextMeterMode	Meter.c	/^static MeterMode TextMeterMode = {$/;"	v	file:
+TextMeterMode_draw	Meter.c	/^static void TextMeterMode_draw(Meter* this, int x, int y, int w) {$/;"	f	file:
+TraceScreen	TraceScreen.h	/^} TraceScreen;$/;"	t	typeref:struct:TraceScreen_
+TraceScreen_	TraceScreen.h	/^typedef struct TraceScreen_ {$/;"	s
+TraceScreen_delete	TraceScreen.c	/^void TraceScreen_delete(TraceScreen* this) {$/;"	f
+TraceScreen_draw	TraceScreen.c	/^static void TraceScreen_draw(TraceScreen* this) {$/;"	f	file:
+TraceScreen_new	TraceScreen.c	/^TraceScreen* TraceScreen_new(Process* process) {$/;"	f
+TraceScreen_run	TraceScreen.c	/^void TraceScreen_run(TraceScreen* this) {$/;"	f
+TreeStr	ProcessList.h	/^} TreeStr;$/;"	t	typeref:enum:TreeStr_
+TreeStr_	ProcessList.h	/^typedef enum TreeStr_ {$/;"	g
+TreeType	ProcessList.h	/^} TreeType;$/;"	t	typeref:enum:TreeType_
+TreeType_	ProcessList.h	/^typedef enum TreeType_ {$/;"	g
+UPTIME	CRT.h	/^   UPTIME,$/;"	e	enum:ColorElements_
+USER	Process.h	/^   USER, TIME, NLWP, TGID,$/;"	e	enum:ProcessField_
+USE_FUNKY_MODES	Meter.c	33;"	d	file:
+USE_FUNKY_MODES	Meter.h	13;"	d
+UTIME	Process.h	/^   PID = 1, COMM, STATE, PPID, PGRP, SESSION, TTY_NR, TPGID, FLAGS, MINFLT, CMINFLT, MAJFLT, CMAJFLT, UTIME,$/;"	e	enum:ProcessField_
+UptimeMeter	UptimeMeter.c	/^MeterType UptimeMeter = {$/;"	v
+UptimeMeter_attributes	UptimeMeter.c	/^int UptimeMeter_attributes[] = {$/;"	v
+UptimeMeter_setValues	UptimeMeter.c	/^static void UptimeMeter_setValues(Meter* this, char* buffer, int len) {$/;"	f	file:
+UsersTable	UsersTable.h	/^} UsersTable;$/;"	t	typeref:struct:UsersTable_
+UsersTable_	UsersTable.h	/^typedef struct UsersTable_ {$/;"	s
+UsersTable_delete	UsersTable.c	/^void UsersTable_delete(UsersTable* this) {$/;"	f
+UsersTable_foreach	UsersTable.c	/^inline void UsersTable_foreach(UsersTable* this, Hashtable_PairFunction f, void* userData) {$/;"	f
+UsersTable_getRef	UsersTable.c	/^char* UsersTable_getRef(UsersTable* this, unsigned int uid) {$/;"	f
+UsersTable_new	UsersTable.c	/^UsersTable* UsersTable_new() {$/;"	f
+VERSION	config.h	192;"	d
+VERTICAL	ScreenManager.h	/^   VERTICAL,$/;"	e	enum:Orientation_
+VPID	Process.h	/^   CTID, VPID,$/;"	e	enum:ProcessField_
+VSIZE	Process.h	/^   STIME, CUTIME, CSTIME, PRIORITY, NICE, ITREALVALUE, STARTTIME, VSIZE, RSS, RLIM, STARTCODE, ENDCODE,$/;"	e	enum:ProcessField_
+VXID	Process.h	/^   VXID,$/;"	e	enum:ProcessField_
+Vector	Vector.h	/^} Vector;$/;"	t	typeref:struct:Vector_
+Vector_	Vector.h	/^typedef struct Vector_ {$/;"	s
+Vector_add	Vector.c	/^void Vector_add(Vector* this, void* data_) {$/;"	f
+Vector_checkArraySize	Vector.c	/^static void Vector_checkArraySize(Vector* this) {$/;"	f	file:
+Vector_count	Vector.c	/^int Vector_count(Vector* this) {$/;"	f
+Vector_delete	Vector.c	/^void Vector_delete(Vector* this) {$/;"	f
+Vector_get	Vector.c	/^inline Object* Vector_get(Vector* this, int idx) {$/;"	f
+Vector_get	Vector.c	284;"	d	file:
+Vector_get	Vector.h	70;"	d
+Vector_indexOf	Vector.c	/^inline int Vector_indexOf(Vector* this, void* search_, Object_Compare compare) {$/;"	f
+Vector_insert	Vector.c	/^void Vector_insert(Vector* this, int idx, void* data_) {$/;"	f
+Vector_insertionSort	Vector.c	/^void Vector_insertionSort(Vector* this) {$/;"	f
+Vector_isConsistent	Vector.c	/^static inline bool Vector_isConsistent(Vector* this) {$/;"	f	file:
+Vector_moveDown	Vector.c	/^void Vector_moveDown(Vector* this, int idx) {$/;"	f
+Vector_moveUp	Vector.c	/^void Vector_moveUp(Vector* this, int idx) {$/;"	f
+Vector_new	Vector.c	/^Vector* Vector_new(char* vectorType_, bool owner, int size, Object_Compare compare) {$/;"	f
+Vector_prune	Vector.c	/^void Vector_prune(Vector* this) {$/;"	f
+Vector_quickSort	Vector.c	/^void Vector_quickSort(Vector* this) {$/;"	f
+Vector_remove	Vector.c	/^Object* Vector_remove(Vector* this, int idx) {$/;"	f
+Vector_set	Vector.c	/^void Vector_set(Vector* this, int idx, void* data_) {$/;"	f
+Vector_size	Vector.c	/^inline int Vector_size(Vector* this) {$/;"	f
+Vector_take	Vector.c	/^Object* Vector_take(Vector* this, int idx) {$/;"	f
+WBYTES	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+WCHAN	Process.h	/^   STARTSTACK, KSTKESP, KSTKEIP, SIGNAL, BLOCKED, SSIGIGNORE, SIGCATCH, WCHAN, NSWAP, CNSWAP, EXIT_SIGNAL,$/;"	e	enum:ProcessField_
+WCHAR	Process.h	/^   RCHAR, WCHAR, SYSCR, SYSCW, RBYTES, WBYTES, CNCLWB, IO_READ_RATE, IO_WRITE_RATE, IO_RATE,$/;"	e	enum:ProcessField_
+White	CRT.c	38;"	d	file:
+White	CRT.h	31;"	d
+Yellow	CRT.c	34;"	d	file:
+Yellow	CRT.h	27;"	d
+_ALL_SOURCE	config.h	171;"	d
+_GNU_SOURCE	config.h	175;"	d
+_POSIX_PTHREAD_SEMANTICS	config.h	179;"	d
+_TANDEM_SOURCE	config.h	183;"	d
+__EXTENSIONS__	config.h	187;"	d
+__init__	scripts/MakeHeader.py	/^   def __init__(self, file):$/;"	m	class:writer
+ac_fn_c_check_func	configure	/^ac_fn_c_check_func ()$/;"	f
+ac_fn_c_check_header_compile	configure	/^ac_fn_c_check_header_compile ()$/;"	f
+ac_fn_c_check_header_mongrel	configure	/^ac_fn_c_check_header_mongrel ()$/;"	f
+ac_fn_c_check_type	configure	/^ac_fn_c_check_type ()$/;"	f
+ac_fn_c_try_compile	configure	/^ac_fn_c_try_compile ()$/;"	f
+ac_fn_c_try_cpp	configure	/^ac_fn_c_try_cpp ()$/;"	f
+ac_fn_c_try_link	configure	/^ac_fn_c_try_link ()$/;"	f
+ac_fn_c_try_run	configure	/^ac_fn_c_try_run ()$/;"	f
+addUserToVector	htop.c	/^static void addUserToVector(int key, void* userCast, void* panelCast) {$/;"	f	file:
+addattrstr	htop.c	82;"	d	file:
+allowFocusChange	ScreenManager.h	/^   bool allowFocusChange;$/;"	m	struct:ScreenManager_
+array	Vector.h	/^   Object **array;$/;"	m	struct:Vector_
+arraySize	Vector.h	/^   int arraySize;$/;"	m	struct:Vector_
+as_fn_append	configure	/^  as_fn_append ()$/;"	f
+as_fn_arith	configure	/^  as_fn_arith ()$/;"	f
+as_fn_error	configure	/^as_fn_error ()$/;"	f
+as_fn_exit	configure	/^as_fn_exit ()$/;"	f
+as_fn_failure	configure	/^as_fn_failure () { as_fn_return 1; }$/;"	f
+as_fn_mkdir_p	configure	/^as_fn_mkdir_p ()$/;"	f
+as_fn_ret_failure	configure	/^as_fn_ret_failure () { return 1; }$/;"	f
+as_fn_ret_success	configure	/^as_fn_ret_success () { return 0; }$/;"	f
+as_fn_set_status	configure	/^as_fn_set_status ()$/;"	f
+as_fn_success	configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
+as_fn_unset	configure	/^as_fn_unset ()$/;"	f
+attributes	Meter.h	/^   int* attributes;$/;"	m	struct:MeterType_
+backtraceArray	CRT.c	/^void *backtraceArray[128];$/;"	v
+backtraceArray	CRT.h	/^void *backtraceArray[128];$/;"	v
+bar	OpenFilesScreen.h	/^   FunctionBar* bar;$/;"	m	struct:OpenFilesScreen_
+bar	TraceScreen.h	/^   FunctionBar* bar;$/;"	m	struct:TraceScreen_
+bar	htop.c	/^   FunctionBar* bar;$/;"	m	struct:IncBuffer_	file:
+blocked	Process.h	/^   unsigned long int blocked;$/;"	m	struct:Process_
+buckets	Hashtable.h	/^   HashtableItem** buckets;$/;"	m	struct:Hashtable_
+buffer	htop.c	/^   char buffer[INCSEARCH_MAX];$/;"	m	struct:IncBuffer_	file:
+buffersMem	ProcessList.h	/^   unsigned long long int buffersMem;$/;"	m	struct:ProcessList_
+cachedMem	ProcessList.h	/^   unsigned long long int cachedMem;$/;"	m	struct:ProcessList_
+caption	Meter.h	/^   char* caption;$/;"	m	struct:Meter_
+caption	Meter.h	/^   const char* caption;$/;"	m	struct:MeterType_
+cgroup	Process.h	/^   char* cgroup;$/;"	m	struct:Process_
+changePriority	htop.c	/^static bool changePriority(Panel* panel, int delta) {$/;"	f	file:
+changed	Settings.h	/^   bool changed;$/;"	m	struct:Settings_
+charBytes	RichString.c	63;"	d	file:
+charBytes	RichString.h	60;"	d
+chkIsOnline	BatteryMeter.c	/^static ACPresence chkIsOnline() {$/;"	f	file:
+chlen	RichString.h	/^   int chlen;$/;"	m	struct:RichString_
+chptr	RichString.h	/^   CharType* chptr;$/;"	m	struct:RichString_
+chstr	RichString.h	/^   CharType chstr[RICHSTRING_MAXLEN+1];$/;"	m	struct:RichString_
+cmajflt	Process.h	/^   unsigned long int cmajflt;$/;"	m	struct:Process_
+cminflt	Process.h	/^   unsigned long int cminflt;$/;"	m	struct:Process_
+cnswap	Process.h	/^   unsigned long int cnswap;$/;"	m	struct:Process_
+colorScheme	Settings.h	/^   int colorScheme;$/;"	m	struct:Settings_
+columns	AvailableColumnsPanel.h	/^   Panel* columns;$/;"	m	struct:AvailableColumnsPanel_
+comm	Process.h	/^   char* comm;$/;"	m	struct:Process_
+compare	Vector.h	/^   Object_Compare compare;$/;"	m	struct:Vector_
+comparisons	Vector.c	/^static int comparisons = 0;$/;"	v	file:
+countCPUsFromZero	ProcessList.h	/^   bool countCPUsFromZero;$/;"	m	struct:ProcessList_
+cpuCount	ProcessList.h	/^   int cpuCount;$/;"	m	struct:ProcessList_
+cpus	Affinity.h	/^   int* cpus;$/;"	m	struct:Affinity_
+cpus	ProcessList.h	/^   CPUData* cpus;$/;"	m	struct:ProcessList_
+cstime	Process.h	/^   unsigned long long int cstime;$/;"	m	struct:Process_
+ctid	Process.h	/^   unsigned int ctid;$/;"	m	struct:Process_
+cutime	Process.h	/^   unsigned long long int cutime;$/;"	m	struct:Process_
+data	OpenFilesScreen.h	/^   char* data[256];$/;"	m	struct:OpenFiles_FileData_
+data	OpenFilesScreen.h	/^   char* data[256];$/;"	m	struct:OpenFiles_ProcessData_
+defaultHeaders	ProcessList.c	/^static ProcessField defaultHeaders[] = { PID, USER, PRIORITY, NICE, M_SIZE, M_RESIDENT, M_SHARE, STATE, PERCENT_CPU, PERCENT_MEM, TIME, COMM, 0 };$/;"	v	file:
+delay	Settings.h	/^   int delay;$/;"	m	struct:Settings_
+detailedCPUTime	ProcessList.h	/^   bool detailedCPUTime;$/;"	m	struct:ProcessList_
+direction	ProcessList.h	/^   int direction;$/;"	m	struct:ProcessList_
+display	Meter.h	/^   Object_Display display;$/;"	m	struct:MeterType_
+display	Object.h	/^   Object_Display display;$/;"	m	struct:Object_
+display	OpenFilesScreen.h	/^   Panel* display;$/;"	m	struct:OpenFilesScreen_
+display	TraceScreen.h	/^   Panel* display;$/;"	m	struct:TraceScreen_
+done	Meter.h	/^   MeterType_Done done;$/;"	m	struct:MeterType_
+draw	Meter.h	/^   Meter_Draw draw;$/;"	m	struct:MeterMode_
+draw	Meter.h	/^   Meter_Draw draw;$/;"	m	struct:MeterType_
+draw	Meter.h	/^   Meter_Draw draw;$/;"	m	struct:Meter_
+drawData	Meter.h	/^   void* drawData;$/;"	m	struct:Meter_
+endcode	Process.h	/^   unsigned long int endcode;$/;"	m	struct:Process_
+error	OpenFilesScreen.h	/^   int error;$/;"	m	struct:OpenFiles_ProcessData_
+eventHandler	Panel.h	/^   Panel_EventHandler eventHandler;$/;"	m	struct:Panel_
+eventHandlerBuffer	Panel.h	/^   char* eventHandlerBuffer;$/;"	m	struct:Panel_
+events	FunctionBar.h	/^   int* events;$/;"	m	struct:FunctionBar_
+exit_signal	Process.h	/^   int exit_signal;$/;"	m	struct:Process_
+fields	ProcessList.h	/^   ProcessField* fields;$/;"	m	struct:ProcessList_
+file	scripts/MakeHeader.py	/^file = open(sys.argv[1])$/;"	v
+files	OpenFilesScreen.h	/^   struct OpenFiles_FileData_* files;$/;"	m	struct:OpenFiles_ProcessData_	typeref:struct:OpenFiles_ProcessData_::OpenFiles_FileData_
+filtering	ProcessList.h	/^   bool filtering;$/;"	m	struct:ProcessList_
+flags	Process.h	/^   unsigned long int flags;$/;"	m	struct:Process_
+following	ProcessList.h	/^   int following;$/;"	m	struct:ProcessList_
+foreachProcess	htop.c	/^static bool foreachProcess(Panel* panel, ForeachProcessFn fn, int arg, bool* wasAnyTagged) {$/;"	f	file:
+freeMem	ProcessList.h	/^   unsigned long long int freeMem;$/;"	m	struct:ProcessList_
+freeSwap	ProcessList.h	/^   unsigned long long int freeSwap;$/;"	m	struct:ProcessList_
+fuBar	ScreenManager.h	/^   const FunctionBar* fuBar;$/;"	m	struct:ScreenManager_
+fuBars	ScreenManager.h	/^   Vector* fuBars;$/;"	m	struct:ScreenManager_
+func_append	configure	/^func_append ()$/;"	f
+func_arith	configure	/^func_arith ()$/;"	f
+func_basename	configure	/^func_basename ()$/;"	f
+func_check_version_match	ltmain.sh	/^func_check_version_match ()$/;"	f
+func_config	ltmain.sh	/^func_config ()$/;"	f
+func_dirname	configure	/^func_dirname ()$/;"	f
+func_dirname_and_basename	configure	/^func_dirname_and_basename ()$/;"	f
+func_dirname_and_basename	ltmain.sh	/^func_dirname_and_basename ()$/;"	f
+func_echo	ltmain.sh	/^func_echo ()$/;"	f
+func_echo_all	configure	/^func_echo_all ()$/;"	f
+func_echo_all	ltmain.sh	/^func_echo_all ()$/;"	f
+func_emit_cwrapperexe_src	ltmain.sh	/^func_emit_cwrapperexe_src ()$/;"	f
+func_emit_wrapper	ltmain.sh	/^func_emit_wrapper ()$/;"	f
+func_enable_tag	ltmain.sh	/^func_enable_tag ()$/;"	f
+func_error	ltmain.sh	/^func_error ()$/;"	f
+func_exec_program	ltmain.sh	/^func_exec_program ()$/;"	f
+func_exec_program_core	ltmain.sh	/^func_exec_program_core ()$/;"	f
+func_execute_cmds	ltmain.sh	/^func_execute_cmds ()$/;"	f
+func_extract_an_archive	ltmain.sh	/^func_extract_an_archive ()$/;"	f
+func_extract_archives	ltmain.sh	/^func_extract_archives ()$/;"	f
+func_fallback_echo	configure	/^  func_fallback_echo ()$/;"	f
+func_fallback_echo	configure	/^func_fallback_echo ()$/;"	f
+func_fallback_echo	ltmain.sh	/^func_fallback_echo ()$/;"	f
+func_fatal_configuration	ltmain.sh	/^func_fatal_configuration ()$/;"	f
+func_fatal_error	ltmain.sh	/^func_fatal_error ()$/;"	f
+func_fatal_help	ltmain.sh	/^func_fatal_help ()$/;"	f
+func_features	ltmain.sh	/^func_features ()$/;"	f
+func_generate_dlsyms	ltmain.sh	/^func_generate_dlsyms ()$/;"	f
+func_grep	ltmain.sh	/^func_grep ()$/;"	f
+func_help	ltmain.sh	/^func_help ()$/;"	f
+func_infer_tag	ltmain.sh	/^func_infer_tag ()$/;"	f
+func_lalib_p	ltmain.sh	/^func_lalib_p ()$/;"	f
+func_lalib_unsafe_p	ltmain.sh	/^func_lalib_unsafe_p ()$/;"	f
+func_len	configure	/^func_len ()$/;"	f
+func_lo2o	configure	/^func_lo2o ()$/;"	f
+func_lt_dump_args	ltmain.sh	/^func_lt_dump_args ()$/;"	f
+func_ltwrapper_executable_p	ltmain.sh	/^func_ltwrapper_executable_p ()$/;"	f
+func_ltwrapper_p	ltmain.sh	/^func_ltwrapper_p ()$/;"	f
+func_ltwrapper_script_p	ltmain.sh	/^func_ltwrapper_script_p ()$/;"	f
+func_ltwrapper_scriptname	ltmain.sh	/^func_ltwrapper_scriptname ()$/;"	f
+func_missing_arg	ltmain.sh	/^func_missing_arg ()$/;"	f
+func_mkdir_p	ltmain.sh	/^func_mkdir_p ()$/;"	f
+func_mktempdir	ltmain.sh	/^func_mktempdir ()$/;"	f
+func_mode_compile	ltmain.sh	/^func_mode_compile ()$/;"	f
+func_mode_execute	ltmain.sh	/^func_mode_execute ()$/;"	f
+func_mode_finish	ltmain.sh	/^func_mode_finish ()$/;"	f
+func_mode_help	ltmain.sh	/^func_mode_help ()$/;"	f
+func_mode_install	ltmain.sh	/^func_mode_install ()$/;"	f
+func_mode_link	ltmain.sh	/^func_mode_link ()$/;"	f
+func_mode_uninstall	ltmain.sh	/^func_mode_uninstall ()$/;"	f
+func_normal_abspath	ltmain.sh	/^func_normal_abspath ()$/;"	f
+func_opt_split	configure	/^func_opt_split ()$/;"	f
+func_parse_lt_options	ltmain.sh	/^func_parse_lt_options ()$/;"	f
+func_quote_for_eval	ltmain.sh	/^func_quote_for_eval ()$/;"	f
+func_quote_for_expand	ltmain.sh	/^func_quote_for_expand ()$/;"	f
+func_relative_path	ltmain.sh	/^func_relative_path ()$/;"	f
+func_show_eval	ltmain.sh	/^func_show_eval ()$/;"	f
+func_show_eval_locale	ltmain.sh	/^func_show_eval_locale ()$/;"	f
+func_source	ltmain.sh	/^func_source ()$/;"	f
+func_stripname	configure	/^func_stripname ()$/;"	f
+func_to_host_path	ltmain.sh	/^func_to_host_path ()$/;"	f
+func_to_host_pathlist	ltmain.sh	/^func_to_host_pathlist ()$/;"	f
+func_usage	ltmain.sh	/^func_usage ()$/;"	f
+func_verbose	ltmain.sh	/^func_verbose ()$/;"	f
+func_version	ltmain.sh	/^func_version ()$/;"	f
+func_warning	ltmain.sh	/^func_warning ()$/;"	f
+func_win32_import_lib_p	ltmain.sh	/^func_win32_import_lib_p ()$/;"	f
+func_win32_libid	ltmain.sh	/^func_win32_libid ()$/;"	f
+func_write_libtool_object	ltmain.sh	/^func_write_libtool_object ()$/;"	f
+func_xform	configure	/^func_xform ()$/;"	f
+functions	FunctionBar.h	/^   char** functions;$/;"	m	struct:FunctionBar_
+getProcBatData	BatteryMeter.c	/^static double getProcBatData() {$/;"	f	file:
+getSysBatData	BatteryMeter.c	/^static double getSysBatData() {$/;"	f	file:
+growthRate	Vector.h	/^   int growthRate;$/;"	m	struct:Vector_
+guestPeriod	ProcessList.h	/^   unsigned long long int guestPeriod;$/;"	m	struct:CPUData_
+guestTime	ProcessList.h	/^   unsigned long long int guestTime;$/;"	m	struct:CPUData_
+h	Meter.h	/^   int h;$/;"	m	struct:MeterMode_
+h	Meter.h	/^   int h;$/;"	m	struct:Meter_
+h	Panel.h	/^   int x, y, w, h;$/;"	m	struct:Panel_
+header	Panel.h	/^   RichString header;$/;"	m	struct:Panel_
+header	ScreenManager.h	/^   const Header* header;$/;"	m	struct:ScreenManager_
+header	Settings.h	/^   Header* header;$/;"	m	struct:Settings_
+height	Header.h	/^   int height;$/;"	m	struct:Header_
+hideKernelThreads	ProcessList.h	/^   bool hideKernelThreads;$/;"	m	struct:ProcessList_
+hideThreads	ProcessList.h	/^   bool hideThreads;$/;"	m	struct:ProcessList_
+hideUserlandThreads	ProcessList.h	/^   bool hideUserlandThreads;$/;"	m	struct:ProcessList_
+highlightBaseName	ProcessList.h	/^   bool highlightBaseName;$/;"	m	struct:ProcessList_
+highlightMegabytes	ProcessList.h	/^   bool highlightMegabytes;$/;"	m	struct:ProcessList_
+highlightThreads	ProcessList.h	/^   bool highlightThreads;$/;"	m	struct:ProcessList_
+idleAllPeriod	ProcessList.h	/^   unsigned long long int idleAllPeriod;$/;"	m	struct:CPUData_
+idleAllTime	ProcessList.h	/^   unsigned long long int idleAllTime;$/;"	m	struct:CPUData_
+idlePeriod	ProcessList.h	/^   unsigned long long int idlePeriod;$/;"	m	struct:CPUData_
+idleTime	ProcessList.h	/^   unsigned long long int idleTime;$/;"	m	struct:CPUData_
+incFilter	ProcessList.h	/^   const char* incFilter;$/;"	m	struct:ProcessList_
+indent	Process.h	/^   int indent;$/;"	m	struct:Process_
+index	htop.c	/^   int index;$/;"	m	struct:IncBuffer_	file:
+init	Meter.h	/^   MeterType_Init init;$/;"	m	struct:MeterType_
+insertionSort	Vector.c	/^static void insertionSort(Object** array, int left, int right, Object_Compare compare) {$/;"	f	file:
+ioPriority	Process.h	/^   IOPriority ioPriority;$/;"	m	struct:Process_
+ioWaitPeriod	ProcessList.h	/^   unsigned long long int ioWaitPeriod;$/;"	m	struct:CPUData_
+ioWaitTime	ProcessList.h	/^   unsigned long long int ioWaitTime;$/;"	m	struct:CPUData_
+io_cancelled_write_bytes	Process.h	/^   unsigned long long io_cancelled_write_bytes;$/;"	m	struct:Process_
+io_rate_read_bps	Process.h	/^   double io_rate_read_bps;$/;"	m	struct:Process_
+io_rate_read_time	Process.h	/^   unsigned long long io_rate_read_time;$/;"	m	struct:Process_
+io_rate_write_bps	Process.h	/^   double io_rate_write_bps;$/;"	m	struct:Process_
+io_rate_write_time	Process.h	/^   unsigned long long io_rate_write_time;   $/;"	m	struct:Process_
+io_rchar	Process.h	/^   unsigned long long io_rchar;$/;"	m	struct:Process_
+io_read_bytes	Process.h	/^   unsigned long long io_read_bytes;$/;"	m	struct:Process_
+io_syscr	Process.h	/^   unsigned long long io_syscr;$/;"	m	struct:Process_
+io_syscw	Process.h	/^   unsigned long long io_syscw;$/;"	m	struct:Process_
+io_wchar	Process.h	/^   unsigned long long io_wchar;$/;"	m	struct:Process_
+io_write_bytes	Process.h	/^   unsigned long long io_write_bytes;$/;"	m	struct:Process_
+irqPeriod	ProcessList.h	/^   unsigned long long int irqPeriod;$/;"	m	struct:CPUData_
+irqTime	ProcessList.h	/^   unsigned long long int irqTime;$/;"	m	struct:CPUData_
+is_blank	scripts/MakeHeader.py	/^is_blank = False$/;"	v
+items	Hashtable.h	/^   int items;$/;"	m	struct:Hashtable_
+items	Meter.h	/^   int items;$/;"	m	struct:MeterType_
+items	Panel.h	/^   Vector* items;$/;"	m	struct:Panel_
+items	Vector.h	/^   int items;$/;"	m	struct:Vector_
+itrealvalue	Process.h	/^   long int itrealvalue;$/;"	m	struct:Process_
+jiffy	Process.c	/^static double jiffy = 0.0;$/;"	v	file:
+kernelThreads	ProcessList.h	/^   int kernelThreads;$/;"	m	struct:ProcessList_
+key	Hashtable.h	/^   unsigned int key;$/;"	m	struct:HashtableItem
+key	ListItem.h	/^   int key;$/;"	m	struct:ListItem_
+keys	FunctionBar.h	/^   char** keys;$/;"	m	struct:FunctionBar_
+kstkeip	Process.h	/^   unsigned long int kstkeip;$/;"	m	struct:Process_
+kstkesp	Process.h	/^   unsigned long int kstkesp;$/;"	m	struct:Process_
+lastScan	ScreenManager.h	/^   time_t lastScan;$/;"	m	struct:ScreenManager_
+leftMeters	Header.h	/^   Vector* leftMeters;$/;"	m	struct:Header_
+leftPanel	AvailableMetersPanel.h	/^   Panel* leftPanel;$/;"	m	struct:AvailableMetersPanel_
+line	scripts/MakeHeader.py	/^   line = line[:-1]$/;"	v
+m_drs	Process.h	/^   int m_drs;$/;"	m	struct:Process_
+m_dt	Process.h	/^   int m_dt;$/;"	m	struct:Process_
+m_lrs	Process.h	/^   int m_lrs;$/;"	m	struct:Process_
+m_resident	Process.h	/^   int m_resident;$/;"	m	struct:Process_
+m_share	Process.h	/^   int m_share;$/;"	m	struct:Process_
+m_size	Process.h	/^   int m_size;$/;"	m	struct:Process_
+m_trs	Process.h	/^   int m_trs;$/;"	m	struct:Process_
+main	config.guess	/^		main()$/;"	f
+main	config.guess	/^	main ()$/;"	f
+main	config.guess	/^main ()$/;"	f
+main	htop.c	/^int main(int argc, char** argv) {$/;"	f
+majflt	Process.h	/^   unsigned long int majflt;$/;"	m	struct:Process_
+margin	Header.h	/^   bool margin;$/;"	m	struct:Header_
+meters	MetersPanel.h	/^   Vector* meters;$/;"	m	struct:MetersPanel_
+minflt	Process.h	/^   unsigned long int minflt;$/;"	m	struct:Process_
+mode	Meter.h	/^   int mode;$/;"	m	struct:MeterType_
+mode	Meter.h	/^   int mode;$/;"	m	struct:Meter_
+name	Meter.h	/^   const char* name;$/;"	m	struct:MeterType_
+name	SignalsPanel.h	/^   const char* name;$/;"	m	struct:SignalItem_
+name	scripts/MakeHeader.py	/^name = sys.argv[1][:-2]$/;"	v
+needsRedraw	Panel.h	/^   bool needsRedraw;$/;"	m	struct:Panel_
+next	Hashtable.h	/^   struct HashtableItem* next;$/;"	m	struct:HashtableItem	typeref:struct:HashtableItem::HashtableItem
+next	OpenFilesScreen.h	/^   struct OpenFiles_FileData_* next;$/;"	m	struct:OpenFiles_FileData_	typeref:struct:OpenFiles_FileData_::OpenFiles_FileData_
+nice	Process.h	/^   long int nice;$/;"	m	struct:Process_
+nicePeriod	ProcessList.h	/^   unsigned long long int nicePeriod;$/;"	m	struct:CPUData_
+niceTime	ProcessList.h	/^   unsigned long long int niceTime;$/;"	m	struct:CPUData_
+nlwp	Process.h	/^   long int nlwp;$/;"	m	struct:Process_
+nswap	Process.h	/^   unsigned long int nswap;$/;"	m	struct:Process_
+number	SignalsPanel.h	/^   int number;$/;"	m	struct:SignalItem_
+ofsEvents	OpenFilesScreen.c	/^static int ofsEvents[] = {KEY_F(5), 27};$/;"	v	file:
+ofsFunctions	OpenFilesScreen.c	/^static const char* ofsFunctions[] = {"Refresh", "Done   ", NULL};$/;"	v	file:
+ofsKeys	OpenFilesScreen.c	/^static const char* ofsKeys[] = {"F5", "Esc"};$/;"	v	file:
+oldSelected	Panel.h	/^   int oldSelected;$/;"	m	struct:Panel_
+orientation	ScreenManager.h	/^   Orientation orientation;$/;"	m	struct:ScreenManager_
+out	scripts/MakeHeader.py	/^out = open(name + ".h", "w")$/;"	v
+out	scripts/MakeHeader.py	/^out = writer(out)$/;"	v
+owner	Hashtable.h	/^   bool owner;$/;"	m	struct:Hashtable_
+owner	ScreenManager.h	/^   bool owner;$/;"	m	struct:ScreenManager_
+owner	Vector.h	/^   bool owner;$/;"	m	struct:Vector_
+pad	Header.h	/^   int pad;$/;"	m	struct:Header_
+panel	ProcessList.h	/^   Panel* panel;$/;"	m	struct:ProcessList_
+panelCount	ScreenManager.h	/^   int panelCount;$/;"	m	struct:ScreenManager_
+panels	ScreenManager.h	/^   Vector* panels;$/;"	m	struct:ScreenManager_
+param	Meter.h	/^   int param;$/;"	m	struct:Meter_
+parseBatInfo	BatteryMeter.c	/^static unsigned long int parseBatInfo(const char *fileName, const unsigned short int lineNum, const unsigned short int wordNum) {$/;"	f	file:
+parseUevent	BatteryMeter.c	/^static unsigned long int parseUevent(FILE * file, const char *key) {$/;"	f	file:
+partition	Vector.c	/^static int partition(Object** array, int left, int right, int pivotIndex, Object_Compare compare) {$/;"	f	file:
+percent_cpu	Process.h	/^   float percent_cpu;$/;"	m	struct:Process_
+percent_mem	Process.h	/^   float percent_mem;$/;"	m	struct:Process_
+pgrp	Process.h	/^   unsigned int pgrp;$/;"	m	struct:Process_
+pickFromVector	htop.c	/^static Object* pickFromVector(Panel* panel, Panel* list, int x, int y, const char** keyLabels, FunctionBar* prevBar, Header* header) {$/;"	f	file:
+pid	OpenFilesScreen.h	/^   pid_t pid;$/;"	m	struct:OpenFilesScreen_
+pid	Process.h	/^   pid_t pid;$/;"	m	struct:Process_
+pidWhiteList	ProcessList.h	/^   Hashtable* pidWhiteList;$/;"	m	struct:ProcessList_
+pl	Header.h	/^   ProcessList* pl;$/;"	m	struct:Header_
+pl	Meter.h	/^   ProcessList* pl;$/;"	m	struct:Meter_
+pl	Process.h	/^   struct ProcessList_ *pl;$/;"	m	struct:Process_	typeref:struct:Process_::ProcessList_
+pl	Settings.h	/^   ProcessList* pl;$/;"	m	struct:Settings_
+ppid	Process.h	/^   pid_t ppid;$/;"	m	struct:Process_
+printHelpFlag	htop.c	/^static void printHelpFlag() {$/;"	f	file:
+printVersionFlag	htop.c	/^static void printVersionFlag() {$/;"	f	file:
+priority	Process.h	/^   long int priority;$/;"	m	struct:Process_
+process	OpenFilesScreen.h	/^   Process* process;$/;"	m	struct:OpenFilesScreen_
+process	TraceScreen.h	/^   Process* process;$/;"	m	struct:TraceScreen_
+processTable	ProcessList.h	/^   Hashtable* processTable;$/;"	m	struct:ProcessList_
+processes	ProcessList.h	/^   Vector* processes;$/;"	m	struct:ProcessList_
+processes2	ProcessList.h	/^   Vector* processes2;$/;"	m	struct:ProcessList_
+processor	Process.h	/^   int processor;$/;"	m	struct:Process_
+prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+quickSort	Vector.c	/^static void quickSort(Object** array, int left, int right, Object_Compare compare) {$/;"	f	file:
+ref	CheckItem.h	/^   bool* ref;$/;"	m	struct:CheckItem_
+rightMeters	Header.h	/^   Vector* rightMeters;$/;"	m	struct:Header_
+rightPanel	AvailableMetersPanel.h	/^   Panel* rightPanel;$/;"	m	struct:AvailableMetersPanel_
+rlim	Process.h	/^   unsigned long int rlim;$/;"	m	struct:Process_
+rss	Process.h	/^   long int rss;$/;"	m	struct:Process_
+runningTasks	ProcessList.h	/^   int runningTasks;$/;"	m	struct:ProcessList_
+scr	AvailableColumnsPanel.h	/^   ScreenManager* scr;$/;"	m	struct:AvailableColumnsPanel_
+scr	AvailableMetersPanel.h	/^   ScreenManager* scr;$/;"	m	struct:AvailableMetersPanel_
+scr	CategoriesPanel.h	/^   ScreenManager* scr;$/;"	m	struct:CategoriesPanel_
+scr	ColorsPanel.h	/^   ScreenManager* scr;$/;"	m	struct:ColorsPanel_
+scr	ColumnsPanel.h	/^   ScreenManager* scr;$/;"	m	struct:ColumnsPanel_
+scr	DisplayOptionsPanel.h	/^   ScreenManager* scr;$/;"	m	struct:DisplayOptionsPanel_
+scr	MetersPanel.h	/^   ScreenManager* scr;$/;"	m	struct:MetersPanel_
+scrollH	Panel.h	/^   int scrollV, scrollH;$/;"	m	struct:Panel_
+scrollHAmount	Panel.h	/^   int scrollHAmount;$/;"	m	struct:Panel_
+scrollV	Panel.h	/^   int scrollV, scrollH;$/;"	m	struct:Panel_
+selected	Panel.h	/^   int selected;$/;"	m	struct:Panel_
+selfheader	scripts/MakeHeader.py	/^selfheader = '#include "' + name + '.h"'$/;"	v
+session	Process.h	/^   unsigned int session;$/;"	m	struct:Process_
+setMode	Meter.h	/^   MeterType_SetMode setMode;$/;"	m	struct:MeterType_
+setSortKey	htop.c	/^static inline void setSortKey(ProcessList* pl, ProcessField sortKey, Panel* panel, Settings* settings) {$/;"	f	file:
+setUserOnly	htop.c	/^static bool setUserOnly(const char* userName, bool* userOnly, uid_t* userId) {$/;"	f	file:
+setValues	Meter.h	/^   Meter_SetValues setValues;$/;"	m	struct:MeterType_
+settings	AvailableColumnsPanel.h	/^   Settings* settings;$/;"	m	struct:AvailableColumnsPanel_
+settings	AvailableMetersPanel.h	/^   Settings* settings;$/;"	m	struct:AvailableMetersPanel_
+settings	CategoriesPanel.h	/^   Settings* settings;$/;"	m	struct:CategoriesPanel_
+settings	ColorsPanel.h	/^   Settings* settings;$/;"	m	struct:ColorsPanel_
+settings	ColumnsPanel.h	/^   Settings* settings;$/;"	m	struct:ColumnsPanel_
+settings	DisplayOptionsPanel.h	/^   Settings* settings;$/;"	m	struct:DisplayOptionsPanel_
+settings	MetersPanel.h	/^   Settings* settings;$/;"	m	struct:MetersPanel_
+shadowOtherUsers	ProcessList.h	/^   bool shadowOtherUsers;$/;"	m	struct:ProcessList_
+sharedMem	ProcessList.h	/^   unsigned long long int sharedMem;$/;"	m	struct:ProcessList_
+show	Process.h	/^   bool show;$/;"	m	struct:Process_
+showChildren	Process.h	/^   bool showChildren;$/;"	m	struct:Process_
+showHelp	htop.c	/^static void showHelp(ProcessList* pl) {$/;"	f	file:
+showThreadNames	ProcessList.h	/^   bool showThreadNames;$/;"	m	struct:ProcessList_
+showingThreadNames	ProcessList.h	/^   bool showingThreadNames;$/;"	m	struct:ProcessList_
+sigcatch	Process.h	/^   unsigned long int sigcatch;$/;"	m	struct:Process_
+sigignore	Process.h	/^   unsigned long int sigignore;$/;"	m	struct:Process_
+signal	Process.h	/^   unsigned long int signal;$/;"	m	struct:Process_
+signals	SignalsPanel.c	/^static SignalItem signals[] = {$/;"	v	file:
+size	Affinity.h	/^   int size;$/;"	m	struct:Affinity_
+size	FunctionBar.h	/^   int size;$/;"	m	struct:FunctionBar_
+size	Hashtable.h	/^   int size;$/;"	m	struct:Hashtable_
+softIrqPeriod	ProcessList.h	/^   unsigned long long int softIrqPeriod;$/;"	m	struct:CPUData_
+softIrqTime	ProcessList.h	/^   unsigned long long int softIrqTime;$/;"	m	struct:CPUData_
+sortKey	ProcessList.h	/^   ProcessField sortKey;$/;"	m	struct:ProcessList_
+st_uid	Process.h	/^   uid_t st_uid;$/;"	m	struct:Process_
+startcode	Process.h	/^   unsigned long int startcode;$/;"	m	struct:Process_
+startstack	Process.h	/^   unsigned long int startstack;$/;"	m	struct:Process_
+starttime_ctime	Process.h	/^   time_t starttime_ctime;$/;"	m	struct:Process_
+starttime_show	Process.h	/^   char starttime_show[8];$/;"	m	struct:Process_
+state	Process.h	/^   char state;$/;"	m	struct:Process_
+state	scripts/MakeHeader.py	/^state = ANY$/;"	v
+static	scripts/MakeHeader.py	/^static = 0$/;"	v
+staticData	FunctionBar.h	/^   bool staticData;$/;"	m	struct:FunctionBar_
+stealPeriod	ProcessList.h	/^   unsigned long long int stealPeriod;$/;"	m	struct:CPUData_
+stealTime	ProcessList.h	/^   unsigned long long int stealTime;$/;"	m	struct:CPUData_
+stime	Process.h	/^   unsigned long long int stime;$/;"	m	struct:Process_
+super	AvailableColumnsPanel.h	/^   Panel super;$/;"	m	struct:AvailableColumnsPanel_
+super	AvailableMetersPanel.h	/^   Panel super;$/;"	m	struct:AvailableMetersPanel_
+super	CategoriesPanel.h	/^   Panel super;$/;"	m	struct:CategoriesPanel_
+super	CheckItem.h	/^   Object super;$/;"	m	struct:CheckItem_
+super	ColorsPanel.h	/^   Panel super;$/;"	m	struct:ColorsPanel_
+super	ColumnsPanel.h	/^   Panel super;$/;"	m	struct:ColumnsPanel_
+super	DisplayOptionsPanel.h	/^   Panel super;$/;"	m	struct:DisplayOptionsPanel_
+super	FunctionBar.h	/^   Object super;$/;"	m	struct:FunctionBar_
+super	ListItem.h	/^   Object super;$/;"	m	struct:ListItem_
+super	Meter.h	/^   Object super;$/;"	m	struct:Meter_
+super	MetersPanel.h	/^   Panel super;$/;"	m	struct:MetersPanel_
+super	Panel.h	/^   Object super;$/;"	m	struct:Panel_
+super	Process.h	/^   Object super;$/;"	m	struct:Process_
+super	SignalsPanel.h	/^   Panel super;$/;"	m	struct:SignalsPanel_
+swap	Vector.h	14;"	d
+systemAllPeriod	ProcessList.h	/^   unsigned long long int systemAllPeriod;$/;"	m	struct:CPUData_
+systemAllTime	ProcessList.h	/^   unsigned long long int systemAllTime;$/;"	m	struct:CPUData_
+systemPeriod	ProcessList.h	/^   unsigned long long int systemPeriod;$/;"	m	struct:CPUData_
+systemTime	ProcessList.h	/^   unsigned long long int systemTime;$/;"	m	struct:CPUData_
+tag	Process.h	/^   bool tag;$/;"	m	struct:Process_
+text	CheckItem.h	/^   char* text;$/;"	m	struct:CheckItem_
+tgid	Process.h	/^   pid_t tgid;$/;"	m	struct:Process_
+time	Meter.h	/^   time_t time;$/;"	m	struct:GraphData_
+topology	ProcessList.h	/^   hwloc_topology_t topology;$/;"	m	struct:ProcessList_
+topologyOk	ProcessList.h	/^   bool topologyOk;$/;"	m	struct:ProcessList_
+total	Meter.h	/^   double total;$/;"	m	struct:MeterType_
+total	Meter.h	/^   double total;$/;"	m	struct:Meter_
+totalMem	ProcessList.h	/^   unsigned long long int totalMem;$/;"	m	struct:ProcessList_
+totalPeriod	ProcessList.h	/^   unsigned long long int totalPeriod;$/;"	m	struct:CPUData_
+totalSwap	ProcessList.h	/^   unsigned long long int totalSwap;$/;"	m	struct:ProcessList_
+totalTasks	ProcessList.h	/^   int totalTasks;$/;"	m	struct:ProcessList_
+totalTime	ProcessList.h	/^   unsigned long long int totalTime;$/;"	m	struct:CPUData_
+tpgid	Process.h	/^   int tpgid;$/;"	m	struct:Process_
+tracing	OpenFilesScreen.h	/^   bool tracing;$/;"	m	struct:OpenFilesScreen_
+tracing	TraceScreen.h	/^   bool tracing;$/;"	m	struct:TraceScreen_
+treeStr	ProcessList.h	/^   const char **treeStr;$/;"	m	struct:ProcessList_
+treeView	ProcessList.h	/^   bool treeView;$/;"	m	struct:ProcessList_
+tsEvents	TraceScreen.c	/^static int tsEvents[] = {KEY_F(4), KEY_F(5), 27};$/;"	v	file:
+tsFunctions	TraceScreen.c	/^static const char* tsFunctions[] = {"AutoScroll ", "Stop Tracing   ", "Done   ", NULL};$/;"	v	file:
+tsKeys	TraceScreen.c	/^static const char* tsKeys[] = {"F4", "F5", "Esc"};$/;"	v	file:
+tty_nr	Process.h	/^   unsigned int tty_nr;$/;"	m	struct:Process_
+type	Meter.h	/^   MeterType* type;$/;"	m	struct:Meter_
+uiName	Meter.h	/^   const char* uiName;$/;"	m	struct:MeterMode_
+uiName	Meter.h	/^   const char* uiName;$/;"	m	struct:MeterType_
+updateProcessNames	ProcessList.h	/^   bool updateProcessNames;$/;"	m	struct:ProcessList_
+updated	Process.h	/^   bool updated;$/;"	m	struct:Process_
+used	Affinity.h	/^   int used;$/;"	m	struct:Affinity_
+usedMem	ProcessList.h	/^   unsigned long long int usedMem;$/;"	m	struct:ProcessList_
+usedSwap	ProcessList.h	/^   unsigned long long int usedSwap;$/;"	m	struct:ProcessList_
+user	Process.h	/^   char* user;$/;"	m	struct:Process_
+userId	ProcessList.h	/^   uid_t userId;$/;"	m	struct:ProcessList_
+userOnly	ProcessList.h	/^   bool userOnly;$/;"	m	struct:ProcessList_
+userPeriod	ProcessList.h	/^   unsigned long long int userPeriod;$/;"	m	struct:CPUData_
+userSettings	Settings.h	/^   char* userSettings;$/;"	m	struct:Settings_
+userTime	ProcessList.h	/^   unsigned long long int userTime;$/;"	m	struct:CPUData_
+userlandThreads	ProcessList.h	/^   int userlandThreads;$/;"	m	struct:ProcessList_
+users	UsersTable.h	/^   Hashtable* users;$/;"	m	struct:UsersTable_
+usersTable	ProcessList.h	/^   UsersTable* usersTable;$/;"	m	struct:ProcessList_
+utime	Process.h	/^   unsigned long long int utime;$/;"	m	struct:Process_
+value	CheckItem.h	/^   bool value;$/;"	m	struct:CheckItem_
+value	Hashtable.h	/^   void* value;$/;"	m	struct:HashtableItem
+value	ListItem.h	/^   char* value;$/;"	m	struct:ListItem_
+values	Meter.h	/^   double values[METER_BUFFER_LEN];$/;"	m	struct:GraphData_
+values	Meter.h	/^   double* values;$/;"	m	struct:Meter_
+vectorType	Vector.h	/^   char* vectorType;$/;"	m	struct:Vector_
+vpid	Process.h	/^   unsigned int vpid;$/;"	m	struct:Process_
+vsize	Process.h	/^   unsigned long int vsize;$/;"	m	struct:Process_
+vxid	Process.h	/^   unsigned int vxid;$/;"	m	struct:Process_
+w	Panel.h	/^   int x, y, w, h;$/;"	m	struct:Panel_
+wchan	Process.h	/^   unsigned long int wchan;$/;"	m	struct:Process_
+window	Panel.h	/^   WINDOW* window;$/;"	m	struct:Panel_
+write	scripts/MakeHeader.py	/^   def write(self, text):$/;"	m	class:writer
+writer	scripts/MakeHeader.py	/^class writer:$/;"	c
+x	Panel.h	/^   int x, y, w, h;$/;"	m	struct:Panel_
+x1	ScreenManager.h	/^   int x1;$/;"	m	struct:ScreenManager_
+x2	ScreenManager.h	/^   int x2;$/;"	m	struct:ScreenManager_
+y	Panel.h	/^   int x, y, w, h;$/;"	m	struct:Panel_
+y1	ScreenManager.h	/^   int y1;$/;"	m	struct:ScreenManager_
+y2	ScreenManager.h	/^   int y2;$/;"	m	struct:ScreenManager_

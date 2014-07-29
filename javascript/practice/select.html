@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>select.html</title>
+	</head>
+	<script type="text/javascript" charset="utf-8">
+		function show () {
+			window.alert (document.fm.food.value);
+			return false;
+		}
+	</script>
+	<body>
+		<form name="fm" onsubmit="return show();">
+			가장 좋아하는 음식은?
+			<select name="food">
+				<option value="라면">라면</option>
+				<option value="만두">만두</option>
+				<option value="불고기">불고기</option>
+			</select>
+			<input type="submit" value="송신"/>
+		</form>
+	</body>
+</html>

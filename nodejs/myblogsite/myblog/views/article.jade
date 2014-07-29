@@ -1,0 +1,87 @@
+doctype html
+html
+  head
+    title Aritlce
+    link(rel='stylesheet', href='/stylesheets/yaml/core/base.min.css')
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='/stylesheets/jquery-ui.min.css')
+    script(src='/javascripts/jquery-2.1.0.min.js')
+    script(src='/javascripts/edit.js')
+    script(src='/javascripts/jquery-ui.min.js')
+    
+  body
+   <!-- jquery-ui wiget -->
+   div.hgtech-dialog
+    div#dialog-form(title="Get a image from your desktop" style="background-color=red")
+     p.validateTips
+     form.ym-form.hgtech-dialog-imageform(action='/upload' method='post' enctype='multipart/form-data')
+      div.ym-fbox
+       label(for="name") Name
+       input(type="file" name='uploadfile')
+       input(type='submit' name='submit' value='submit')
+
+   nav#nav
+     div.ym-wrapper
+       div.ym-hlist
+         span(style='float:left; margin-top : 10px; padding : 0.5em 1.5em;')
+           a(href='/' style='font-size : 20px; color : white') HGTech
+         ul(style='float:right;')
+           li 
+             a(href='/') Home
+           li 
+             a(href='#') Dashboard
+           if !session.user
+            li 
+             a(href='/signup?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Sign up
+            li
+             a(href='/login?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Login
+           else
+            li
+             a(href='#') Admin
+   header
+     div.ym-wrapper
+       div.ym-wbox
+         h1 HGTech Blog
+   div.ym-wrapper
+    div.ym-wbox 
+     section.ym-grid.linearize-level-1
+        h2(style='border-bottom : 1px solid #ccc;')= article.title
+        article.ym-gl.content
+            p(style='border-bottom : 1px solid #ccc;')!=  article.content
+     div.comments
+       div.count
+           - article.comments = article.comments || [];
+           h3(style='line-height : 40px; border-bottom : 1px solid #ccc;')!= article.comments.length + ' ' + 'Comments'
+        each comment in article.comments
+           div.comment(style='border-bottom : 1px solid #ccc;')  
+             p!=comment.name
+             p!=comment.comment  
+        div#comment
+          h5 Add your comment!
+          form(action='/comment' method='post').hgtech-form.ym-form
+           div.ym-fbox 
+            div.hlist(style='display : block')
+             ul.hgtech-toolbar(style='display : inline;')
+              li(style='display : inline;')
+               a.image image
+              li(style='display : inline;')
+               a.hline Hline
+              li(style='display : inline;')
+               a.bold Bold
+              li(style='display : inline;')
+               a.boxtag Box
+              li(style='display : inline;')
+               a.italic Italic
+              li(style='display : inline;')
+               a.code Code
+            textarea(rows='7' cols='82' name='comment' value='' style='display : block;').hgtech-editor#hgtech-editor
+            div.hgtech-preview(style='clear: both; padding: 3px; border: 2px dotted #ccc;font-size: 107%;line-height: 130%;width: 660px;word-wrap: break-word; margin-bottom : 10px; margin-top : 10px;')
+            label Name
+            input(type='text' name='name' value='')
+            label E-mail
+            input(type='text' name='email' value='')
+            input(type='hidden' name='article_id' value='#{article._id}')
+            input(type='submit' value='Post your comment')
+   div.footer
+      div.ym-wrapper
+        div.ym-wbox(style='height : 100px;')

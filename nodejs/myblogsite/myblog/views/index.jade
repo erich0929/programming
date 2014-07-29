@@ -1,0 +1,64 @@
+doctype html
+html
+  head
+    title Welcome to HGTech!
+    link(rel='stylesheet', href='/stylesheets/yaml/core/base.min.css')
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    script(src='/javascripts/jquery-2.1.0.min.js')
+  body
+   nav#nav
+     div.ym-wrapper
+       div.ym-hlist
+         span(style='float:left; margin-top : 10px; padding : 0.5em 1.5em;')
+           a(href='/' style='font-size : 20px; color : white') HGTech
+         ul(style='float:right;')
+           li 
+             a(href='/') Home
+           li 
+             a(href='#') Dashboard
+           if !session.user
+            li 
+             a(href='/signup?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Sign up
+            li
+             a(href='/login?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Login
+           else
+            li
+             a(href='#') Admin
+    header
+      div.ym-wrapper
+        div.ym-wbox
+          h1 HGTech Blog
+    div.ym-wrapper
+      div.ym-wbox
+        div.ym-grid
+          div.ym-g66.ym-gl
+            div.ym-grid
+              div.ym-g50.ym-gl
+               h2 Title 
+              div.ym-g50.ym-gr 
+               h2 Created At
+              each article in result
+               div(id='#{article._id}').ym-g50.ym-gl
+                a(href='/article?article_id=' + article._id)
+                 h3(style='color : #07c;')= article.title
+               div.ym-g50.ym-gr
+                 h3= article.saved_at.getMonth () + 1 
+                   = "월" + article.saved_at.getDate () + "일"
+                   = article.saved_at.getMinutes () + "분"
+          div.ym-g33.ym-gr(style='position : fixed; top : 180px; display : inline;')
+            h3 What to do!!
+        div.ym-g66.ym-gl    
+         div.ym-grid
+          div.ym-g33.ym-gl
+            div.ym-gbox
+          div.ym-g33.ym-gl
+           nav#nav
+            ul(style='width : 30%; margin : 0 auto;display : inline-block;')
+             if currentPage > 1
+              li.prev(style='display : inline-block;')
+               a(href='/?page=' + (currentPage - 1)) Prev
+             li.current(style='display : inline-block;')
+               a(href='/?page=' + currentPage)!= currentPage
+             if currentPage < totalPage
+              li.next(style='display : inline-block;')
+               a(href='/?page=#{parseInt (currentPage) + 1}') Next

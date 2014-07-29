@@ -1,0 +1,1 @@
+cmd_/home/erich0929/programming/device/call_dev/call_dev.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.8.0-42-generic/scripts/module-common.lds --build-id  -o /home/erich0929/programming/device/call_dev/call_dev.ko /home/erich0929/programming/device/call_dev/call_dev.o /home/erich0929/programming/device/call_dev/call_dev.mod.o

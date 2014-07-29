@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title Aritlce
+    link(rel='stylesheet', href='/stylesheets/yaml/core/base.min.css')
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    script(src='/javascripts/jquery-2.1.0.min.js')
+    script(src='/javascripts/login.js')
+  body
+   nav#nav
+     div.ym-wrapper
+       div.ym-hlist
+         span(style='float:left; margin-top : 10px; padding : 0.5em 1.5em;')
+           a(href='/' style='font-size : 20px; color : white') HGTech
+         ul(style='float:right;')
+           li 
+             a(href='/') Home
+           li 
+             a(href='#') Dashboard
+           if !session.user
+            li 
+             a(href='/signup?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Sign up
+            li
+             a(href='/login?returnUrl=' + '#{encodeURIComponent (session.currentPage)}') Login
+           else
+            li
+             a(href='#') Admin
+   header
+     div.ym-wrapper
+       div.ym-wbox
+         h1 HGTech Blog
+   div.ym-wrapper
+     div.ym-wbox
+      div.ym-grid
+       div.ym-g50.ym-gl
+        h3 Login
+        form(action='login/auth?returnUrl=' + '#{encodeURIComponent (returnUrl)}' method='post').ym-form.hgtech-login
+           div.ym-fbox.ym-fbox-text
+            label Username
+            input(type='text' name='username' value='')
+           div.ym-fbox.ym-fbox-text
+            label Password
+            input(type='text' name='password' value='')
+           div.ym-fbox-footer.ym-fbox-button
+            input(type='submit' name='submit' value='Submit')#submit.ym-primary
+        div.login-msg

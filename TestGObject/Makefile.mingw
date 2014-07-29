@@ -1,0 +1,20 @@
+PROJECTS := TestGObject1 TestGObject2 TestGObject3 \
+		TestGObject4 TestGObject5 TestGObject6 TestGObject7
+
+all:
+	$(MAKE) -C TestGObject1 -f Makefile.mingw
+	$(MAKE) -C TestGObject2 -f Makefile.mingw
+	$(MAKE) -C TestGObject3 -f Makefile.mingw
+	$(MAKE) -C TestGObject4 -f Makefile.mingw
+	$(MAKE) -C TestGObject5 -f Makefile.mingw
+	$(MAKE) -C TestGObject6 -f Makefile.mingw
+	$(MAKE) -C TestGObject7 -f Makefile.mingw
+	
+clean:
+	$(MAKE) -C TestGObject1 -f Makefile.mingw clean
+	$(MAKE) -C TestGObject2 -f Makefile.mingw clean
+	$(MAKE) -C TestGObject3 -f Makefile.mingw clean
+	$(MAKE) -C TestGObject4 -f Makefile.mingw clean
+	$(MAKE) -C TestGObject5 -f Makefile.mingw clean
+	$(MAKE) -C TestGObject6 -f Makefile.mingw clean
+	$(MAKE) -C TestGObject7 -f Makefile.mingw clean

@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 128
+.deps
+Debug
+Debug Unicode
+Makefile
+Makefile.in
+Release
+Release Unicode
+tinyxml.vcproj.*
+tinyxml.vcxproj
+tinyxml.vcxproj.filters
+
+END

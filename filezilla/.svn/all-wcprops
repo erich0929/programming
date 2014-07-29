@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/5391/FileZilla3/trunk
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/5376/FileZilla3/trunk/AUTHORS
+END
+GPL.html
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/5041/FileZilla3/trunk/GPL.html
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/4775/FileZilla3/trunk/INSTALL
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/5137/FileZilla3/trunk/ChangeLog
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/107/FileZilla3/trunk/COPYING
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/3777/FileZilla3/trunk/Makefile.am
+END
+autogen.sh
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/5137/FileZilla3/trunk/autogen.sh
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/5389/FileZilla3/trunk/NEWS
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/5379/FileZilla3/trunk/README
+END
+filezilla.kdevelop
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2227/FileZilla3/trunk/filezilla.kdevelop
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/5389/FileZilla3/trunk/configure.ac
+END

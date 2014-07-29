@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>selector.html</title>
+	</head>
+<body>
+	<div id="list">
+		<table border="0">
+			<tr>
+			<td><img src="/home/erich0929/사진/03467_northerncastle_1366x768.jpg" height="150" width="108" /></td>
+			<td><img src="/home/erich0929/사진/03467_northerncastle_1366x768.jpg" height="150" width="108" class="gihyo"/></td>
+			<td><img src="/home/erich0929/사진/03467_northerncastle_1366x768.jpg" height="150" width="108" /></td>
+			<td><img src="/home/erich0929/사진/03467_northerncastle_1366x768.jpg" height="150" width="108" class="gihyo"/></td>
+			<td><img src="/home/erich0929/사진/03467_northerncastle_1366x768.jpg" height="150" width="108" /></td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$('#list img.gihyo').animate ({width:140, height:200}, 300);
+	</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+body {
+	background-color: black;
+	color : white;
+}
+
+.topbar {
+	width: auto;
+	height: 34px;
+	line-height: 1;
+	background: none repeat scroll black;
+}
+.logo {
+	background-image: url(/images/lover.gif);
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	width: 170px;
+	background-size: 200px 55px;
+	height: 19px;
+	background-position: -8px -11px;
+}
+.hidden-text {
+	position: absolute;
+	top: -200px;
+}
+body {
+	margin: 0px auto;
+	position : relative;
+
+}
+
+a {
+	padding : 10px 7px 5px;
+}
+.topbar { 
+	color: white;
+}
+
+
+.topbar .topbar-wrapper {
+	width : 980px;
+	margin : 0px auto;
+	height: 34px;
+	position: relative;
+	text-align: left;
+}
+
+.topbar .topbar-link {
+	vertical-align: top;
+	top: 0px;
+	font-size: 13px;
+	position: absolute;
+	right: 0px;
+}
+
+.topbar .topbar-link .link-container {
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+h3 {
+	padding : 10px 7px 0px;
+	color: #07C;
+}
+
+.row {
+	position : absolute;
+	top : 200px;
+
+}
+
+.list {
+	overflow: hidden;
+	margin-bottom: 30px;
+	margin-top: -10px;
+	width : 760px;
+	float: left;
+}
+.head {
+	width: 730px;
+	float: left;
+	overflow: hidden;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+.head > div {
+	float : left;
+	padding : 11px;
+}
+
+.head > .headTitle {
+	width: 300px;
+}
+
+.record {
+	width : 730px;
+	float: left;
+	overflow: hidden;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+.record > .saved_at {
+	float: left;
+	padding: 11px;
+}
+.record > .title {
+	width: 300px;	
+	float : left;
+	margin : 0px auto;
+	padding: 11px;
+}
+
+.schedule {
+	width: 200px;
+	float: left;
+	height: 600px;
+}
+
+.nav {
+	position: relative;
+	width : 300px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 300px;
+	margin-bottom: 100px;
+	display: block;
+}
+
+.content {
+	overflow: hidden;
+	position: relative;
+}
+.container {
+	position: static;
+	overflow: hidden;
+	width: 960px;
+	margin-left : auto;
+	margin-right: auto;
+}
+.nav div {
+	display: inline;
+}

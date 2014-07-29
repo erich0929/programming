@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FooClass	classedtype.h	/^} FooClass;$/;"	t	typeref:struct:_FooClass
+_FooClass	classedtype.h	/^typedef struct _FooClass$/;"	s
+_FooClass::bar	classedtype.h	/^		void (*bar) ();$/;"	m	struct:_FooClass	access:public
+_FooClass::i	classedtype.h	/^		int i;$/;"	m	struct:_FooClass	access:public
+_FooClass::parent	classedtype.h	/^		GTypeClass parent;$/;"	m	struct:_FooClass	access:public
+bar	classedtype.h	/^		void (*bar) ();$/;"	m	struct:_FooClass	access:public
+foo_class_bar	main.c	/^void foo_class_bar ()$/;"	f
+foo_class_bar	main.c	/^void foo_class_bar ();$/;"	p	file:
+foo_class_init	classedtype.h	/^void foo_class_init (FooClass *, gpointer);$/;"	p	signature:(FooClass *, gpointer)
+foo_class_init	main.c	/^void foo_class_init (FooClass *klass, gpointer data)$/;"	f	signature:(FooClass *klass, gpointer data)
+foo_get_type	main.c	/^GType foo_get_type ()$/;"	f
+i	classedtype.h	/^		int i;$/;"	m	struct:_FooClass	access:public
+main	main.c	/^int main ()$/;"	f
+parent	classedtype.h	/^		GTypeClass parent;$/;"	m	struct:_FooClass	access:public

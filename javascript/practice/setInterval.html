@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>타이머 갱신</title>
+		<script type="text/javascript" charset="utf-8">
+			var timer;
+			window.onload = function () {
+				timer = window.setInterval (
+					function () {
+						var dat = new Date ();
+						document.getElementById ('result').innerHTML = dat.toLocaleTimeString ();
+					}, 
+					1000
+					);
+			};
+		</script>
+	</head>
+	<body>
+		<input type="button" value="타이머정지" onclick="clearInterval (timer)" />
+		<div id="result"></div>
+	</body>
+</html>

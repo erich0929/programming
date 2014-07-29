@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>ScopeChain</title>
+	
+</head>
+<body>
+	<script type="text/javascript" charset="utf-8">
+		var y = 'Global';
+		function outerFunc () {
+			var y = 'Local outer';
+			function innerFunc () {
+				var z = 'Local Inner';
+			//	document.writeln ("안나");
+				document.writeln (z);
+				document.writeln (y);
+//				document.writeln (x);
+				document.writeln ('안나');
+			}
+
+			innerFunc ();
+		}
+		outerFunc ();	
+	</script>
+</body>
+</html>
