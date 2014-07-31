@@ -33,10 +33,11 @@ html
         div.ym-grid
           div.ym-g66.ym-gl
             div.ym-grid
-              div.ym-g50.ym-gl
-               h2 Title 
-              div.ym-g50.ym-gr 
-               h2 Created At
+               div.ym-g50.ym-gl
+                h2 Title 
+               div.ym-g50.ym-gr 
+                h2 Created At
+            if result
               each article in result
                div(id='#{article._id}').ym-g50.ym-gl
                 a(href='/article?article_id=' + article._id)

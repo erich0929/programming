@@ -45,27 +45,11 @@ html
    div.ym-wrapper
     div.ym-wbox 
      section.ym-grid.linearize-level-1
-        h2(style='border-bottom : 1px solid #ccc;')= article.title
-        article.ym-gl.content
-            p!=  article.content
-             div(style='display : ')
-              div(style='display : block;')!= 'edited ' + article.saved_at.getDate () + '-' + article.saved_at.getMonth () + '-' + article.saved_at.getFullYear ()
-              if session.user
-               if session.user.username == 'erich0929'
-               div(style='display : block; border-bottom : 1px solid #ccc;')
-                a(href='/edit?article_id=' + article._id) edit
-                a(href='#') delete
-     div.comments
-       div.count
-           - article.comments = article.comments || [];
-           h3(style='line-height : 40px; border-bottom : 1px solid #ccc;')!= article.comments.length + ' ' + 'Comments'
-        each comment in article.comments
-           div.comment(style='border-bottom : 1px solid #ccc;')  
-             p!=comment.name
-             p!=comment.comment  
-        div#comment
-          h5 Add your comment!
-          form(action='/comment' method='post').hgtech-editor.ym-form
+
+   div#hgtech-editor
+          h5 HGTECH Editor
+          form(action='/postArticle' method='post').hgtech-editor.ym-form
+           input(type='text' name='title' value='#{article.title}')
            div.ym-fbox 
             div.hlist(style='display : block')
              ul#hgtech-editor-toolbar(style='display : inline;')
@@ -81,15 +65,12 @@ html
                a#hgtech-editor-toolbar-italic Italic
               li(style='display : inline;')
                a#hgtech-editor-toolbar-code Code
-            textarea(rows='7' cols='82' name='htmlcode' value='' style='display : block;')#hgtech-editor-textarea
+            textarea(rows='7' cols='82' name='htmlcode' value='#{article.source}' style='display : block;')#hgtech-editor-textarea
             div#hgtech-editor-preview(style='clear: both; padding: 3px; border: 2px dotted #ccc;font-size: 107%;line-height: 130%;width: 660px;word-wrap: break-word; margin-bottom : 10px; margin-top : 10px;')
-            label Name
-            input(type='text' name='name' value='')
-            label E-mail
-            input(type='text' name='email' value='')
-            input(type='hidden' name='article_id' value='#{article._id}')
-            input(type='hidden' name='source' value='')#hgtech-editor-source  
-            input(type='submit' value='Post your comment')
+            if article._id
+             input(type='hidden' name='article_id' value='#{article._id}')
+            input#hgtech-editor-source(type='hidden' name='source' value='')
+            input(type='submit' value='Complete to edit')
    div.footer
       div.ym-wrapper
         div.ym-wbox(style='height : 100px;')

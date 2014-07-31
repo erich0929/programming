@@ -1,6 +1,6 @@
 function insertAtCaret(text, backend) {
     var backend = backend || 0;
-    var txtarea = document.getElementById('hgtech-editor');
+    var txtarea = document.getElementById('hgtech-editor-textarea');
     var scrollPos = txtarea.scrollTop;
     var strPos = 0;
     var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ? 
@@ -35,18 +35,18 @@ function insertAtCaret(text, backend) {
 
 
 $ (function () {
-	$ ('.hgtech-form .hgtech-editor').keyup (function (event) {
+	$ ('.hgtech-editor #hgtech-editor-textarea').keyup (function (event) {
         var textarea = $ (this);
-        var comment = textarea.val ();
-        comment = comment.replace (/^[^\S\n]{4}(.*)$/gm, '<code><span>$1</span></code>') 
-        comment = comment.replace (/\*\*([^*|^\s]+)\*\*/g, '<b>$1</b>');
-        comment = comment.replace (/\*([^*|^\s]+)\*/g, '<i>$1</i>')
+        var source = textarea.val ();
+        $ ('.hgtech-editor #hgtech-editor-source').val (source);
+        sourcesource = source.replace (/^[^\S\n]{4}(.*)$/gm, '<code><span>$1</span></code>') 
+        					.replace (/\*\*([^*|^\s]+)\*\*/g, '<b>$1</b>')
+        					.replace (/\*([^*|^\s]+)\*/g, '<i>$1</i>')
+						.replace (/^(<[^\s]*>)*([^\S\n])/gm, '&nbsp');
 
-
-        comment = comment.replace (/^(<[^\s]*>)*([^\S\n])/gm, '&nbsp');
         var regexImageLink = /^\[([^\[\]]*)\]:([^\[\]\n]*)$/gm;
         var imageLink;
-        imageLink = comment.match (regexImageLink);
+        imageLink = source.match (regexImageLink);
        
 
    	   if (imageLink) {
@@ -56,13 +56,13 @@ $ (function () {
         		var link = imageLink [i].replace (regexImageLink, '$2');
         		//alert (offset + ' ' + link);
         		var reg = new RegExp ('!\\[([^\\[\\]]*)\\]\\[(' + offset + ')\\]');
-        		comment = comment.replace (regexImageLink, '');
-        		comment = comment.replace (reg, "<img alt='$1' src='" + link + "'></img>");
+        		source = source.replace (regexImageLink, '')
+        						 .replace (reg, "<img alt='$1' src='" + link + "' style='max-width : 640px'></img>");
         	}
     	   }
      
                           // .replace (/!\[([^\[\]]*)\]\[([^\[\]]*)\]/g, "<img href='$1'>")
-        comment = comment.replace (/^-{3,}$/gm, "<hr style='border-bottom : 1px solid #ccc; margin-bottom : 5px;'>")
+        source = source.replace (/^-{3,}$/gm, "<hr style='border-bottom : 1px solid #ccc; margin-bottom : 5px;'>")
         //box code
         					.replace (/#\[([^\]\[]*)\]/g, '<div style="display : inline-block; border : thin dotted #07c; max-width : 50%">$1</div>')
         					//.replace (/\n\r?/g, '<br/>')
@@ -71,60 +71,67 @@ $ (function () {
         					.replace (/(<hr[^<>]*>)<br\/>/g, '$1')
         // image tag
   					
-        //comment = comment.replace (/^\n\r?/gm, '<br/>');
-        $ ('.hgtech-form .hgtech-preview').html (comment);
+        //source = source.replace (/^\n\r?/gm, '<br/>');
+        $ ('.hgtech-editor #hgtech-editor-preview').html (source);
 	});
 });
 
 $ (function () {
-	$ ('.hgtech-form').submit (function (e) {
+	$ ('.hgtech-editor').submit (function (e) {
 		e.preventDefault ();
 		var form = $ (this);
-		var formdata = $ ('.hgtech-form').serialize ();
-		var txt = encodeURIComponent ($ ('.hgtech-form .hgtech-preview').html ());
-		formdata = formdata.replace (/comment=[^&]*&/, 'comment='+ txt + '&');
+		var formdata = $ ('.hgtech-editor').serialize ();
+		var txt = encodeURIComponent ($ ('.hgtech-editor #hgtech-editor-preview').html ());
+		formdata = formdata.replace (/htmlcode=[^&]*&/, 'htmlcode='+ txt + '&');
 		//alert (formdata);	
 		$.ajax ({
 			url : $ (this).attr ('action'),
 			type : 'post',
 			data : formdata,
 			success : function (data) {
-				location.reload ();
+				if (data == 'posted') {
+					window.location.reload ();
+					$ ('.hgtech-editor')[0].reset ();
+				}
+				else {
+					alert (data);
+					$ ('#CommentToComment').html ('Fail to post Comment.');
+				}
 			},
 			error : function () {
 
 			}
 		});
-		return false;
+		
 	});
 });
 
 $ (function () {
 
 
-	$ ('.hgtech-form .hgtech-toolbar .bold').click (function (e) {
+	$ ('.hgtech-editor #hgtech-editor-toolbar #hgtech-editor-toolbar-bold').click (function (e) {
 		insertAtCaret ('****', 2);
-		$ ('.hgtech-form .hgtech-editor').trigger ('keyup');
+		$ ('.hgtech-editor #hgtech-editor-textarea').trigger ('keyup');
 	});
 
-	$ ('.hgtech-form .hgtech-toolbar .italic').click (function (e) {
+	$ ('.hgtech-editor #hgtech-editor-toolbar #hgtech-editor-toolbar-italic').click (function (e) {
 		insertAtCaret ('**', 1);
-		$ ('.hgtech-form .hgtech-editor').trigger ('keyup');
+		$ ('.hgtech-editor #hgtech-editor-textarea').trigger ('keyup');
 	});
 
-	$ ('.hgtech-form .hgtech-toolbar .boxtag').click (function (e) {
+	$ ('.hgtech-editor #hgtech-editor-toolbar #hgtech-editor-toolbar-boxtag').click (function (e) {
 		insertAtCaret ('#[]', 1);
-		$ ('.hgtech-form .hgtech-editor').trigger ('keyup');
+		$ ('.hgtech-editor #hgtech-editor-textarea').trigger ('keyup');
 	});
 
-	$ ('.hgtech-form .hgtech-toolbar .hline').click (function (e) {
+	$ ('.hgtech-editor #hgtech-editor-toolbar #hgtech-editor-toolbar-hline').click (function (e) {
 		insertAtCaret ('----');
-		$ ('.hgtech-form .hgtech-editor').trigger ('keyup');
+		$ ('.hgtech-editor #hgtech-editor-textarea').trigger ('keyup');
 	});
 });
 
 $ (function () {
-	var dialog = $ ('.hgtech-dialog #dialog-form').dialog ({
+	var dialog = $ ('.hgtech-editor-dialog #hgtech-editor-dialog').dialog ({
 		autoOpen : false,
 		height : 300,
 		width  : 350,
@@ -141,13 +148,13 @@ $ (function () {
 	});
 
 
-	$ ('.hgtech-form .hgtech-toolbar .image').click (function (e) {
+	$ ('.hgtech-editor #hgtech-editor-toolbar #hgtech-editor-toolbar-image').click (function (e) {
 		dialog.dialog ('open');
 		//insertAtCaret ('image tag', 3);
 		//$ ('.hgtech-form .hgtech-editor').trigger ('keyup');
 	});
 
-	$ ('.hgtech-dialog-imageform').submit (function (e) {
+	$ ('#hgtech-editor-dialog-imageform').submit (function (e) {
 		e.preventDefault ();
 		dialog.dialog ('close');
 		var dataform = new FormData (this);
@@ -162,7 +169,7 @@ $ (function () {
 				//alert (data);
 				//dialog.dialog ('close');
 				insertAtCaret (data, 0);
-				$ ('.hgtech-form .hgtech-editor').trigger ('keyup');
+				$ ('.hgtech-editor #hgtech-editor-textarea').trigger ('keyup');
 			},
 			error : function (err) {
 				console.log (err);

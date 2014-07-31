@@ -5,5 +5,9 @@ collection.find ({_id : new require('mongoskin').ObjectID ('537c5ed5c1bce8980a8b
 });
 
 collection.findOne ({_id : new require('mongoskin').ObjectID ('537c5ed5c1bce8980a8b4567')}, function (err, res) {
-	console.log (res);
+	if (res) {
+		console.log ("if (article)");
+	} else {
+		console.log ("else");
+	}
 });

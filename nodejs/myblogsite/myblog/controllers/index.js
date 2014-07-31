@@ -1,5 +1,7 @@
 var model = require ('../models/model.js');
 var fs = require ('fs');
+var crypto = require ('crypto');
+var randString = require ('randomstring');
 
 exports.index = function (req, res) {
 	var currentPage = req.query.page || 0;
@@ -47,11 +49,12 @@ exports.article = function (req, res) {
 
 exports.comment = function (req, res) {
 	var body = req.body;
-	if (body.article_id && body.name && body.email && body.comment) {
+	if (body.article_id && body.name && body.email && body.htmlcode) {
 		var comment = {};
 		comment.name = body.name;
 		comment.email = body.email;
-		comment.comment = body.comment;
+		comment.comment = body.htmlcode;
+		comment.source = body.source;
 		comment.posted_at = new Date ();
 
 		model.collection.update ({_id : new model.ObjectID (body.article_id) }, {'$push' : {comments : comment}},
@@ -59,8 +62,10 @@ exports.comment = function (req, res) {
 					if (err) throw err;
 		});
 		console.log ('Great! your comment is posted.');
+		res.json ('posted');
 	} else {
-		console.log ('Sorry, please go back.');	
+		console.log ('Sorry, please go back.');
+		res.json ('failed');	
 	}
 };
 
@@ -207,7 +212,8 @@ exports.images = function (req, res) {
 
 exports.upload = function (req, res) {
 	fs.readFile (req.files.uploadfile.path, function (err, data) {
-		var filepath = '/home/erich0929/programming/nodejs/myblogsite/myblog/public/files/' + req.files.uploadfile.name;
+		var rename = randString.generate (7) + parseInt (Math.random () * 1000);
+		var filepath = '/home/erich0929/programming/nodejs/myblogsite/myblog/public/files/' + rename;
 		
 		//console.log ('image file path : ' + filepath);
 
@@ -215,10 +221,40 @@ exports.upload = function (req, res) {
 			if (err) {
 				throw err;
 			} else {
-				var imageUrl = 'http://' + req.headers.host + '/images?image=' + req.files.uploadfile.name;
-				//console.log ('imageUrl : ' + imageUrl);
-				res.send (imageUrl);
+				var referString = randString.generate (4);
+				var imagetag = "![Destription][" + referString + "]\n\n";
+				var imageUrl = '[' + referString + ']: ' + 'http://' + req.headers.host + '/images?image=' + rename; 
+				//localhost or http://www.hgtech.com is preferred to req.header.host!!
+				var alltags = imagetag + imageUrl;
+				console.log ('response tag : ' + alltags);
+				res.send (alltags);
 			}
 		});
 	});
 };
+
+exports.edit = function (req, res) {
+	if (req.session.user) {
+		if (req.session.user.username === 'erich0929') {
+
+			if (req.query.article_id) {
+				model.collection.findOne ({_id : new model.ObjectID (req.query.article_id)}, function (err, article) {
+					res.render ('edit', {session : req.session,
+										article : article});
+				});
+			} else {
+				var article = {};
+				article.title = '';
+				article.source = '';
+				res.render ('edit', {session : req.session,
+									article : article});
+			}
+		}else {
+			res.redirect ('/');
+		}
+
+	} else {
+		res.redirect ('/');
+	}
+	
+}

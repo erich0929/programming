@@ -15,5 +15,6 @@ router.get ('/login', controller.login);
 router.post ('/login/auth', controller.login_auth);
 router.get ('/images', controller.images);
 router.post ('/upload', controller.upload);
+router.get ('/edit', controller.edit);
 
 module.exports = router;
