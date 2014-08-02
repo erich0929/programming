@@ -25,7 +25,7 @@ app.post ('/upload', function (req, res) {
 			if (err) {
 				throw err;
 			} else {
-				res.json ({message : "imageUrl"});
+				res.json ({meassage : 'imageUrl'});
 			}
 		});
 	});

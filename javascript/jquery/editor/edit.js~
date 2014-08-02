@@ -1,0 +1,5 @@
+(function ($) {
+	$.fn.editor = function () {
+		$ (this).append ('<div class="ym-fbox"><div style="display : block" class="hlist"><ul id="hgtech-editor-toolbar" style="display : inline;"><li style="display : inline;"><a id="hgtech-editor-toolbar-image">image</a></li><li style="display : inline;"><a id="hgtech-editor-toolbar-hline">Hline</a></li><li style="display : inline;"><a id="hgtech-editor-toolbar-bold">Bold</a></li><li style="display : inline;"><a id="hgtech-editor-toolbar-boxtag">Box</a></li><li style="display : inline;"><a id="hgtech-editor-toolbar-italic">Italic</a></li><li style="display : inline;"><a id="hgtech-editor-toolbar-code">Code</a></li></ul></div><textarea rows="7" cols="82" name="htmlcode" value="" style="display : block;" id="hgtech-editor-textarea"></textarea><div id="hgtech-editor-preview" style="clear: both; padding: 3px; border: 2px dotted #ccc;font-size: 107%;line-height: 130%;width: 660px;word-wrap: break-word; margin-bottom : 10px; margin-top : 10px;"></div>');
+	}
+}) (jQuery);

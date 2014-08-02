@@ -39,7 +39,7 @@ $ (function () {
         var textarea = $ (this);
         var source = textarea.val ();
         $ ('.hgtech-editor #hgtech-editor-source').val (source);
-        sourcesource = source.replace (/^[^\S\n]{4}(.*)$/gm, '<code><span>$1</span></code>') 
+        source = source.replace (/^[^\S\n]{4}(.*)$/gm, '<code><span>$1</span></code>') 
         					.replace (/\*\*([^*|^\s]+)\*\*/g, '<b>$1</b>')
         					.replace (/\*([^*|^\s]+)\*/g, '<i>$1</i>')
 						.replace (/^(<[^\s]*>)*([^\S\n])/gm, '&nbsp');

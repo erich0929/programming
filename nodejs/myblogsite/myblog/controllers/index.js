@@ -244,6 +244,7 @@ exports.edit = function (req, res) {
 				});
 			} else {
 				var article = {};
+				article._id = '';
 				article.title = '';
 				article.source = '';
 				res.render ('edit', {session : req.session,

@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<!-- link rel="stylesheet" href="modal.css" type="text/css" media="screen" charset="utf-8"-->
+	<title>Index</title>
+	<script src='http://code.jquery.com/jquery-2.1.1.js'></script>
+	<script src='edit.js'></script>
+	<script type="text/javascript" charset="utf-8">
+		var config = {Server : '#', imageServer : '#', success : function () {}, error : function () {alert ('error');}};
+		$ (function () {
+		 	$ ('.editor').editor (config);
+		});	
+
+		
+
+	</script>
+</head>
+<body>
+	<form action="index_submit" method="get" accept-charset="utf-8">
+	 	<input type="text" name="some_name" value="">
+		<input type="text" name="some_name" value="">
+	
+	
+	<p><input type="submit" value="Continue &rarr;"></p>
+	</form>
+	<form action="/" method="post" class='editor' accept-charset="utf-8">
+	</form>
+</body>
+</html>
