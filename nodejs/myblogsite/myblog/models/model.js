@@ -1,5 +1,13 @@
+var express = require ('express');
+var controller = require ('../controllers/index.js');
 var mongoskin = require ('mongoskin');
 var db = mongoskin.db ('mongodb://localhost:27017/myblogsite');
+var metaCollection = db.collection ('metaCollection');
+var repositories = [];
+var router = express.Router ();
+
+
+
 var collection = db.collection ('articles');
 var before_auth = db.collection ('before_auth');
 var after_auth = db.collection ('after_auth');
@@ -43,7 +51,7 @@ var sendmail = function (obj) {
 		}
 	});
 };
-
+exports.db = db;	
 exports.collection = collection;
 exports.ObjectID = mongoskin.ObjectID;
 exports.db = db;
@@ -64,4 +72,17 @@ exports.is_unique_username = function (username, callback) {
 		});
 	});
 };
+
+exports.getRepository = function (name) {
+	var repository = '';
+	//console.log (repositories.length);
+	for (var i = 0; i < repositories.length ; i++) {
+		if (repositories [i].name == name) {
+			repository = repositories [i].collection;
+		}
+	}
+	return repository;
+} 
 exports.sendmail = sendmail;
+exports.repositories = repositories;
+exports.metaCollection = metaCollection;

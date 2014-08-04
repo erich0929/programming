@@ -10,16 +10,6 @@ html
     script(src='/javascripts/jquery-ui.min.js')
     
   body
-   <!-- jquery-ui wiget -->
-   div.hgtech-editor-dialog
-    div#hgtech-editor-dialog(title="Get a image from your desktop" style="background-color=red")
-     p.validateTips
-     form.ym-form#hgtech-editor-dialog-imageform(action='/upload' method='post' enctype='multipart/form-data')
-      div.ym-fbox
-       label(for="name") Name
-       input(type="file" name='uploadfile')
-       input(type='submit' name='submit' value='submit')
-
    nav#nav
      div.ym-wrapper
        div.ym-hlist
@@ -48,29 +38,11 @@ html
 
    div#hgtech-editor
           h5 HGTECH Editor
-          form(action='/postArticle' method='post').hgtech-editor.ym-form
+          form(action='/postArticle' method='post').editor
            input(type='text' name='title' value='#{article.title}')
-           div.ym-fbox 
-            div.hlist(style='display : block')
-             ul#hgtech-editor-toolbar(style='display : inline;')
-              li(style='display : inline;')
-               a#hgtech-editor-toolbar-image image
-              li(style='display : inline;')
-               a#hgtech-editor-toolbar-hline Hline
-              li(style='display : inline;')
-               a#hgtech-editor-toolbar-bold Bold
-              li(style='display : inline;')
-               a#hgtech-editor-toolbar-boxtag Box
-              li(style='display : inline;')
-               a#hgtech-editor-toolbar-italic Italic
-              li(style='display : inline;')
-               a#hgtech-editor-toolbar-code Code
-            textarea(rows='7' cols='82' name='htmlcode' value='#{article.source}' style='display : block;')#hgtech-editor-textarea
-            div#hgtech-editor-preview(style='clear: both; padding: 3px; border: 2px dotted #ccc;font-size: 107%;line-height: 130%;width: 660px;word-wrap: break-word; margin-bottom : 10px; margin-top : 10px;')
+           
             if article._id
              input(type='hidden' name='article_id' value='#{article._id}')
-            input#hgtech-editor-source(type='hidden' name='source' value='')
-            input(type='submit' value='Complete to edit')
    div.footer
       div.ym-wrapper
         div.ym-wbox(style='height : 100px;')

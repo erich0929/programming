@@ -48,9 +48,24 @@ app.use (session ({
 		})
 );
 
+//insert repository information into request using middleware
+app.use (function (req, res, next) {
+    var repository = req.url.replace (/\/([^\/\?]*).*/i, '$1');
+    req.repository = repository;
+    console.log ("Request's repository : " + req.repository);
+    next ();
+});
+
+
+
 app.use('/', routes);
 app.use('/users', users);
 
+//console.log (model.repositories.length);
+//for (var i=0; i < model.repositories.length; i++) {
+//    routes.get ('/' + model.repositories[i].name, controller.article);
+//    console.log ('route init!!');
+//}
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -82,6 +97,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 
 //app.get ('/', controllers.index);
 

@@ -33,15 +33,18 @@ exports.index = function (req, res) {
 
 exports.article = function (req, res) {
 	var id = req.query.article_id;
+	
 	if (!id)  res.redirect ('/');
-	model.collection.findOne ({ _id : new model.ObjectID (id) }, function (err, article) {
+	var repository = model.getRepository (req.repository);
+	repository.findOne ({ _id : new model.ObjectID (id) }, function (err, article) {
 						if (article.length === 0) {
 							res.redirect ('/');
 						} else {
 							req.session.backpage = req.session.currentPage;
 							req.session.currentPage = '/article?article_id=' + id;
 							res.render ('article', { article : article,
-						   							session : req.session
+						   							session : req.session,
+						   							repository : req.repository
 							});
 						}
 	});
@@ -49,19 +52,22 @@ exports.article = function (req, res) {
 
 exports.comment = function (req, res) {
 	var body = req.body;
-	if (body.article_id && body.name && body.email && body.htmlcode) {
+	if (body.article_id && body.name && body.email && body.htmlcode && body.source && body.repository) {
 		var comment = {};
 		comment.name = body.name;
 		comment.email = body.email;
 		comment.comment = body.htmlcode;
 		comment.source = body.source;
 		comment.posted_at = new Date ();
-
-		model.collection.update ({_id : new model.ObjectID (body.article_id) }, {'$push' : {comments : comment}},
+		var repository = model.getRepository (body.repository);
+		repository.update ({_id : new model.ObjectID (body.article_id) }, {'$push' : {comments : comment}},
 				function (err) {
 					if (err) throw err;
 		});
 		console.log ('Great! your comment is posted.');
+		console.log ('posted contents : ');
+		console.log (comment);
+		
 		res.json ('posted');
 	} else {
 		console.log ('Sorry, please go back.');
@@ -239,6 +245,7 @@ exports.edit = function (req, res) {
 
 			if (req.query.article_id) {
 				model.collection.findOne ({_id : new model.ObjectID (req.query.article_id)}, function (err, article) {
+
 					res.render ('edit', {session : req.session,
 										article : article});
 				});
@@ -258,4 +265,9 @@ exports.edit = function (req, res) {
 		res.redirect ('/');
 	}
 	
+}
+
+exports.postArticle = function (req, res) {
+
+
 }

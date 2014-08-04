@@ -54,14 +54,13 @@ $ (function () {
         		
         		var offset = imageLink [i].replace (regexImageLink, '$1');
         		var link = imageLink [i].replace (regexImageLink, '$2');
-        		//alert (offset + ' ' + link);
         		var reg = new RegExp ('!\\[([^\\[\\]]*)\\]\\[(' + offset + ')\\]');
         		source = source.replace (regexImageLink, '')
         						 .replace (reg, "<img alt='$1' src='" + link + "' style='max-width : 640px'></img>");
         	}
     	   }
      
-                          // .replace (/!\[([^\[\]]*)\]\[([^\[\]]*)\]/g, "<img href='$1'>")
+                       
         source = source.replace (/^-{3,}$/gm, "<hr style='border-bottom : 1px solid #ccc; margin-bottom : 5px;'>")
         //box code
         					.replace (/#\[([^\]\[]*)\]/g, '<div style="display : inline-block; border : thin dotted #07c; max-width : 50%">$1</div>')
@@ -71,7 +70,6 @@ $ (function () {
         					.replace (/(<hr[^<>]*>)<br\/>/g, '$1')
         // image tag
   					
-        //source = source.replace (/^\n\r?/gm, '<br/>');
         $ ('.hgtech-editor #hgtech-editor-preview').html (source);
 	});
 });
@@ -83,7 +81,6 @@ $ (function () {
 		var formdata = $ ('.hgtech-editor').serialize ();
 		var txt = encodeURIComponent ($ ('.hgtech-editor #hgtech-editor-preview').html ());
 		formdata = formdata.replace (/htmlcode=[^&]*&/, 'htmlcode='+ txt + '&');
-		//alert (formdata);	
 		$.ajax ({
 			url : $ (this).attr ('action'),
 			type : 'post',
@@ -166,8 +163,6 @@ $ (function () {
 			processData : false,
 			contentType : false,
 			success : function (data) {
-				//alert (data);
-				//dialog.dialog ('close');
 				insertAtCaret (data, 0);
 				$ ('.hgtech-editor #hgtech-editor-textarea').trigger ('keyup');
 			},

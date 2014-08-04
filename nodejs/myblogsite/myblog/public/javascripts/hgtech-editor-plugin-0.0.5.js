@@ -34,11 +34,22 @@ function insertAtCaret(text, backend) {
 }
 
 (function ($) {
-	$.fn.editor = function (config) {
-		config = config || {};
-		this.append ('<div style="display : table;"><div class="hlist"><ul id="hgtech-editor-toolbar"><li><a id="hgtech-editor-toolbar-image">image</a></li><li><a id="hgtech-editor-toolbar-hline">Hline</a></li><li><a id="hgtech-editor-toolbar-bold">Bold</a></li><li><a id="hgtech-editor-toolbar-boxtag">Box</a></li><li><a id="hgtech-editor-toolbar-italic">Italic</a></li><li><a id="hgtech-editor-toolbar-code">Code</a></li><li><a id="hgtech-editor-toolbar-canvas">Canvas</a></li></ul></div><div id="hgtech-editor-description" style="visibility : hidden; overflow : hidden; height : 0; margin : 3px 0; padding : 0px 25px;"></div><textarea rows="7" cols="82" name="htmlcode" value="" id="hgtech-editor-textarea"></textarea><div id="hgtech-editor-preview" style="clear: both; padding: 3px; border: 2px dotted #ccc;font-size: 107%;line-height: 130%;width: 660px;word-wrap: break-word; margin-bottom : 10px; margin-top : 10px;"></div><input type="submit" value="submit"><div class="hgtech-editor-dialog"><div id="hgtech-editor-dialog"><form action="#" id="hgtech-editor-dialog-imageform" method="post" enctype="multipart/form-data" style="background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));	background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);margin:auto;position:relative;	width: 20%;height: 20%;font-family: Tahoma, Geneva, sans-serif;font-size: 14px;line-height: 24px;font-weight: bold;color: #09C;text-decoration: none;-webkit-border-radius: 10px;-moz-border-radius: 10px;	border-radius: 10px;padding:10px;border: 1px solid #999;border: inset 1px solid #333;-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);"><label>Image from  your desktop</label><input type="file" name="uploadfile" style="width=100%"><input type="submit" name="Submit" value="Submit" style="width=30%"></form><a href="#">close</a></div></div>');
+	$.fn.hgtech_editor = function (config) {
+		config = config || {}	;
+		config.location = config.location || '';
+		if (config.location == 'prepend') {
+			config.location = this.prepend;
+		} else {
+			config.location = this.append;
+		}
 
-	this.addClass ('hgtech-editor');		
+		var locationFunction = config.location;
+		locationFunction.call (this, '<div style="display : table;"><div class="hlist"><ul id="hgtech-editor-toolbar"><li><a id="hgtech-editor-toolbar-image">image</a></li><li><a id="hgtech-editor-toolbar-hline">Hline</a></li><li><a id="hgtech-editor-toolbar-bold">Bold</a></li><li><a id="hgtech-editor-toolbar-boxtag">Box</a></li><li><a id="hgtech-editor-toolbar-italic">Italic</a></li><li><a id="hgtech-editor-toolbar-code">Code</a></li><li><a id="hgtech-editor-toolbar-canvas">Canvas</a></li></ul></div><div id="hgtech-editor-description" style="visibility : hidden; overflow : hidden; height : 0; margin : 3px 0; padding : 0px 25px;"></div><textarea style="width : 100%; resize : none;" rows="10" name="source" value="" id="hgtech-editor-textarea"></textarea><div id="hgtech-editor-preview" style="clear: both; padding: 3px; border: 2px dotted #ccc;font-size: 100%;line-height: 100%;width: 100%;word-wrap: break-word; margin-bottom : 10px; margin-top : 10px;"></div><input type="hidden" name="htmlcode" value="" id="hgtech-editor-htmlcode"><div class="hgtech-editor-dialog"><div id="hgtech-editor-dialog"><form action="#" id="hgtech-editor-dialog-imageform" method="post" enctype="multipart/form-data" style="background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));	background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);margin:auto;position:relative;	width: 20%;height: 20%;font-family: Tahoma, Geneva, sans-serif;font-size: 14px;line-height: 24px;font-weight: bold;color: #09C;text-decoration: none;-webkit-border-radius: 10px;-moz-border-radius: 10px;	border-radius: 10px;padding:10px;border: 1px solid #999;border: inset 1px solid #333;-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);"><label>Image from  your desktop</label><input type="file" name="uploadfile" style="width=100%"><input type="submit" name="Submit" value="Submit" style="width=30%"></form><a href="#">close</a></div></div>');
+
+		this.append ('<input type="submit" value="Submit">');
+
+	this.addClass ('hgtech-editor').css ({"display" : "table"});		
+
 	$ ('.hgtech-editor-dialog').css ({
 		'visibility': 'hidden',
 		'position': 'absolute',
@@ -163,12 +174,13 @@ function insertAtCaret(text, backend) {
 
 	$ ('.hgtech-editor #hgtech-editor-textarea').keyup (function (event) {
 		var textarea = $ (this);
+		//alert (textarea.val ());
 		var source = textarea.val ();
-		$ ('.hgtech-editor #hgtech-editor-source').val (source);
+		//$ ('.hgtech-editor #hgtech-editor-source').val (source);
 		source = source.replace (/^[^\S\n]{4}(.*)$/gm, '<div style="background : #F3EED5;"><code><span>$1</span></code></div>') 
 		.replace (/\*\*([^*|^\s]+)\*\*/g, '<b>$1</b>')
 		.replace (/\*([^*|^\s]+)\*/g, '<i>$1</i>')
-		.replace (/^(<[^\s]*>)*([^\S\n])/gm, '&nbsp');
+		//.replace (/^(<[^\sbi]*>)*([^\S\n])/gm, '&nbsp');
 
 		var regexImageLink = /^\[([^\[\]]*)\]:([^\[\]\n]*)$/gm;
 		var imageLink;
@@ -194,16 +206,21 @@ function insertAtCaret(text, backend) {
 					.replace (/((<[^<>\S\n]*>)*)(([^<>\S\n\r])*\n\r?)/g, '<br/>')
 					.replace (/<\/span>(\n\r?)*<\/code><\/div>(\n\r?)*<br\/>(\n\r?)*<div[^<>]*><code>(\n\r?)*<span>/g, '<br/>')
 					.replace (/(<hr[^<>]*>)<br\/>/g, '$1') 
+					.replace (/^(<[^\sbi]*>)*([^\S\n])/gm, '&nbsp'); // 2014 08 04
 		// image tag
 		$ ('.hgtech-editor #hgtech-editor-preview').html (source);
+		$ ('.hgtech-editor #hgtech-editor-htmlcode').val (source);
 	});
 
+	config.ajax = config.ajax || '';
+
+	if (config.ajax) {
 	$ ('.hgtech-editor').submit (function (e) {
 		e.preventDefault ();
 		var form = $ (this);
 		var formdata = $ ('.hgtech-editor').serialize ();
-		var txt = encodeURIComponent ($ ('.hgtech-editor #hgtech-editor-preview').html ());
-		formdata = formdata.replace (/htmlcode=[^&]*&/, 'htmlcode='+ txt + '&');
+		//var txt = encodeURIComponent ($ ('.hgtech-editor #hgtech-editor-preview').html ());
+		//formdata = formdata.replace (/htmlcode=[^&]*&/, 'htmlcode='+ txt + '&');
 		$.ajax ({
 			url : $ (this).attr ('action'),
 			type : 'post',
@@ -212,10 +229,11 @@ function insertAtCaret(text, backend) {
 			error : config.error = (config.error || function () {})
 		});
 	});
-
+	}
+	
 	$ ('#hgtech-editor-dialog-imageform').submit (function (e) {
 		e.preventDefault ();
-		dialog.dialog ('close');
+		$ (this).find ('a').trigger ('click');
 		var dataform = new FormData (this);
 		$.ajax ({
 			url : $ (this).attr ('action'),

@@ -6,12 +6,15 @@ html
     link(rel='stylesheet', href='/stylesheets/common.css')
     link(rel='stylesheet', href='/stylesheets/jquery-ui.min.css')
     script(src='/javascripts/jquery-2.1.0.min.js')
-    script(src='/javascripts/edit.js')
+    //script(src='/javascripts/edit.js')
+    script(src='/javascripts/hgtech-editor-plugin-0.0.5.js')
     script(src='/javascripts/jquery-ui.min.js')
+    script(src='/javascripts/comment.js')
     
   body
    <!-- jquery-ui wiget -->
-   div.hgtech-editor-dialog
+   
+   //div.hgtech-editor-dialog
     div#hgtech-editor-dialog(title="Get a image from your desktop" style="background-color=red")
      p.validateTips
      form.ym-form#hgtech-editor-dialog-imageform(action='/upload' method='post' enctype='multipart/form-data')
@@ -65,7 +68,14 @@ html
              p!=comment.comment  
         div#comment
           h5 Add your comment!
-          form(action='/comment' method='post').hgtech-editor.ym-form
+          form(action='/comment' method='post').editor
+            label Name
+            input(type='text' name='name' value='')
+            label E-mail
+            input(type='text' name='email' value='')
+            input(type='hidden' name='article_id' value='#{article._id}')
+            input(type='hidden' name='repository' value='#{repository}' )
+          //
            div.ym-fbox 
             div.hlist(style='display : block')
              ul#hgtech-editor-toolbar(style='display : inline;')
