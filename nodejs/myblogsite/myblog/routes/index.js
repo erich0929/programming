@@ -11,15 +11,16 @@ model.metaCollection.find ({}).toArray (function (err, result) {
 		console.log ("Repositories : ");
 		console.log (result [i].name);
 		model.repositories.push ({collection : model.db.collection (result [i].name), name : result [i].name});
-		console.log ('/' + model.repositories [i].name);
-		console.log (controller.article);
-		console.log ('model init in the router : ' + model.repositories.length);
-		router.get ('/' + model.repositories [i].name, controller.article);
-		router.post ('/' + model.repositories [i].name, controller.postArticle);
+		console.log ('Routes : /' + model.repositories [i].name + '.rep');
+		//console.log (controller.article);
+		// console.log ('model init in the router : ' + model.repositories.length);
+		router.get ('/' + model.repositories [i].name + '.rep', controller.article);
+		//router.post ('/' + model.repositories [i].name + '.rep', controller.postArticle);
 	}
 });
 
 //router.get ('/article', controller.article);
+router.post ('/postArticle', controller.postArticle);
 router.post ('/comment', controller.comment);
 router.get ('/signup', controller.signup);
 router.post ('/signup/auth', controller.signup_beforeAuth);

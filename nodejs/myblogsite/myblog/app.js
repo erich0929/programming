@@ -50,7 +50,7 @@ app.use (session ({
 
 //insert repository information into request using middleware
 app.use (function (req, res, next) {
-    var repository = req.url.replace (/\/([^\/\?]*).*/i, '$1');
+    var repository = req.url.replace (/\/([^\/\?\.]*).*/i, '$1');
     req.repository = repository;
     console.log ("Request's repository : " + req.repository);
     next ();

@@ -34,9 +34,15 @@ function insertAtCaret(text, backend) {
 }
 
 (function ($) {
+	//config properties : location (string [prepend]) , Server (string), imageServer, preprocess (functoin), ajax (bool)
 	$.fn.hgtech_editor = function (config) {
 		config = config || {}	;
 		config.location = config.location || '';
+		//config.preprocess = config.preprocess || '';
+		//if (!config.preprocess) {
+		//	config.preprocess = function () {}
+		//}
+
 		if (config.location == 'prepend') {
 			config.location = this.prepend;
 		} else {
@@ -52,9 +58,10 @@ function insertAtCaret(text, backend) {
 
 	$ ('.hgtech-editor-dialog').css ({
 		'visibility': 'hidden',
-		'position': 'absolute',
-		'left': '0px',
-		'top': '0px',
+		'position': 'fixed',
+		'left': '0',
+		'top': '30%',
+		'margin' : 'auto',
 		'width': '100%',
 		'height': '100%',
 		'text-align': 'center',
@@ -64,14 +71,14 @@ function insertAtCaret(text, backend) {
 	$ ('.hgtech-editor-dialog input').css ({
 		'display':'block', 
 	    'border': '1px solid #999',
-		'height': '25px', 
+		'height': '30%', 
 		'-webkit-box-shadow': '0px 0px 8px rgba(0, 0, 0, 0.3)', 
 		'-moz-box-shadow': '0px 0px 8px rgba(0, 0, 0, 0.3)', 
 		'box-shadow': '0px 0px 8px rgba(0, 0, 0, 0.3)'
 	});
 
 	$ ('.hgtech-editor #hgtech-editor-toolbar').css ({'list-style-type' : 'none', 
-													 'height' : '30px',
+													 'height' : '30%',
 													 'padding' : '0',
 													 'margin' : '0',
 													'background' : '#E5E5E5'});
@@ -98,7 +105,7 @@ function insertAtCaret(text, backend) {
 
 	$ ('.hgtech-editor #hgtech-editor-toolbar li a').hover (function () {
 		 $ ('.hgtech-editor #hgtech-editor-description').css ({'visibility' : 'visible',
-		 													'height' : '60px', 
+		 													'height' : '30%', 
 		 													'left' : '0',
 		 													'background' : "#F3EED5",
 		 													'font-size' : '13px',
@@ -215,20 +222,27 @@ function insertAtCaret(text, backend) {
 	config.ajax = config.ajax || '';
 
 	if (config.ajax) {
-	$ ('.hgtech-editor').submit (function (e) {
-		e.preventDefault ();
-		var form = $ (this);
-		var formdata = $ ('.hgtech-editor').serialize ();
-		//var txt = encodeURIComponent ($ ('.hgtech-editor #hgtech-editor-preview').html ());
-		//formdata = formdata.replace (/htmlcode=[^&]*&/, 'htmlcode='+ txt + '&');
-		$.ajax ({
-			url : $ (this).attr ('action'),
-			type : 'post',
-			data : formdata,
-			success : config.success = (config.success || function () {}),
-			error : config.error = (config.error || function () {})
+		$ ('.hgtech-editor').submit (function (e) {
+			e.preventDefault ();
+			var form = $ (this);
+			var formdata = $ ('.hgtech-editor').serialize ();
+			//var txt = encodeURIComponent ($ ('.hgtech-editor #hgtech-editor-preview').html ());
+			//formdata = formdata.replace (/htmlcode=[^&]*&/, 'htmlcode='+ txt + '&');
+			//formdata = config.preprocess.call (this, formdata);
+			$.ajax ({
+				url : $ (this).attr ('action'),
+				type : 'post',
+				data : formdata,
+				success : config.success = (config.success || function () {}),
+				error : config.error = (config.error || function () {})
+			});
 		});
-	});
+	} else {
+		$ ('.hgtech-editor').submit (function (e) {
+			//var formdata = $ ('.hgtech-editor').serialize ();
+			//formdata = config.preprocess.call (this, formdata);
+			return true;
+		});
 	}
 	
 	$ ('#hgtech-editor-dialog-imageform').submit (function (e) {

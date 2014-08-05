@@ -56,7 +56,7 @@ html
               if session.user
                if session.user.username == 'erich0929'
                div(style='display : block; border-bottom : 1px solid #ccc;')
-                a(href='/edit?article_id=' + article._id) edit
+                a(href='/edit?article_id=' + article._id + '&repository=' + repository) edit
                 a(href='#') delete
      div.comments
        div.count

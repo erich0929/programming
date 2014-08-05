@@ -32,12 +32,11 @@ exports.index = function (req, res) {
 };
 
 exports.article = function (req, res) {
-	var id = req.query.article_id;
-	
+	var id = req.query.article_id;	
 	if (!id)  res.redirect ('/');
 	var repository = model.getRepository (req.repository);
 	repository.findOne ({ _id : new model.ObjectID (id) }, function (err, article) {
-						if (article.length === 0) {
+						if (article === '') {
 							res.redirect ('/');
 						} else {
 							req.session.backpage = req.session.currentPage;
@@ -240,22 +239,31 @@ exports.upload = function (req, res) {
 };
 
 exports.edit = function (req, res) {
+	var repository = '';
 	if (req.session.user) {
 		if (req.session.user.username === 'erich0929') {
 
-			if (req.query.article_id) {
+			if (req.query.article_id && req.query.repository) {
 				model.collection.findOne ({_id : new model.ObjectID (req.query.article_id)}, function (err, article) {
-
-					res.render ('edit', {session : req.session,
-										article : article});
+					if (err) {
+						res.redirect ('/');
+					} else {
+						res.render ('edit', {session : req.session,
+											article : article,
+											repository : req.query.repository});
+					}
 				});
 			} else {
 				var article = {};
 				article._id = '';
 				article.title = '';
-				article.source = '';
+				article.source = ''
+				article.tags = [];
+	
 				res.render ('edit', {session : req.session,
-									article : article});
+									article : article,
+									repositories : model.repositories});
+
 			}
 		}else {
 			res.redirect ('/');
@@ -268,6 +276,43 @@ exports.edit = function (req, res) {
 }
 
 exports.postArticle = function (req, res) {
+	var body = req.body;
+	body.article_id = body.article_id || '';
+	var repository = body.repository.replace (/http:\/\/[^\/]*\/([^\/.?]*).*/i,'$1');
+	console.log ('Requested rep to post a article : ' + repository);
+	repository = model.getRepository (repository);
+	body.tags = body.tags || [];
+	body.tags = body.tags.split (/[\s,&-]+/);
+	if (body.article_id) {
+		if (body.htmlcode && body.source && body.title && body.tags) {
+			repository.update ({_id : new model.ObjectID (body.article_id)}, {'$set' : {title : body.title,
+																					content : body.htmlcode,
+																					tags : body.tags,
+																					source : body.source,
+																					saved_at : new Date ()}}, 
+								function (err) {
+									res.render ('postArticleErr', {error : err});
+			});
+		} else {
+			res.render ('postArticleErr', {error : 'Validation Error!'});
+		}
+	
+	} else {
+		if (body.htmlcode && body.source && body.title && body.tags) {
+			repository.insert ({title : body.title, content : body.htmlcode, 
+								tags : body.tags, source : body.source, saved_at : new Date ()}, 
+								function (err, result) {
+									if (err) {
+										res.render ('postArticleErr', {error : err});
+									}
+									if (result) {
+										console.log ('posting success');
+										res.redirect ('/');
+									}
+			});
+		} else {
+			res.render ('postArticleErr', {error : 'Validation Error!'});
+		}
 
-
+	}
 }

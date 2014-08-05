@@ -6,7 +6,8 @@ html
     link(rel='stylesheet', href='/stylesheets/common.css')
     link(rel='stylesheet', href='/stylesheets/jquery-ui.min.css')
     script(src='/javascripts/jquery-2.1.0.min.js')
-    script(src='/javascripts/edit.js')
+    script(src='/javascripts/hgtech-editor-plugin-0.0.5.js')
+    script(src='/javascripts/editpage.js')
     script(src='/javascripts/jquery-ui.min.js')
     
   body
@@ -37,12 +38,28 @@ html
      section.ym-grid.linearize-level-1
 
    div#hgtech-editor
-          h5 HGTECH Editor
+        h5(style='width : 53%; font-size: 200%; margin : 0 auto;') HGTECH Editor
+        div(style="display : table; margin : 1.5% auto;")
           form(action='/postArticle' method='post').editor
-           input(type='text' name='title' value='#{article.title}')
-           
-            if article._id
-             input(type='hidden' name='article_id' value='#{article._id}')
+           if repository
+            div
+             label Repository : 
+             select(name='repository')
+              option= 'http://blog.erich0929.com/' + repository + '.rep'
+           else
+            div
+             label Repository : 
+             select(name='repository')
+              each repository in repositories
+               option= 'http://blog.erich0929.com/' + repository.name + '.rep'
+            div
+             label Title :
+             input(type='text' style="margin : 5px 6.5%; width : 40%;" name='title' value='#{article.title}')
+            div
+             label Tags :
+             input(type='text' style="margin : 5px 6.5%; width : 40%;" name='tags' value='#{article.tags.toString ()}')
+           if article._id
+            input(type='hidden' name='article_id' value='#{article._id}')
    div.footer
       div.ym-wrapper
         div.ym-wbox(style='height : 100px;')

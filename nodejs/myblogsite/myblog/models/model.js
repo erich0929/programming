@@ -8,7 +8,7 @@ var router = express.Router ();
 
 
 
-var collection = db.collection ('articles');
+var collection = db.collection ('economics');
 var before_auth = db.collection ('before_auth');
 var after_auth = db.collection ('after_auth');
 
