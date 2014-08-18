@@ -1,0 +1,13 @@
+#!/bin/bash
+
+id=`node /home/erich0929/programming/nodejs/bus/getBusstop.js "$1"`
+echo "$id" | while read line
+do
+id=`echo "$line" | awk '{print $1}'`
+next=`echo "$line" | awk '{print $2}'`
+echo "=================================="
+echo "NEXT STOP : ""$next"
+res=`/home/erich0929/programming/nodejs/bus/app.js "$id"`
+echo "$res"
+echo "=================================="
+done

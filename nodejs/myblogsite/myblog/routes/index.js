@@ -4,7 +4,7 @@ var router = express.Router();
 var model = require ('../models/model.js')
 
 /* GET home page. */
-router.get('/', controller.index);
+router.get('/', controller.main);
 
 model.metaCollection.find ({}).toArray (function (err, result) {
 	for (var i =0 ; i < result.length ; i++) {

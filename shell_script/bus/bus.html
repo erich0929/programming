@@ -1,0 +1,901 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko" xml:lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>광주광역시 버스정보</title>
+<link rel="stylesheet" href="/css/style.css" type="text/css"/>
+<link rel="stylesheet" href="/css/default.css" type="text/css"/>
+<link rel="SHORTCUT ICON"    href="/images/ico/favicon.ico" type="text/css" />
+<link rel="apple-touch-icon" href="/images/ico/favicon.ico" type="text/css" />
+
+<link type="text/css" rel="stylesheet" href="/jqwidgets/styles/jqx.base.css"/>
+<link type="text/css" rel="stylesheet" href="/jqwidgets/styles/jqx.energyblue.css"/>
+</head>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/navigation.js"></script>
+
+
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.form.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/scripts/json2.js"></script>
+
+<script type="text/javascript" src="/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxsplitter.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxscrollbar.js"></script>
+
+<script type="text/javascript" src="/jqwidgets/jqxcheckbox.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxbuttons.js"></script>
+
+
+<script type="text/javascript" src="/jqwidgets/jqxgrid.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxgrid.columnsresize.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxgrid.edit.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxgrid.sort.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxgrid.selection.js"></script>
+
+<script type="text/javascript" src="/jqwidgets/jqxdata.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxtooltip.js"></script>
+
+<script type="text/javascript" src="/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript" src="/jqwidgets/globalization/globalize.culture.ko-KR.js"></script>
+
+
+
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=a68927175eeda995e18b4bd14befc02726f2c969" charset="utf-8"></script>
+
+<script type="text/javascript" src="/js/busmap.js"></script>
+
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<a name="busmap_head"></a>
+
+
+<script type="text/javaScript" language="javascript">
+  $(document).ready(function () {
+
+      //var screenHeight = screen.availHeight - 300;
+
+      //if (screenHeight < 600) screenHeight = 600;
+      
+      var screenHeight = 740;
+
+      $("#divMiddle").jqxSplitter({ theme:'arctic', width: '99.7%', height: screenHeight, orientation: 'vertical', panels: [{ size: 300}] });
+
+      daum_map.init($("#divMap").get(0)); // 맵 초기화
+
+      $("#BUSSTOP_NAME").val('');
+      $("#BUSSTOP_NAME").focus();
+
+      fnGetGridStationList();
+      fnGetGridLineList();
+      fnParentAreaList();
+
+      
+
+  });
+
+  //--------------------------------------------------
+  // 그리드 정류소 리스트
+  //--------------------------------------------------
+  function fnGetGridStationList() {
+
+    var url = "";
+
+    // prepare the data
+    var source =
+    {
+        datatype: "json",
+        type    : 'POST',
+        datafields: [
+          { name: 'ARS_ID'      , type: 'string' },
+          { name: 'BUSSTOP_ID'  , type: 'string' },
+          { name: 'BUSSTOP_NM'  , type: 'string' },
+          { name: 'BUSSTOP_NAME', type: 'string' },
+          { name: 'IMAGE'       , type: 'string' },
+          { name: 'LONGITUDE'   , type: 'string' },
+          { name: 'LATITUDE'    , type: 'string' }
+        ],
+        id : 'ARS_ID',
+        url: url,
+        async: false
+    };
+
+    var imagerenderer = function (row, datafield, value) {
+        return '<img style="margin-left:10px;margin-top:5px" height="15" width="16" src="/images/busmap/rst_icon_view02.gif"/>';
+    }
+
+    var dataAdapter = new $.jqx.dataAdapter(source,
+        {
+            formatData: function (data) {
+                data.BUSSTOP_NAME = $("#BUSSTOP_NAME").val();
+                data.AREA_ID      = $("#AREA_ID"     ).val();
+                return data;
+            }
+        }
+    );
+
+    $("#divStationGrid").jqxGrid (
+    {
+        theme         : 'energyblue',
+        width         : '100%',
+        height        : 100,
+        altrows       : true,
+        enabletooltips: true,
+        showemptyrow  : false,
+        //rowsheight    : 50,
+        source        : dataAdapter,
+        //sortable     : true,
+        //editable     : true,
+        //selectionmode: 'multiplecellsextended',
+        selectionmode : 'singlecell',
+        columnsresize : true,
+
+        columns       : [
+                          { text: '정류소명' , datafield: 'BUSSTOP_NAME', hidden: true, width: 250 },
+                          { text: '보기'     , datafield: 'IMAGE'       , width: 40, align:'center', cellsalign: 'center', cellsrenderer: imagerenderer},
+                          { text: 'ID'       , datafield: 'ARS_ID'      , width: 40 },
+                          { text: '정류소명' , datafield: 'BUSSTOP_NM'                  },
+                          { text: 'LONGITUDE', datafield: 'LONGITUDE'   , hidden: true  },
+                          { text: 'LATITUDE' , datafield: 'LATITUDE'    , hidden: true  }
+                        ]
+    });
+
+    // 셀 클릭시
+    $("#divStationGrid").on('cellclick', function (event) {
+
+        var rowindex    = event.args.rowindex;
+        var columnindex = event.args.columnindex;
+
+        var busstop_id   = $("#divStationGrid").jqxGrid('getcellvalue', rowindex, 'BUSSTOP_ID'  );
+        var busstop_nm   = $("#divStationGrid").jqxGrid('getcellvalue', rowindex, 'BUSSTOP_NM'  );
+        var longitude    = $("#divStationGrid").jqxGrid('getcellvalue', rowindex, 'LONGITUDE'   );
+        var latitude     = $("#divStationGrid").jqxGrid('getcellvalue', rowindex, 'LATITUDE'    );
+
+        if (columnindex == 1) {
+            daum_map.busStationLocation(busstop_id, busstop_nm, longitude, latitude);
+        }
+
+        if (columnindex == 3) {
+
+            // 정류소 아이디 설정
+            $("#BUSSTOP_ID").val(busstop_id);
+            $("#BUSSTOP_NM").val(busstop_nm);
+            $("#LONGITUDE" ).val(longitude );
+            $("#LATITUDE"  ).val(latitude  );
+
+            // 노선 검색
+            $("#btnLineSearch").click();
+        }
+
+    });
+
+    $("#btnBusStopSearch").click(function () {
+
+        if ($('#BUSSTOP_NAME').val() == "") {
+            alert('정류소명을 입력해 주세요.');
+            $('#BUSSTOP_NAME').focus();
+            return;
+        }
+
+        daum_map.busInit(); // 버스 지도 전체 초기화
+        daum_map.busStationUnLocation();
+
+        $("#PAREA_ID").val('');
+        $("#P_AREA_ID").val('');
+        var select = $("#AREA_ID");
+        select.children().remove();
+
+
+        source.url = "/busmap/stationSearchList";
+        $("#divStationGrid").jqxGrid('updatebounddata', 'cells');
+    });
+
+    $('#BUSSTOP_NAME').keypress(function(e) {
+
+        if(e.which == 13) {
+            if ($('#BUSSTOP_NAME').val() == "") {
+                alert('정류소명을 입력해 주세요.');
+                $('#BUSSTOP_NAME').focus();
+                return;
+            }
+
+            daum_map.busInit(); // 버스 지도 전체 초기화
+            daum_map.busStationUnLocation();
+
+            $("#PAREA_ID").val('');
+            $("#P_AREA_ID").val('');
+            var select = $("#AREA_ID");
+            select.children().remove();
+
+            source.url = "/busmap/stationSearchList";
+            $("#divStationGrid").jqxGrid('updatebounddata', 'cells');
+        }
+    });
+
+
+    $("#btnAreaSearch").click(function () {
+        daum_map.busInit(); // 버스 지도 전체 초기화
+        $("#BUSSTOP_NAME").val('');
+        source.url = "/busmap/stationSearchList";
+        $("#divStationGrid").jqxGrid('updatebounddata', 'cells');
+    });
+
+    $('#AREA_ID').keypress(function(e) {
+        daum_map.busInit(); // 버스 지도 전체 초기화
+        $("#BUSSTOP_NAME").val('');
+        source.url = "/busmap/stationSearchList";
+        $("#divStationGrid").jqxGrid('updatebounddata', 'cells');
+    });
+
+  } // fnGetGridStationList()
+
+  //--------------------------------------------------
+  // 그리드 노선 리스트
+  //--------------------------------------------------
+  function fnGetGridLineList() {
+
+    var url = "";
+
+    // prepare the data
+    var source =
+    {
+        datatype: "json",
+        type    : 'POST',
+        datafields: [
+          { name: 'CHK'      , type: 'bool'   },
+          { name: 'LINE_ID'  , type: 'string' },
+          { name: 'LINE_NAME', type: 'string' },
+          { name: 'LINE_KIND', type: 'string' },
+          { name: 'RUN_TIME' , type: 'string' }
+        ],
+        id : 'LINE_ID',
+        url: url,
+        async: false
+    };
+
+    var imagerenderer = function (row, datafield, value) {
+        var image_name = "ic_type_";
+
+        if (value == 1) { // 급행간선
+            image_name += "gp.gif";
+        } else if (value == 2) { // 간선
+            image_name += "gan.gif";
+        } else if (value == 3) { // 지선
+            image_name += "ji.gif";
+        } else if (value == 4) { // 마을버스
+            image_name += "ma.gif";
+        } else if (value == 5) { // 공항버스
+            image_name += "gong.gif";
+        }
+        return '<img style="margin-left:5px;margin-top:5px" height="14" width="14" src="/images/busmap/' + image_name + '" />';
+    }
+    
+    var imageTime = function (row, datafield, value) {
+        return '<img style="margin-left:5px;margin-top:5px" height="14" width="14" src="/images/busmap/icon_bullet02.gif" />';
+    }
+
+    var dataAdapter = new $.jqx.dataAdapter(source,
+        {
+            formatData: function (data) {
+                data.BUSSTOP_ID = $("#BUSSTOP_ID").val();
+                return data;
+            }
+        }
+    );
+
+    $("#divLineGrid").jqxGrid (
+    {
+        theme        : 'energyblue',
+        width        : '100%',
+        height       : 100,
+        altrows      : true,
+        source       : dataAdapter,
+        enabletooltips: true,
+        showemptyrow  : false,
+        //sortable     : true,
+        editable     : true,
+        //selectionmode: 'multiplecellsextended',
+        selectionmode: 'singlecell',
+        //columnsresize: true,
+
+        columns      : [
+                         { text: '선택'    , datafield: 'CHK'      , width: 40  , columntype: 'checkbox'},
+                         { text: '노선번호', datafield: 'LINE_ID'  , hidden: true, width: 250 },
+                         { text: ''        , datafield: 'LINE_KIND', width: 20, editable: false, align:'center', cellsalign: 'center', cellsrenderer: imagerenderer},
+                         { text: '노선명'  , datafield: 'LINE_NAME', editable: false },
+                         { text: ''        , datafield: 'RUN_TIME' , width: 20, editable: false, align:'center', cellsalign: 'center', cellsrenderer: imageTime}
+                       ]
+    });
+
+    // 체크박스 클릭시(클릭후 값)
+    $("#divLineGrid").on('cellendedit', function (event) {
+
+        var rowindex    = event.args.rowindex;
+        var line_id     = $("#divLineGrid").jqxGrid('getcellvalue', rowindex, 'LINE_ID');
+        var chk_flag    = event.args.value;
+
+        // 라인 아이디 설정
+        $("#LINE_ID").val(line_id);
+
+        // 노선 링크 그리기
+        fnGetMapLine(rowindex, chk_flag);
+    });
+
+    // 셀 클릭시
+    $("#divLineGrid").on('cellclick', function (event) {
+
+        var rowindex    = event.args.rowindex;
+        var columnindex = event.args.columnindex;
+
+        var line_id     = $("#divLineGrid").jqxGrid('getcellvalue', rowindex, 'LINE_ID'  );
+        var line_name   = $("#divLineGrid").jqxGrid('getcellvalue', rowindex, 'LINE_NAME');
+        var chk         = $("#divLineGrid").jqxGrid('getcellvalue', rowindex, 'CHK'      );
+
+        if (columnindex == 2 || columnindex == 3) {
+            // 라인 아이디 설정
+            $("#LINE_ID").val(line_id);
+
+            if (chk == false) {
+                $("#divLineGrid").jqxGrid('setcellvalue', rowindex, 'CHK', true);
+                fnGetMapLine(rowindex, true);
+            }
+
+            // 노선의 상세정보
+            fnGetLineDetail(line_name);
+
+            // 노선의 상세정류소정보
+            fnGetLineDetailStation(line_name);
+        } else if (columnindex == 4) {
+            var url = "/busmap/busRunTimeTable?LINE_ID=" + line_id + "&LINE_NAME=" + escape(encodeURIComponent(line_name));
+            window.open(url ,'busTime', 'width=420,height=400,top=250,left=300,scrollbars=no');
+        }
+
+    });
+
+
+    $("#btnLineSearch").click(function () {
+        daum_map.busInit(); // 버스 지도 전체 초기화
+        daum_map.busStationUnLocation();
+        source.url = "/busmap/lineSearchList";
+        $("#divLineGrid").jqxGrid('updatebounddata', 'cells');
+    });
+
+  } // fnGetGridLineList()
+
+  //--------------------------------------------------
+  // 노선 링크 좌표 취득
+  //--------------------------------------------------
+  function fnGetMapLine(rowindex, chk_flag) {
+
+      if (chk_flag == true) {
+          // line 그리기
+
+          var url = "/busmap/lineLinkList";
+
+
+          $.ajax({
+              url        : url,
+              type       : 'POST',
+              cache      : false,
+              data       : $("#form1").serialize(),
+              dataType   : 'json',
+              sync       : false, //비동기(true), 동기(false)
+              success    : function(data, textStatus, jqXHR) {
+                             daum_map.busLinkLine(rowindex, data.list);
+
+                             // 노선의 정류소 그리기
+                             fnGetMapLineStation(rowindex, chk_flag);
+
+
+                           },
+              error      : function(data, textStatus, jqXHR) {
+
+                           }
+
+         });
+
+      } else {
+          // line 지우기
+          daum_map.busUnLinkLine(rowindex);
+
+          // 노선의 정류소 그리기
+          fnGetMapLineStation(rowindex, chk_flag);
+      }
+  }
+
+  //--------------------------------------------------
+  // 노선의 정류소 좌표 취득
+  //--------------------------------------------------
+  function fnGetMapLineStation(rowindex, chk_flag) {
+
+      if (chk_flag == true) {
+          // station 그리기
+          var url = "/busmap/lineStationList";
+
+          $.ajax({
+              url        : url,
+              type       : 'POST',
+              cache      : false,
+              data       : $("#form1").serialize(),
+              dataType   : 'json',
+              sync       : false, //비동기(true), 동기(false)
+              success    : function(data, textStatus, jqXHR) {
+                             daum_map.busStopMarker(rowindex, data.list);
+
+                             // 노선의 버스위치 그리기
+                             fnGetMapLineBusLocation(rowindex, chk_flag);
+
+                           },
+              error      : function(data, textStatus, jqXHR) {
+
+                           }
+
+         });
+
+      } else {
+          // station 지우기
+          daum_map.busStopUnMarker(rowindex);
+
+          // 노선의 버스위치 그리기
+          fnGetMapLineBusLocation(rowindex, chk_flag);
+      }
+  }
+
+  //--------------------------------------------------
+  // 노선의 버스위치 좌표 취득
+  //--------------------------------------------------
+  function fnGetMapLineBusLocation(rowindex, chk_flag) {
+
+      if (chk_flag == true) {
+          // bus 위치 그리기
+          var url = "/busmap/lineBusLocationList";
+
+          $.ajax({
+              url        : url,
+              type       : 'POST',
+              cache      : false,
+              data       : $("#form1").serialize(),
+              dataType   : 'json',
+              sync       : false, //비동기(true), 동기(false)
+              success    : function(data, textStatus, jqXHR) {
+                             daum_map.busLocationMarker(rowindex, data.list);
+
+                             // 실시간 정보 표시 (2014-05-15)
+                             var busstop_id = $("#BUSSTOP_ID").val();
+                             var busstop_nm = $("#BUSSTOP_NM").val();
+                             var longitude  = $("#LONGITUDE" ).val();
+                             var latitude   = $("#LATITUDE"  ).val();
+                             
+                             if (busstop_id != "" && busstop_nm != "" && longitude != "" && latitude != "") {
+                                 daum_map.busStationLocation(busstop_id, busstop_nm, longitude, latitude);    
+                             }
+                           },
+              error      : function(data, textStatus, jqXHR) {
+
+                           }
+         });
+
+      } else {
+          // bus 위치 지우기
+          daum_map.busLocationUnMarker(rowindex);
+      }
+  }
+
+  //--------------------------------------------------
+  // 노선의 상세정보
+  //--------------------------------------------------
+  function fnGetLineDetail(line_name) {
+
+      $("#LINE_NM").html("'" + line_name + "' 노선정보");
+
+      var url = "/busmap/lineDetail";
+
+      $.ajax({
+          url        : url,
+          type       : 'POST',
+          cache      : false,
+          data       : $("#form1").serialize(),
+          dataType   : 'json',
+          sync       : false, //비동기(true), 동기(false)
+          success    : function(data, textStatus, jqXHR) {
+                         var item = data.detail;
+                         $("#FIRST_RUN_TIME").html(item.FIRST_RUN_TIME);
+                         $("#LAST_RUN_TIME" ).html(item.LAST_RUN_TIME );
+                         $("#RUN_INTERVAL"  ).html(item.RUN_INTERVAL  );
+                         $("#RUN_TIME"      ).html(item.RUN_TIME      );
+                         $("#REMK"          ).html(item.REMK          );
+                         $("#COMP_NAME"     ).html(item.COMP_NAME     );
+                         $("#TEL_NO"        ).html(item.TEL_NO        );
+
+                         //$("#divDetail").css('visibility', 'visible');
+
+                       },
+          error      : function(data, textStatus, jqXHR) {
+                         //$("#divDetail").css('visibility', 'hidden');
+                       }
+          /*
+          error      : function(request,status,error) {
+                         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                       }
+          */
+     });
+
+  }
+
+  //--------------------------------------------------
+  // 노선의 상세정류소정보
+  //--------------------------------------------------
+  function fnGetLineDetailStation(line_name) {
+      var url = "/busmap/lineDetailStationList";
+
+      $.ajax({
+          url        : url,
+          type       : 'POST',
+          cache      : false,
+          data       : $("#form1").serialize(),
+          dataType   : 'json',
+          sync       : false, //비동기(true), 동기(false)
+          success    : function(data, textStatus, jqXHR) {
+                          /*
+                          BUSSTOP_ID
+                          SEQ
+                          RETURN_FLAG
+                          BUSSTOP_NAME
+                          LONGITUDE
+                          LATITUDE
+                          NEXT_BUSSTOP
+                          */
+
+                         var sHtml = "";
+
+                         var BUSSTOP_ID   = "";
+                         var SEQ          = "";
+                         var RETURN_FLAG  = "";
+                         var BUSSTOP_NAME = "";
+                         var LONGITUDE    = "";
+                         var LATITUDE     = "";
+                         var NEXT_BUSSTOP = "";
+                         var fontColor    = "";
+                         var fontWeight   = "";
+                         var title        = "";
+                         var busstopName  = "";
+
+                         $(data.list).each(function(index, item) {
+
+                            BUSSTOP_ID   = item.BUSSTOP_ID;
+                            BUSSTOP_NAME = item.BUSSTOP_NAME;
+                            RETURN_FLAG  = item.RETURN_FLAG;
+                            LONGITUDE    = item.LONGITUDE;
+                            LATITUDE     = item.LATITUDE;
+
+                            fontWeight = "bold";
+
+                            if (RETURN_FLAG == 2) {
+                                fontColor = "#973934";
+                                title     = "출발기점";
+                            } else if (RETURN_FLAG == 3) {
+                                fontColor = "#393497";
+                                title     = "종점";
+                            } else if (RETURN_FLAG == 4) {
+                                fontColor = "#973934";
+                                title     = "종료기점";
+                            } else {
+                                fontColor = "#000000";
+                                title     = "";
+                                fontWeight = "normal";
+                            }
+
+                            busstopName = "<span style='color:" + fontColor + ";font-weight:" + fontWeight + "; font-size:12px; cursor:pointer' title='" + title
+                            + "' onclick=\"daum_map.busDetailStation("
+                            + "'" + index        + "', "
+                            + "'" + line_name    + "', "
+                            + "'" + BUSSTOP_ID   + "', "
+                            + "'" + BUSSTOP_NAME + "', "
+                            + "'" + LONGITUDE    + "', "
+                            + "'" + LATITUDE     + "'"
+                            + ")\">" + BUSSTOP_NAME + "</span>";
+
+                            if (sHtml == "") {
+                                sHtml += busstopName;
+                            } else {
+                                sHtml += " <span style='font-size:9px;color:grey'>▶</span> " + busstopName;
+                            }
+                         });
+                         $("#divStation1").html(sHtml);
+
+                         $("#divStation1").css('visibility', 'visible');
+                       },
+          error      : function(data, textStatus, jqXHR) {
+                         $("#divStation1").css('visibility', 'hidden');
+                       }
+     });
+  }
+
+
+
+  //--------------------------------------------------
+  // 지역(구)
+  //--------------------------------------------------
+  function fnParentAreaList() {
+
+      $.ajax({
+           url        : '/comm/commPAreaList',
+           type       : 'POST',
+           cache      : false,
+           data       : $("#form1").serialize(),
+           dataType   : 'json',
+           success    : function(data, textStatus, jqXHR) {
+                          var select = $("#PAREA_ID");
+                          select.children().remove();
+                          select.append($("<option>").val("").text("구·군선택"));
+                          if (data.list != "") {
+                              $(data.list).each(function(index, item) {
+                                  select.append($("<option>").val(item.AREA_ID).text(item.AREA_NAME));
+                              });
+                          }
+                        },
+           error      : function(data, textStatus, jqXHR) {
+                           alert("지역(구) 처리중 에러가 발생 했습니다.");
+                        }
+      });
+  }
+
+  //--------------------------------------------------
+  // 지역(동)
+  //--------------------------------------------------
+  function fnChangeArea() {
+
+      $("#P_AREA_ID").val($("#PAREA_ID").val());
+
+      $.ajax({
+          url        : '/comm/commAreaList',
+          type       : 'POST',
+          cache      : false,
+          data       : $("#form1").serialize(),
+          dataType   : 'json',
+          success    : function(data, textStatus, jqXHR) {
+                         var select = $("#AREA_ID");
+                         select.children().remove();
+                         if (data.list != "") {
+                             $(data.list).each(function(index, item) {
+                                 select.append($("<option>").val(item.AREA_ID).text(item.AREA_NAME));
+                             });
+                         }
+                       },
+          error      : function(data, textStatus, jqXHR) {
+                          alert("지역(동) 처리중 에러가 발생 했습니다.");
+                       }
+     });
+
+  }
+
+  //--------------------------------------------------
+  // 탭변경시
+  //--------------------------------------------------
+  function fnTab(idx) {
+      $("#divStationGrid").jqxGrid('clear');
+
+      if (idx == 1) {
+          $("#divTab1"   ).attr('class'  , 'radius_sel');
+          $("#divTab2"   ).attr('class'  , 'radius');
+          $("#divBusStop").css ('display', 'inline');
+          $("#divArea"   ).css ('display', 'none'  );
+      } else if (idx == 2) {
+          $("#divTab1"   ).attr('class'  , 'radius');
+          $("#divTab2"   ).attr('class'  , 'radius_sel');
+          $("#divBusStop").css ('display', 'none'  );
+          $("#divArea"   ).css ('display', 'inline');
+      }
+  }
+</script>
+<form name="form1" id="form1" method="post">
+<input type="hidden" id="LINE_ID" name="LINE_ID" />
+<input type="hidden" id="BUSSTOP_ID" name="BUSSTOP_ID"/>
+<input type="hidden" id="BUSSTOP_NM" name="BUSSTOP_NM"/>
+<input type="hidden" id="LONGITUDE" name="LONGITUDE"/>
+<input type="hidden" id="LATITUDE" name="LATITUDE"/>
+<input type="hidden" id="P_AREA_ID" name="P_AREA_ID" />
+<input type="hidden" id="btnLineSearch"/>
+</form>
+<div id="wrap">
+    <div id="gj_wrap">
+
+        <!-- header start -->
+        <div id="gj_header">
+            
+            <div id="gj_login">
+            <ul>
+                <li><a href="/"><img src="/images/main/home.gif" border="0" alt="home" /></a></li>
+                <li><a href="/guide/usemethod/siteMap"><img src="/images/main/sitemap.gif" border="0" alt="sitemap" /></a></li>
+               <!--  <li><a href="/gj_sub6/sub6_2.php"><img src="/images/main/contact.gif" border="0" alt="contact" /></a></li> -->    
+            </ul></div>
+            <div id="gj_logo">
+                <a href="/"><img src="/images/main/logo.gif" border="0" alt="광주광역시 버스운행정보" /></a></div>
+            <div id="gj_menu">
+<div id="Layer1" style="position:absolute; margin:0; padding:0; width:634px; height:60px; z-index:0; visibility:visible;" >
+  <ul id="gnavigation">
+        <!--//첫번째 대메뉴 -->
+        <li id="menu_1" class="menu01"><a href="/busmap/lineSearch" onfocus="displaySub(1)" onmouseover="displaySub(1)" id="a0"><img src="/images/main/menu01.gif" alt="버스도착정보" border="0" /></a>
+            <ul id="subnav_list1">
+                <li id="aaa_1"><a href="/busmap/lineSearch" id="a1">노선검색</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <li id="aaa_2"><a href="/busmap/stationSearch" id="a2">정류소검색</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <li id="aaa_3"><a href="/busmap/locationSearch" id="a3">버스위치검색</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <li id="aaa_5"><a href="/guide/usemethod/busArriveInfo" id="a5">이용방법</a></li>
+            </ul>
+        </li>
+        <!--//두번째 대메뉴 -->
+        <li id="menu_2" class="menu02"><a href="/busmap/busArriveInfo" onfocus="displaySub(2)" onmouseover="displaySub(2)" id="b0"><img src="/images/main/menu02.gif" alt="빠른길찾기"  border="0" /></a>
+            <ul id="subnav_list2">
+              <li id="bbb_1"><a href="/busmap/busArriveInfo" id="b1">출발도착검색</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+              <li id="bbb_2"><a href="/busmap/routeSearch" id="b2">환승검색</a></li>
+            </ul>
+        </li>
+        <!--//세번째 대메뉴 -->
+        <li id="menu_3" class="menu03"><a href="/mybus/myBus" onfocus="displaySub(3)" onmouseover="displaySub(3)" id="c0"><img src="/images/main/menu03.gif" alt="MY BUS"  border="0" /></a>
+            <ul id="subnav_list3">
+              <li id="ccc_1"><a href="/mybus/myBus" id="c1">MY BUS란</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+              <li id="ccc_2"><a href="/mybus/myBusMng" id="c2">MY BUS관리</a></li>
+            </ul>
+        </li>
+        <!--//네번째 대메뉴 -->
+        <li id="menu_4" class="menu04"><a href="/bisinfo/bisInfo" onfocus="displaySub(4)" onmouseover="displaySub(4)" id="d0"><img src="/images/main/menu04.gif" alt="BIS소개"  border="0" /></a>
+            <ul id="subnav_list4">
+                <li id="ddd_1"><a href="/bisinfo/bisInfo" id="d1">BIS소개</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <li id="ddd_2"><a href="/bisinfo/orgGuide" id="d2">관련기관안내</a></li>
+            </ul>
+        </li>
+        <!--//다섯번째 대메뉴 -->
+        <li id="menu_5" class="menu05"><a href="/guide/notice/noticeList" onfocus="displaySub(5)" onmouseover="displaySub(5)" id="e0"><img src="/images/main/menu05.gif" alt="이용안내"  border="0" /></a>
+          <ul id="subnav_list5">
+            <li id="eee_1"><a href="/guide/notice/noticeList" id="e1">공지사항</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li id="eee_2"><a href="/guide/usemethod/busArriveInfo" id="e2">이용방법</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li id="eee_3"><a href="/guide/trafficfare/trafficFare" id="e3">교통카드/요금안내</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li id="eee_4"><a href="/guide/faq/faqList" id="e4">자주묻는 질문</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li id="eee_4"><a href="/guide/lost/lostList" id="e4">분실물센터</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li id="eee_5"><a href="/guide/stnguide/stnGuide" id="e5">정류소번호안내</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li id="eee_6"><a href="/guide/bustime/busTime" id="e6">운행시간표</a></li>
+          </ul>
+        </li>
+    </ul>
+</div></div>
+
+        </div>
+
+        <div id="divMiddle">
+
+            <!-- divLeft -->
+            <div id="divLeft">
+              <div id="divTab">
+                <ul>
+                    <li id="divTab1" class='radius_sel'><a href="#" onclick="fnTab(1)">정류소검색</a></li>
+                    <li id="divTab2" class='radius' style='margin-left:3px'><a href="#" onclick="fnTab(2)">동명검색</a></li>
+                </ul>
+              </div>
+              
+              <div style="clear:both"></div>
+              
+              <div style='padding:5px 0 5px 0'></div>
+              
+              <div id="divBusStop">
+                <ul>
+                    <li style="font-weight:bold;font-size:14px"><img src='/images/busmap/rst_icon02.gif'>정류소명(ARS ID)</li>
+                    <li style="padding-left:3px">
+                      <input style="width:60px;height:16px" type="text" id="BUSSTOP_NAME" name="BUSSTOP_NAME" />
+                    </li>
+                    <li>
+                      <img src="/images/sub3/search.gif" id='btnBusStopSearch' style='cursor:point' alt='검색'>
+                    </li>
+                </ul>
+              </div>
+
+              <div id="divArea" style='display:none'>
+                <ul>
+                  <li style='font-weight:bold;font-size:15px'><img src='/images/busmap/rst_icon02.gif'>구</li>
+                  <li style='padding-left:3px'>
+                    <select style='width:50px' name='PAREA_ID' id='PAREA_ID' onchange='fnChangeArea();''></select>
+                  </li>
+                  <li style='font-weight:bold;font-size:15px'>동</li>
+                  <li style='padding-left:3px'>
+                    <select style='width:60px' name='AREA_ID' id='AREA_ID'></select>
+                  </li>
+                  <li>
+                    <img src='/images/sub3/search.gif' id='btnAreaSearch' style='cursor:point' alt='검색'>
+                  </li>
+                </ul>                
+              </div>
+
+              <!-- Grid -->
+              <div id="divStationGrid"></div>
+              <div id="divLineGrid"></div>
+              <!-- /Grid -->
+
+
+              <!-- 노선상세정보 -->
+              <div id="divDetail">
+
+                <div style="font-weight:bold;padding-top:10px;font-size:15px">&nbsp;<img src='/images/busmap/icon_blue.gif'>&nbsp;노선상세정보</div>
+
+                <div id="divLine">
+
+                    <ul>
+                        <li style='list-style-type:none;'><span id="LINE_NM">노선명을 선택해 주세요.</span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>첫차</li>
+                        <li class='li_body'><span id="FIRST_RUN_TIME"></span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>막차</li>
+                        <li class='li_body'><span id="LAST_RUN_TIME"></span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>운행간격</li>
+                        <li class='li_body'><span id="RUN_INTERVAL"></span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>주행시간</li>
+                        <li class='li_body'><span id="RUN_TIME"></span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>운행업체</li>
+                        <li class='li_body'><span id="COMP_NAME"></span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>전화</li>
+                        <li class='li_body'><span id="TEL_NO"></span></li>
+                    </ul>
+                    <ul>
+                        <li class='li_head'>기점→종점</li>
+                        <li class='li_body'><img src='/images/busmap/busfront_ic01.gif' width='17' height='18' border='0'>(상행)</li>
+                    </ul>
+                    <ul>
+                        <li class='li_lhead'>종점←기점</li>
+                        <li class='li_lbody'><img src='/images/busmap/busfront_ic02.gif' width='17' height='18' border='0'>(하행)</li>
+                    </ul>
+                </div>
+
+                <div style="clear:both"></div>
+
+                <div style="width:100%;font-weight:bold;padding-top:5px">&nbsp;<img src='/images/busmap/icon_blue.gif'>&nbsp;정류소</div>
+
+                <div id="divStation1">노선명을 선택해 주세요.</div>
+              </div>
+              <!-- /노선상세정보 -->
+
+            </div><!-- /divLeft -->
+
+            <div id="divMap"></div>
+        </div>
+
+        <!-- footer start -->
+        <div id="gj_footer_map">
+            <div id="gj_footer_content">
+                
+                <div class="footer_left">
+                    <img src="/images/main/address_map.gif" alt="주소" border="0" />   
+                </div>
+                <div class="footer_right">
+                    <select name="select" id="select" style="width:150px; height:19px;background :#EfEfef;border:1 solid #787878;cursor: hand; vertical-align:middle;">
+                        <option selected="selected" value="/">관련사이트 바로가기</option>
+                        <option value="http://www.gwangju.go.kr">광주광역시청</option>
+                    </select>
+                    <a href="javascript:MM_jumpMenu()"><img alt="이동" src="/images/main/button.gif" border="0" /></a>
+                </div>
+            </div>
+        </div>
+        <!-- footer end -->
+
+    </div>
+</div>
+
+
+</body>
+</html>

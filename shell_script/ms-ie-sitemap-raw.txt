@@ -1,0 +1,2 @@
+--2014-08-07 11:19:41--  http://www.dell.com/support/my-support/ie/en/iedhs1/
+HTTP request sent, awaiting response... 301 Moved Permanently

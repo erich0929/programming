@@ -40,7 +40,7 @@ html
             if result
               each article in result
                div(id='#{article._id}').ym-g50.ym-gl
-                a(href='/articles.rep?article_id=' + article._id)
+                a(href='/#{repository}.rep?article_id=' + article._id)
                  h3(style='color : #07c;')= article.title
                div.ym-g50.ym-gr
                  h3= article.saved_at.getMonth () + 1 

@@ -3,13 +3,20 @@ var fs = require ('fs');
 var crypto = require ('crypto');
 var randString = require ('randomstring');
 
+exports.main = function (req, res) {
+	res.render ('main', {});
+
+}
+
 exports.index = function (req, res) {
 	var currentPage = req.query.page || 0;
 	if (currentPage == 0) currentPage = 1;
 	var articlePerPage = 10;
 	
 	var totalPage = 0;
-	model.collection.count (function (err, count){ 
+	
+	var repository = model.getRepository (req.repository);
+	repository.count (function (err, count){ 
 		totalPage = Math.ceil (count / articlePerPage);
 		if (currentPage > totalPage) currentPage = totalPage;
 		var skip = (currentPage - 1) * articlePerPage;
@@ -23,7 +30,8 @@ exports.index = function (req, res) {
 						res.render ('index', {result : result,
 										  	  currentPage : currentPage,
 										  	  totalPage : totalPage,
-										  	  session : req.session
+										  	  session : req.session,
+										  	  repository : req.repository
 						 				 	 });
 							}
 					);
@@ -32,21 +40,26 @@ exports.index = function (req, res) {
 };
 
 exports.article = function (req, res) {
-	var id = req.query.article_id;	
-	if (!id)  res.redirect ('/');
-	var repository = model.getRepository (req.repository);
-	repository.findOne ({ _id : new model.ObjectID (id) }, function (err, article) {
+	req.query.article_id = req.query.article_id || '';	
+	var id = req.query.article_id;
+
+	if (!id)  {
+		exports.index (req, res, repository);
+	} else {
+		var repository = model.getRepository (req.repository);
+		repository.findOne ({ _id : new model.ObjectID (id) }, function (err, article) {
 						if (article === '') {
 							res.redirect ('/');
 						} else {
 							req.session.backpage = req.session.currentPage;
 							req.session.currentPage = '/article?article_id=' + id;
 							res.render ('article', { article : article,
-						   							session : req.session,
-						   							repository : req.repository
+													session : req.session,
+							   						repository : req.repository
 							});
 						}
-	});
+		});
+	}
 };
 
 exports.comment = function (req, res) {

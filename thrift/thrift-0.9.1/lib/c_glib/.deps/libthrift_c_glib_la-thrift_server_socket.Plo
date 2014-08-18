@@ -1,0 +1,520 @@
+libthrift_c_glib_la-thrift_server_socket.lo: \
+ src/thrift/c_glib/transport/thrift_server_socket.c /usr/include/errno.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/bits/predefs.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/netdb.h /usr/include/netinet/in.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/rpc/netdb.h \
+ /usr/include/x86_64-linux-gnu/bits/netdb.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ src/thrift/c_glib/thrift.h ../../config.h \
+ /opt/glib/include/glib-2.0/glib.h \
+ /opt/glib/include/glib-2.0/glib/galloca.h \
+ /opt/glib/include/glib-2.0/glib/gtypes.h \
+ /opt/glib/lib/glib-2.0/include/glibconfig.h \
+ /opt/glib/include/glib-2.0/glib/gmacros.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/float.h \
+ /opt/glib/include/glib-2.0/glib/gversionmacros.h \
+ /opt/glib/include/glib-2.0/glib/garray.h \
+ /opt/glib/include/glib-2.0/glib/gasyncqueue.h \
+ /opt/glib/include/glib-2.0/glib/gthread.h \
+ /opt/glib/include/glib-2.0/glib/gatomic.h \
+ /opt/glib/include/glib-2.0/glib/gerror.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdarg.h \
+ /opt/glib/include/glib-2.0/glib/gquark.h \
+ /opt/glib/include/glib-2.0/glib/gbacktrace.h /usr/include/signal.h \
+ /usr/include/x86_64-linux-gnu/bits/signum.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo.h \
+ /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+ /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+ /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h \
+ /opt/glib/include/glib-2.0/glib/gbase64.h \
+ /opt/glib/include/glib-2.0/glib/gbitlock.h \
+ /opt/glib/include/glib-2.0/glib/gbookmarkfile.h \
+ /opt/glib/include/glib-2.0/glib/gbytes.h \
+ /opt/glib/include/glib-2.0/glib/gcharset.h \
+ /opt/glib/include/glib-2.0/glib/gchecksum.h \
+ /opt/glib/include/glib-2.0/glib/gconvert.h \
+ /opt/glib/include/glib-2.0/glib/gdataset.h \
+ /opt/glib/include/glib-2.0/glib/gdate.h \
+ /opt/glib/include/glib-2.0/glib/gdatetime.h \
+ /opt/glib/include/glib-2.0/glib/gtimezone.h \
+ /opt/glib/include/glib-2.0/glib/gdir.h /usr/include/dirent.h \
+ /usr/include/x86_64-linux-gnu/bits/dirent.h \
+ /opt/glib/include/glib-2.0/glib/genviron.h \
+ /opt/glib/include/glib-2.0/glib/gfileutils.h \
+ /opt/glib/include/glib-2.0/glib/ggettext.h \
+ /opt/glib/include/glib-2.0/glib/ghash.h \
+ /opt/glib/include/glib-2.0/glib/glist.h \
+ /opt/glib/include/glib-2.0/glib/gmem.h \
+ /opt/glib/include/glib-2.0/glib/gnode.h \
+ /opt/glib/include/glib-2.0/glib/ghmac.h \
+ /opt/glib/include/glib-2.0/glib/gchecksum.h \
+ /opt/glib/include/glib-2.0/glib/ghook.h \
+ /opt/glib/include/glib-2.0/glib/ghostutils.h \
+ /opt/glib/include/glib-2.0/glib/giochannel.h \
+ /opt/glib/include/glib-2.0/glib/gmain.h \
+ /opt/glib/include/glib-2.0/glib/gpoll.h \
+ /opt/glib/include/glib-2.0/glib/gslist.h \
+ /opt/glib/include/glib-2.0/glib/gstring.h \
+ /opt/glib/include/glib-2.0/glib/gunicode.h \
+ /opt/glib/include/glib-2.0/glib/gutils.h \
+ /opt/glib/include/glib-2.0/glib/gkeyfile.h \
+ /opt/glib/include/glib-2.0/glib/gmappedfile.h \
+ /opt/glib/include/glib-2.0/glib/gmarkup.h \
+ /opt/glib/include/glib-2.0/glib/gmessages.h \
+ /opt/glib/include/glib-2.0/glib/goption.h \
+ /opt/glib/include/glib-2.0/glib/gpattern.h \
+ /opt/glib/include/glib-2.0/glib/gprimes.h \
+ /opt/glib/include/glib-2.0/glib/gqsort.h \
+ /opt/glib/include/glib-2.0/glib/gqueue.h \
+ /opt/glib/include/glib-2.0/glib/grand.h \
+ /opt/glib/include/glib-2.0/glib/gregex.h \
+ /opt/glib/include/glib-2.0/glib/gscanner.h \
+ /opt/glib/include/glib-2.0/glib/gsequence.h \
+ /opt/glib/include/glib-2.0/glib/gshell.h \
+ /opt/glib/include/glib-2.0/glib/gslice.h \
+ /opt/glib/include/glib-2.0/glib/gspawn.h \
+ /opt/glib/include/glib-2.0/glib/gstrfuncs.h \
+ /opt/glib/include/glib-2.0/glib/gstringchunk.h \
+ /opt/glib/include/glib-2.0/glib/gtestutils.h \
+ /opt/glib/include/glib-2.0/glib/gthreadpool.h \
+ /opt/glib/include/glib-2.0/glib/gtimer.h \
+ /opt/glib/include/glib-2.0/glib/gtrashstack.h \
+ /opt/glib/include/glib-2.0/glib/gtree.h \
+ /opt/glib/include/glib-2.0/glib/gurifuncs.h \
+ /opt/glib/include/glib-2.0/glib/gvarianttype.h \
+ /opt/glib/include/glib-2.0/glib/gvariant.h \
+ /opt/glib/include/glib-2.0/glib/gversion.h \
+ /opt/glib/include/glib-2.0/glib/deprecated/gallocator.h \
+ /opt/glib/include/glib-2.0/glib/deprecated/gcache.h \
+ /opt/glib/include/glib-2.0/glib/deprecated/gcompletion.h \
+ /opt/glib/include/glib-2.0/glib/deprecated/gmain.h \
+ /opt/glib/include/glib-2.0/glib/deprecated/grel.h \
+ /opt/glib/include/glib-2.0/glib/deprecated/gthread.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ src/thrift/c_glib/transport/thrift_socket.h \
+ /opt/glib/include/glib-2.0/glib-object.h \
+ /opt/glib/include/glib-2.0/gobject/gbinding.h \
+ /opt/glib/include/glib-2.0/gobject/gobject.h \
+ /opt/glib/include/glib-2.0/gobject/gtype.h \
+ /opt/glib/include/glib-2.0/gobject/gvalue.h \
+ /opt/glib/include/glib-2.0/gobject/gparam.h \
+ /opt/glib/include/glib-2.0/gobject/gclosure.h \
+ /opt/glib/include/glib-2.0/gobject/gsignal.h \
+ /opt/glib/include/glib-2.0/gobject/gmarshal.h \
+ /opt/glib/include/glib-2.0/gobject/gboxed.h \
+ /opt/glib/include/glib-2.0/gobject/glib-types.h \
+ /opt/glib/include/glib-2.0/gobject/genums.h \
+ /opt/glib/include/glib-2.0/gobject/gparamspecs.h \
+ /opt/glib/include/glib-2.0/gobject/gsourceclosure.h \
+ /opt/glib/include/glib-2.0/gobject/gtypemodule.h \
+ /opt/glib/include/glib-2.0/gobject/gtypeplugin.h \
+ /opt/glib/include/glib-2.0/gobject/gvaluearray.h \
+ /opt/glib/include/glib-2.0/gobject/gvaluetypes.h \
+ src/thrift/c_glib/transport/thrift_transport.h \
+ src/thrift/c_glib/transport/thrift_server_transport.h \
+ src/thrift/c_glib/transport/thrift_transport.h \
+ src/thrift/c_glib/transport/thrift_server_socket.h \
+ src/thrift/c_glib/transport/thrift_server_transport.h
+
+/usr/include/errno.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/bits/predefs.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/netdb.h:
+
+/usr/include/netinet/in.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/sys/socket.h:
+
+/usr/include/x86_64-linux-gnu/sys/uio.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio.h:
+
+/usr/include/x86_64-linux-gnu/bits/socket.h:
+
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
+/usr/include/x86_64-linux-gnu/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/x86_64-linux-gnu/bits/in.h:
+
+/usr/include/rpc/netdb.h:
+
+/usr/include/x86_64-linux-gnu/bits/netdb.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/getopt.h:
+
+src/thrift/c_glib/thrift.h:
+
+../../config.h:
+
+/opt/glib/include/glib-2.0/glib.h:
+
+/opt/glib/include/glib-2.0/glib/galloca.h:
+
+/opt/glib/include/glib-2.0/glib/gtypes.h:
+
+/opt/glib/lib/glib-2.0/include/glibconfig.h:
+
+/opt/glib/include/glib-2.0/glib/gmacros.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/float.h:
+
+/opt/glib/include/glib-2.0/glib/gversionmacros.h:
+
+/opt/glib/include/glib-2.0/glib/garray.h:
+
+/opt/glib/include/glib-2.0/glib/gasyncqueue.h:
+
+/opt/glib/include/glib-2.0/glib/gthread.h:
+
+/opt/glib/include/glib-2.0/glib/gatomic.h:
+
+/opt/glib/include/glib-2.0/glib/gerror.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdarg.h:
+
+/opt/glib/include/glib-2.0/glib/gquark.h:
+
+/opt/glib/include/glib-2.0/glib/gbacktrace.h:
+
+/usr/include/signal.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/opt/glib/include/glib-2.0/glib/gbase64.h:
+
+/opt/glib/include/glib-2.0/glib/gbitlock.h:
+
+/opt/glib/include/glib-2.0/glib/gbookmarkfile.h:
+
+/opt/glib/include/glib-2.0/glib/gbytes.h:
+
+/opt/glib/include/glib-2.0/glib/gcharset.h:
+
+/opt/glib/include/glib-2.0/glib/gchecksum.h:
+
+/opt/glib/include/glib-2.0/glib/gconvert.h:
+
+/opt/glib/include/glib-2.0/glib/gdataset.h:
+
+/opt/glib/include/glib-2.0/glib/gdate.h:
+
+/opt/glib/include/glib-2.0/glib/gdatetime.h:
+
+/opt/glib/include/glib-2.0/glib/gtimezone.h:
+
+/opt/glib/include/glib-2.0/glib/gdir.h:
+
+/usr/include/dirent.h:
+
+/usr/include/x86_64-linux-gnu/bits/dirent.h:
+
+/opt/glib/include/glib-2.0/glib/genviron.h:
+
+/opt/glib/include/glib-2.0/glib/gfileutils.h:
+
+/opt/glib/include/glib-2.0/glib/ggettext.h:
+
+/opt/glib/include/glib-2.0/glib/ghash.h:
+
+/opt/glib/include/glib-2.0/glib/glist.h:
+
+/opt/glib/include/glib-2.0/glib/gmem.h:
+
+/opt/glib/include/glib-2.0/glib/gnode.h:
+
+/opt/glib/include/glib-2.0/glib/ghmac.h:
+
+/opt/glib/include/glib-2.0/glib/gchecksum.h:
+
+/opt/glib/include/glib-2.0/glib/ghook.h:
+
+/opt/glib/include/glib-2.0/glib/ghostutils.h:
+
+/opt/glib/include/glib-2.0/glib/giochannel.h:
+
+/opt/glib/include/glib-2.0/glib/gmain.h:
+
+/opt/glib/include/glib-2.0/glib/gpoll.h:
+
+/opt/glib/include/glib-2.0/glib/gslist.h:
+
+/opt/glib/include/glib-2.0/glib/gstring.h:
+
+/opt/glib/include/glib-2.0/glib/gunicode.h:
+
+/opt/glib/include/glib-2.0/glib/gutils.h:
+
+/opt/glib/include/glib-2.0/glib/gkeyfile.h:
+
+/opt/glib/include/glib-2.0/glib/gmappedfile.h:
+
+/opt/glib/include/glib-2.0/glib/gmarkup.h:
+
+/opt/glib/include/glib-2.0/glib/gmessages.h:
+
+/opt/glib/include/glib-2.0/glib/goption.h:
+
+/opt/glib/include/glib-2.0/glib/gpattern.h:
+
+/opt/glib/include/glib-2.0/glib/gprimes.h:
+
+/opt/glib/include/glib-2.0/glib/gqsort.h:
+
+/opt/glib/include/glib-2.0/glib/gqueue.h:
+
+/opt/glib/include/glib-2.0/glib/grand.h:
+
+/opt/glib/include/glib-2.0/glib/gregex.h:
+
+/opt/glib/include/glib-2.0/glib/gscanner.h:
+
+/opt/glib/include/glib-2.0/glib/gsequence.h:
+
+/opt/glib/include/glib-2.0/glib/gshell.h:
+
+/opt/glib/include/glib-2.0/glib/gslice.h:
+
+/opt/glib/include/glib-2.0/glib/gspawn.h:
+
+/opt/glib/include/glib-2.0/glib/gstrfuncs.h:
+
+/opt/glib/include/glib-2.0/glib/gstringchunk.h:
+
+/opt/glib/include/glib-2.0/glib/gtestutils.h:
+
+/opt/glib/include/glib-2.0/glib/gthreadpool.h:
+
+/opt/glib/include/glib-2.0/glib/gtimer.h:
+
+/opt/glib/include/glib-2.0/glib/gtrashstack.h:
+
+/opt/glib/include/glib-2.0/glib/gtree.h:
+
+/opt/glib/include/glib-2.0/glib/gurifuncs.h:
+
+/opt/glib/include/glib-2.0/glib/gvarianttype.h:
+
+/opt/glib/include/glib-2.0/glib/gvariant.h:
+
+/opt/glib/include/glib-2.0/glib/gversion.h:
+
+/opt/glib/include/glib-2.0/glib/deprecated/gallocator.h:
+
+/opt/glib/include/glib-2.0/glib/deprecated/gcache.h:
+
+/opt/glib/include/glib-2.0/glib/deprecated/gcompletion.h:
+
+/opt/glib/include/glib-2.0/glib/deprecated/gmain.h:
+
+/opt/glib/include/glib-2.0/glib/deprecated/grel.h:
+
+/opt/glib/include/glib-2.0/glib/deprecated/gthread.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+src/thrift/c_glib/transport/thrift_socket.h:
+
+/opt/glib/include/glib-2.0/glib-object.h:
+
+/opt/glib/include/glib-2.0/gobject/gbinding.h:
+
+/opt/glib/include/glib-2.0/gobject/gobject.h:
+
+/opt/glib/include/glib-2.0/gobject/gtype.h:
+
+/opt/glib/include/glib-2.0/gobject/gvalue.h:
+
+/opt/glib/include/glib-2.0/gobject/gparam.h:
+
+/opt/glib/include/glib-2.0/gobject/gclosure.h:
+
+/opt/glib/include/glib-2.0/gobject/gsignal.h:
+
+/opt/glib/include/glib-2.0/gobject/gmarshal.h:
+
+/opt/glib/include/glib-2.0/gobject/gboxed.h:
+
+/opt/glib/include/glib-2.0/gobject/glib-types.h:
+
+/opt/glib/include/glib-2.0/gobject/genums.h:
+
+/opt/glib/include/glib-2.0/gobject/gparamspecs.h:
+
+/opt/glib/include/glib-2.0/gobject/gsourceclosure.h:
+
+/opt/glib/include/glib-2.0/gobject/gtypemodule.h:
+
+/opt/glib/include/glib-2.0/gobject/gtypeplugin.h:
+
+/opt/glib/include/glib-2.0/gobject/gvaluearray.h:
+
+/opt/glib/include/glib-2.0/gobject/gvaluetypes.h:
+
+src/thrift/c_glib/transport/thrift_transport.h:
+
+src/thrift/c_glib/transport/thrift_server_transport.h:
+
+src/thrift/c_glib/transport/thrift_transport.h:
+
+src/thrift/c_glib/transport/thrift_server_socket.h:
+
+src/thrift/c_glib/transport/thrift_server_transport.h:

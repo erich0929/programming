@@ -1,0 +1,31 @@
+#!/usr/bin/node	
+
+var mongo = require ('/home/erich0929/programming/nodejs/bus/node_modules/mongoskin');
+var db = mongo.db ('mongodb://localhost:27017/GJBusSystem');
+var repository = db.collection ('lines');
+
+var regex = new RegExp ('.*' + process.argv [2] + '.*', 'i');
+//console.log (regex);
+
+var arr = [];
+repository.find ({'BUSSTOP_NAME' : regex}).toArray (function (err, res) {
+	for (var i=0; i < res.length; i++) {
+		arr.push (res [i].BUSSTOP_NAME);
+	}	
+	//console.log( arr);
+	var out = arr.unique ();
+	for (i = 0; i < out.length ; i++) {
+		console.log (out [i]);
+	}
+	db.close ();
+});;
+
+Array.prototype.unique = function() {
+	var unique = [];
+	for (var i = 0; i < this.length; i++) {
+		if (unique.indexOf(this[i]) == -1) {
+			unique.push(this[i]);
+		}
+	}
+	return unique;
+};
