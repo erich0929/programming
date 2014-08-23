@@ -18,11 +18,12 @@ var out = [];
 //console.log (out ["name"]);
 
 for (var i = 0; i < arr.length ; i ++) {
-	out [Object.prototype.toString (arr [i].value)] = arr [i];
+	out [arr [i].value + "_"] = arr [i];
 }
 
 //console.log ("김광로".hashCode ());
 console.log ('-------');
 console.log (arr);
 console.log ('-------');
-console.log (Number.prototype.toString (1));
+console.log (out);
+//console.log (Number.prototype.toString (1));

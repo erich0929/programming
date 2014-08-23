@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<TabTree align="top">
+<Tab name="코어" image="5">
+<Tree bgColor="255,255,255" nodeBgColor="255,255,255" txtColor="0,0,0" enableMenu="false" nodeHeight="18" bold="false" italic="false" underLine="false" strikeOut="false" fontName="굴림" on="1" off="0">
+<Node code="C-001" name="XTree 컴포넌트가 설치되었습니다." command="" />
+<Node code="C-002" name="여기를 클릭하세요" command="http://www.naver.com" />
+</Tree>
+</Tab>
+</TabTree>

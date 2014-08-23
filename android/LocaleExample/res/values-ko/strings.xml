@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">로케일 예제입니다!</string>
+	<string name="app_name">로케일 예제</string>
+</resources>

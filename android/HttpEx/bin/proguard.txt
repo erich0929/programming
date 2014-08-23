@@ -1,0 +1,3 @@
+# view AndroidManifest.xml #generated:7
+-keep class com.erich0929.www.HttpEx { <init>(...); }
+

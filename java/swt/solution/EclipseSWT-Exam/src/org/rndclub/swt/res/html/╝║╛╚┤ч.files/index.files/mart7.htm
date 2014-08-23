@@ -1,0 +1,2330 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>:::성안당.COM에 오신것을 환영합니다.:::</title>
+
+<style>
+
+A:link {text-decoration:none; color:#464646;}
+A:visited {text-decoration:none; color:#464646;}
+A:hover {  text-decoration:none;  color:#3E8FFC;}
+
+body,p,br,table,tr,td,input,select,textarea
+{
+	font-family : 굴림,돋움;
+	font-size   : 9pt;
+	line-height : 140%;
+}
+img
+{
+	border : 0;
+}
+.Blink
+{
+	cursor : pointer;
+	text-decoration : underline;
+	color : blue;
+}
+</style>
+
+
+<style>
+.title {font-family: "굴림", "굴림체";font-size: 12pt;font-weight: bold;color: #666666;}
+.white {font-family: "돋움체";font-size: 9pt;font-weight: bold;color: #FFFFFF;}
+
+.textarea {	background-color: #F9F9F9; border-bottom: #999999 1px solid; border-left: #999999 1px solid; border-right:  #999999 1px solid;
+			border-top: #999999 1px solid; color: #3E3E3E; font-size: 9pt;}
+
+.pro:link {font-family: "돋움", "돋움체";font-size: 9pt;line-height: 130%;font-weight: bold;color: #417793;}
+.pro:hover {text-decoration:underline ;font-family: "돋움", "돋움체";font-size: 9pt;line-height: 130%;font-weight: bold;color: #417793;}
+
+.pro2:link {font-family: "돋움", "돋움체";font-size: 9pt;line-height: 130%;font-weight: bold;color: #467620;}
+.pro2:visited {font-family: "돋움", "돋움체";font-size: 9pt;line-height: 130%;font-weight: bold;color: #467620;}
+.pro2:hover {text-decoration:underline ;font-family: "돋움", "돋움체";font-size: 9pt;line-height: 130%;font-weight: bold;color: #467620;}
+
+.price {font-family: "돋움", "돋움체";font-size: 9pt;font-weight: bold;color: #67B92B;}
+
+.small {font-family: "굴림", "굴림체";font-size: 8.5pt;line-height: 130%;color: #666666;letter-spacing: 0px;}
+.text {font-family: "돋움", "돋움체";font-size: 9pt;line-height: 140%;color: #666666;}
+.box {font-family: "굴림";font-size: 9pt;color: #333333;border: 1px solid #999999;line-height: 140%;Z-INDEX: 0;}
+.box1 {	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #999999 1px solid; COLOR: #333333; LINE-HEIGHT: 140%; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "굴림"
+}
+
+</style>
+<script src="/common/flash.js"></script>
+
+<script language="javascript">
+function goods_mouseover()
+{
+	if(goods_timerID)
+	clearTimeout(goods_timerID);
+}
+
+function goods_mouseout()
+{
+	goods_timerID = setTimeout("goods_scroll()",goods_speed);
+}
+
+function goods_scroll()
+{
+
+	var x = document.getElementById('goods_layer1');
+	var y = document.getElementById('goods_layer2');
+	x.style.pixelTop = x.style.pixelTop - goods_handle;
+	y.style.pixelTop = y.style.pixelTop - goods_handle;
+//window.status = goods_cnt + " "  + goods_idx ;//+ "x:" + x.style.pixelTop + " y:" + y.style.pixelTop;	
+	if(y.style.pixelTop <= 0)// 정방향 일때
+	{
+		if(goods_switch)  goods_idx++;
+		if(goods_idx >=goods_cnt) goods_idx = goods_cnt;
+
+		goods_switch = false;
+		x.innerHTML = goods[goods_idx];
+		x.style.pixelTop = 0;
+		goods_idx=(goods_idx+goods_handle)%goods_cnt;
+		y.innerHTML = goods[goods_idx];
+		y.style.pixelTop = goods_height+goods_handle;
+		goods_timerID = setTimeout("goods_scroll()",goods_wait);
+	} 
+	else if(x.style.pixelTop >= 0) // 역방향 일때
+	{
+		if(goods_switch)  goods_idx--;
+		if(goods_idx <=0) goods_idx = 0;
+
+		goods_switch = false;
+		y.innerHTML = goods[goods_idx];
+		y.style.pixelTop = 0;
+		if(goods_idx<=0) goods_idx = goods_cnt ;
+		goods_idx=(goods_idx+goods_handle)%goods_cnt;
+		x.innerHTML = goods[goods_idx];
+		x.style.pixelTop = -(goods_height+goods_handle)-1;
+		goods_timerID = setTimeout("goods_scroll()",goods_wait);
+	}
+	else{
+		goods_timerID = setTimeout("goods_scroll()",goods_speed);
+	}
+}
+
+function goods_StartScroll()
+{
+	var x = document.getElementById('goods_layer1');
+	var y = document.getElementById('goods_layer2');
+
+	x.innerHTML = goods[0];
+	y.innerHTML = goods[1];
+	y.style.pixelTop = goods_height+1;
+	goods_idx=1;
+
+	goods_timerID = setTimeout("goods_scroll()",goods_wait);
+}
+
+function CheckUIElements()
+{
+	var yMenu1From, yMenu1To, yOffset, timeoutNextCheck;
+	var wndWidth = parseInt(document.body.clientWidth);
+
+	yMenu1From   = parseInt (side_left.style.top, 10);
+	yMenu1To     = document.body.scrollTop + 150;
+
+	timeoutNextCheck = 500;
+
+	if ( yMenu1From != yMenu1To )
+	{
+		yOffset = Math.ceil( Math.abs( yMenu1To - yMenu1From ) / 20 );
+		if ( yMenu1To < yMenu1From  ) yOffset = -yOffset;
+		side_left.style.top = parseInt (side_left.style.top, 10) + yOffset;
+		timeoutNextCheck = 10;
+	}
+	setTimeout ("CheckUIElements()", timeoutNextCheck);
+}
+
+function MovePosition()
+{
+	var wndWidth = parseInt(document.body.clientWidth);
+	side_left.style.top = document.body.scrollTop + 150;
+	CheckUIElements();
+	return true;
+}
+
+function goods_move(type)
+{
+	if(type==goods_handle) return;
+	goods_handle = type;
+	goods_switch = true;
+}
+function msearchCheck(o)
+{
+	if(o.keyword.value.length < 2) {
+		alert("검색어를 입력하세요.            ");
+		o.keyword.focus();
+		return false;
+	}
+	return true;
+}
+
+/* 2006-02-10, hclee
+function goods_Start_Move(type)
+{
+	var x = document.getElementById('goods_layer1');
+	var y = document.getElementById('goods_layer2');
+
+	x.innerHTML = goods[0];
+	y.innerHTML = goods[1];
+	y.style.pixelTop = goods_height+type;
+	goods_idx=1;
+
+	goods_timerID = setTimeout("goods_move(" + type + ")",goods_speed);
+}
+*/
+var goods_width=480;								// 영역의 폭
+var goods_height=110;								// 영역의 높이
+var goods_bgcolor='';								// 영역의 배경색
+var goods_background='';							// 영역의 배경 이미지
+var goods_cnt = 0;									// 메세지 갯수
+var goods_speed='20';	//1							// 스크롤 속도(단위:ms)
+var goods_wait='1500';	//4000							// 메세지 멈춤 시간(단위:ms)
+var goods_timerID='';								// 타이머 ID
+var goods_idx=1;									// 첨자
+var goods_handle=1;// 1:정방향, -1:역방향
+var goods_switch=false;	// false:, true:새로바뀌었다면
+//var goods_up_speed='1';
+//var goods_up_wait='0';
+
+</script>
+
+<script>
+<!--
+function WinEvent(must, endDate)
+	{
+		if(isPast(endDate) == false) return; // 날짜가 지났으면 must에 상관없이 보여주지 않음
+
+		var name = 'popup200605_exam'; // popup_goodby_2003
+
+		var url;
+		if ( must==true || GetCookie( name ) != 'done'  ) {
+			url = '/event/200605/exam.html';
+			PopWin(url,name, 300, 225, 'no',100, 100 );
+		}
+	}
+	function WinEvent2(must, endDate)
+	{
+		if(isPast(endDate) == false) return; // 날짜가 지났으면 must에 상관없이 보여주지 않음
+
+		var name = '200605_old'; // popup_goodby_2003
+
+		var url;
+		if ( must==true || GetCookie( name ) != 'done'  ) {
+			url = '/event/200605/popup.html';
+			PopWin(url,name, 420, 285, 'no',100, 100 );
+		}
+	}
+	function WinEvent3(must, endDate)
+	{
+		if(isPast(endDate) == false) return; // 날짜가 지났으면 must에 상관없이 보여주지 않음
+
+		var name = '200605A'; // popup_goodby_2003
+
+		var url;
+		if ( must==true || GetCookie( name ) != 'done'  ) {
+			url = '/event/200605A/popup.html';
+			PopWin(url,name, 420, 285, 'no',100, 100 );
+		}
+	}
+//	WinEvent(false,"2006-9-30"); // 이벤트 
+//	WinEvent3(false,"2006-5-15"); // 이벤트
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+</head>
+
+<body leftmargin=2 topmargin=0>
+
+<body background=images/main_bg.jpg onLoad="MM_preloadImages('images/left_m1_on.gif','images/left_m2_on.gif','images/left_m3_on.gif','images/left_m4_on.gif','images/left_m5_on.gif','images/left_m6_on.gif','images/left_m7_on.gif','images/left_m8_on.gif','images/left_m9_on.gif','images/left_m10_on.gif','images/left_m11_on.gif','images/left_m12_on.gif','images/left_m14_on.gif','images/left_m15_on.gif','images/left_m16_on.gif','images/left_m18_on.gif','images/left_m19_on.gif','left_m17_on.gif','images/left_m20_on.gif','images/left_m21_on.gif','images/left_m22_on.gif','images/left_m23_on.gif','images/left_m24_on.gif','images/left_m25_on.gif','images/left_m26_on.gif','images/left_m27_on.gif','images/left_m28_on.gif','images/left_m29_on.gif','images/left_m30_on.gif','images/left_m31_on.gif','images/left_m32_on.gif','images/left_m33_on.gif','images/left_m13_on.gif')">
+
+<!--메인메뉴테이블-->
+<FORM NAME='pass_check_form' ACTION='./bbs.php' METHOD=POST onsubmit="return PassInputCheck();" style='display:inline;'>
+</FORM>
+
+<!--메뉴 시작-->
+<table width="977" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="212" rowspan="2" valign="top"><a href="/"><img src="images/logo.jpg" width="212" height="75" border="0"></a></td>
+    <td width="764" bgcolor="black"><table width="764" height="22" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="448" >&nbsp;</td>
+        <td width="60"><a href="/mart7/index.php"><img src="images/t_01.jpg" width="44" height="12" border="0"></a></td>
+        <td width="60"><a href='./mypage.php'><img src="images/t_02.jpg" width="44" height="12" border="0"></a></td>
+        <td width="60"><a href="/mart7/cart.php"><img src="images/t_03.jpg" width="51" height="12" border="0"></a></td>
+        <td width="80"><a href='./mypage.php?query=order'><img src="images/t_04.jpg" width="75" height="12" border="0"></a></td>
+        <td width="61"><a href="/mart7/cyber.php"><img src="images/t_05.jpg" width="53" height="12" border="0"></a></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><script>setFlash("images/menu.swf",763 ,53);</script></td>
+  </tr>
+</table>
+<table width="977" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="212"><img src="images/main_img01.jpg" width="212" height="55"></td>
+    <td><table width="100%" height="50"  border="0" cellpadding="0" cellspacing="0" background="images/login_bg.jpg">
+      <tr>
+        <td width="39%">&nbsp;</td>
+        <td width="38%">
+         
+
+		  <!---로그아웃 ------------------>
+          <table width="277" border="0" cellspacing="0" cellpadding="0">
+            <form name='loginFormTop' action='./lib/login.php' method=post onsubmit="if(!this.MB_ID.value){alert('아이디를 입력하세요!');return false;
+	  } if(!this.MB_PW.value){alert('비밀번호를 입력하세요!');return false;}">
+              <tr>
+                <td width="30"><img src="images/id.gif" width="30" height="12"></td>
+                <td width="75"><input name="MB_ID" type="text" class="box" size="10"></td>
+                <td width="39"><img src="images/pw.gif" width="39" height="12"></td>
+                <td width="81"><input name="MB_PW" type="password" class="box" size="10"></td>
+                <td width="35" align="right"><input name="image2" type=image src="images/login.gif" width="60" height="19"></td>
+              </tr>
+            </form>
+          </table>
+		  <!---로그아웃 ------------------>
+	
+        </td>
+        <td width="23%"><table width="145" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="52"><a href="/mart7/regis.php"><img src="images/b_join.gif" width="48" height="16" border="0"></a></td>
+              <td width="93"><img src="images/b_pw.gif" width="93" height="16"  style='cursor:pointer;' onclick="window.open('./lib/module/idpwsearch/search.php','p','width=450,height=262')"></td>            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<!--메뉴 끝-->
+</body>
+
+<script language=javascript>
+/****************************************************************************************
+* ./lib/js/init.js
+/****************************************************************************************/
+//스트링 끊기
+function getCutString(str,num,ss)
+{
+	return str.substring(0,num) + ss;
+}
+//타입비교 (비교문자 , 비교형식 ; ex: getTypeCheck(string , "1234567890") ) 
+function getTypeCheck (s, spc)
+{
+	var i;
+
+	for(i=0; i< s.length; i++) 
+	{
+		if (spc.indexOf(s.substring(i, i+1)) < 0) 
+		{
+			return false;
+		}
+	}        
+	return true;
+}
+
+//콤마삽입 (number_format)
+function commaSplit(srcNumber) 
+{ 
+	var txtNumber = '' + srcNumber; 
+
+	var rxSplit = new RegExp('([0-9])([0-9][0-9][0-9][,.])'); 
+	var arrNumber = txtNumber.split('.'); 
+	arrNumber[0] += '.'; 
+	do { 
+		arrNumber[0] = arrNumber[0].replace(rxSplit, '$1,$2'); 
+	} 
+	while (rxSplit.test(arrNumber[0])); 
+	if (arrNumber.length > 1) { 
+		return arrNumber.join(''); 
+	} 
+	else { 
+		return arrNumber[0].split('.')[0]; 
+	} 
+}
+
+//콤마제거
+function filterNum(str) 
+{ 
+	re = /^\$|,/g; 
+	return str.replace(re, ""); 
+}
+
+//날짜format - getDateFormat('20040605121212' , 'xxxx-xx-xx [xx:xx:xx]');
+function getDateFormat(date , type)
+{
+	var ck;
+	var rtstr = "";
+	var j = 0;
+	for(var i = 0; i < type.length; i++) 
+	{
+		if(type.substring(i,i+1) == 'x')
+		{
+			rtstr += date.substring(j,j+1);
+		}
+		else {
+			j--;
+			rtstr += type.substring(i,i+1);
+		}
+		j++;
+	}
+	document.write(rtstr);	
+}
+//단어 필터링
+function CheckWords(words)
+{
+
+	if(words.length < 1) return '';
+
+	var BadWordSet = frames.WordFilterFrame.document.body.innerHTML;
+	var BadWordArr = BadWordSet.split(',');	
+	var BadWordNum = BadWordArr.length;
+
+	for (var i = 0; i < BadWordNum; i++)
+	{
+		if(words.indexOf(BadWordArr[i]) != -1) return BadWordArr[i];
+	}
+	return '';
+}
+//페이징처리
+function getPageLink1(lnum,p,tpage,imgpath)
+{
+	var g_p1 = "<IMG src='"+imgpath+"/prev1.gif' border='0' ALIGN=ABSMIDDLE>";
+	var g_p2 = "<IMG src='"+imgpath+"/prev2.gif' border='0' ALIGN=ABSMIDDLE>";
+	var g_n1 = "<IMG src='"+imgpath+"/next1.gif' border='0' ALIGN=ABSMIDDLE>";
+	var g_n2 = "<IMG src='"+imgpath+"/next2.gif' border='0' ALIGN=ABSMIDDLE>";
+	var g_cn = "<IMG src='"+imgpath+"/cutln.gif' border='0' ALIGN=ABSMIDDLE>";
+	var g_q  = "";
+
+	if(p < lnum+1) { g_q += g_p1; }
+	else{ var pp = parseInt((p-1)/lnum)*lnum; g_q += "<A HREF='javascript:getPageGo1("+pp+");'>"+g_p2+"</A>";} g_q += g_cn;
+
+	var st1 = parseInt((p-1)/lnum)*lnum + 1;
+	var st2 = st1 + lnum;
+
+	for(var jn = st1; jn < st2; jn++)
+	if ( jn <= tpage)
+	(jn == p)? g_q += "<FONT COLOR=RED>"+jn+"</FONT>"+g_cn : g_q += "<A HREF='javascript:getPageGo1("+jn+");'>"+jn+"</A>"+g_cn;
+
+	if(tpage < lnum || tpage < jn) { g_q += g_n1; }
+	else{var np = jn; g_q += "<A HREF='javascript:getPageGo1("+np+");'>"+g_n2+"</A>"; }
+	
+	document.write(g_q);
+}
+//페이지클릭
+function getPageGo1(n)
+{ 
+	var p   = getUriString1('p');
+	var que = location.href.replace('&p='+p,'');
+		que = que.indexOf('?') != -1 ? que : que + '?';
+
+	location.href= que + '&p=' + n; 
+}
+
+//파라미터값
+function getUriString1(param)
+{
+	var QuerySplit = location.href.split('?');
+	var ResultQuer = QuerySplit[1] ? QuerySplit[1].split('&') : '';
+
+	for (var i = 0; i < ResultQuer.length; i++)
+	{
+		var keyval = ResultQuer[i].split('=');
+		if (param == keyval[0]) return keyval[1];
+	}
+	return "";
+}
+function outCheck() 
+{ 
+	if (!confirm('정말로 탈퇴하시겠습니까?\n\n[확인]을 클릭하면 재확인 없이 탈퇴처리됩니다.       '))
+	{
+		return false; 
+	}
+}
+function showGoodsPic(uid)
+{
+	w =window.open('./lib/module/picview/view.php?uid=' + uid,'picwin','left=0,top=0,width=433,height=584,scrollbars=no');
+	w.focus();
+}
+function showGroupPic(uid)
+{
+	w= window.open('./lib/module/picview/gview.php?uid=' + uid,'picwin','left=0,top=0,width=720,height=555,scrollbars=no');
+	w.focus();
+
+}
+function showAuctionPic(uid)
+{
+	w=window.open('./lib/module/picview/aview.php?uid=' + uid,'picwin','left=0,top=0,width=720,height=555,scrollbars=no');
+	w.focus();
+}
+function wishCheck(id)
+{
+	if(id == '')
+	{
+		alert('회원으로 로그인해 주세요.            ');
+		return false;
+	}
+	if (!confirm('정말로 보관함에 담으시겠습니까?         '))
+	{
+		return false;
+	}
+}
+function showSearchWin(skin)
+{
+	w= window.open('./template/search/'+skin+'/search.php','searchwin','left=0,top=0,width=457,height=360,scrollbars=no');
+	w.focus();
+}
+function GoodsExplorer()
+{
+    w= window.open('./lib/module/explorer/explorer.php','explorer','left=0,top=0,width=800,height=680,status=yes,scrollbars=no');
+	w.focus();
+}
+function getBlink(str,lay)
+{
+	var c = document.getElementById(lay);
+	if(c.innerHTML == '') c.innerHTML = str;
+	if(c.style.visibility == 'visible') { c.style.visibility = 'hidden'; }
+	else { c.style.visibility = 'visible'; }
+
+	setTimeout("getBlink('"+str+"','"+lay+"');" , 500);
+}
+
+/****************************************************************************************
+* ./lib/js/user.js
+/****************************************************************************************/
+
+var klayer_flag=0;
+var KimsUserName;
+var KimsUserUrl;
+var KimsUserId;
+var KimsMyId;
+
+//루트 레이어생성
+function getRootLayer(table,e)
+{
+	var imgpath = "./image/idl";
+	
+	var T = "";
+	var L = document.getElementById('UserIdLayer');
+	var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+	var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+
+	klayer_flag  = 1;
+	KimsUserName = '관리자';
+	KimsUserId   = 'root';
+
+	T += "<TABLE ID='UserIdTable' BGCOLOR='#C0C0C0' WIDTH=120 CELLSPACING=1 CELLPADDING=0><TR><TD>";
+	T += "<TABLE BGCOLOR='#EFEFEF' WIDTH=100% CELLSPACING=0 CELLPADDING=3 STYLE='cursor:default;'>";
+	T += "<TR onclick=getRootQue('mail'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/3.gif' ALIGN=absmiddle> 메일 보내기</TD></TR>";
+	T += "<TR onclick=getRootQue('msg'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/2.gif' ALIGN=absmiddle> 쪽지 보내기</TD></TR>";
+	if (table ) T += "<TR onclick=getRootQue('search'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/8.gif' ALIGN=absmiddle> 등록글 검색</TD></TR>";
+	T += "</TABLE></TD></TR></TABLE>";
+	T += "<INPUT ID='UserTableFocusField' onBlur='getUserIdLayerBlur();' STYLE='left:-100,top:0;width:0;height:0;border:0;'>";
+
+	L.innerHTML = T;
+
+	L.style.top     = y;
+	L.style.left    = x + 10;
+	L.style.display = 'block';
+	document.getElementById('UserTableFocusField').focus();
+}
+
+//Writer 레이어생성
+function getUserIdLayer(user_name,user_id,home_url,friend_type,table,myid,e)
+{
+	var imgpath = "./image/idl";
+	
+	var T = "";
+	var L = document.getElementById('UserIdLayer');
+	var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+	var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+	
+	klayer_flag  = 1;
+	KimsUserName = user_name
+	KimsUserUrl  = home_url;
+	KimsUserId   = user_id;
+	KimsMyId	 = myid;
+
+	T += "<iframe name='kimsidlayerframe' width=0 height=0 frameborder=0 scrolling=0></iframe>";
+	T += "<TABLE ID='UserIdTable' BGCOLOR='#C0C0C0' WIDTH=120 CELLSPACING=1 CELLPADDING=0><TR><TD>";
+	T += "<TABLE BGCOLOR='#EFEFEF' WIDTH=100% CELLSPACING=0 CELLPADDING=3 STYLE='cursor:default;'>";
+
+	T += "<TR onclick=getIdQueToMember('info'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/1.gif' ALIGN=absmiddle> 사용자 정보</TD></TR>";
+	T += "<TR onclick=getIdQueToMember('mail'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/3.gif' ALIGN=absmiddle> 메일 보내기</TD></TR>";
+	T += "<TR onclick=getIdQueToMember('msg'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/2.gif' ALIGN=absmiddle> 쪽지 보내기</TD></TR>";
+	if (home_url != '') T += "<TR onclick=getIdQueToMember('home'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/4.gif' ALIGN=absmiddle> 홈페이지 방문</TD></TR>";
+	if (friend_type != 'me')
+	{
+	if(friend_type == '') T += "<TR onclick=getIdQueToMember('friend_Y'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/7.gif' ALIGN=absmiddle> 친구로 등록</TD></TR>";
+	if(friend_type == 'friend') T += "<TR onclick=getIdQueToMember('friend_N'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/7.gif' ALIGN=absmiddle> 친구에서 제외</TD></TR>";
+	if(friend_type == '') T += "<TR onclick=getIdQueToMember('black_Y'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/6.gif' ALIGN=absmiddle> 블랙맨 등록</TD></TR>";
+	if(friend_type == 'black') T += "<TR onclick=getIdQueToMember('black_N'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/6.gif' ALIGN=absmiddle> 블팩맨에서 제외</TD></TR>";	
+	}
+	if(table   ) T += "<TR onclick=getIdQueToMember('search'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD><IMG SRC='"+imgpath+"/8.gif' ALIGN=absmiddle> 등록글 검색</TD></TR>";
+
+	T += "</TABLE></TD></TR></TABLE>";
+	T += "<INPUT ID='UserTableFocusField' onBlur='getUserIdLayerBlur();' STYLE='left:-100,top:0;width:0;height:0;border:0;'>";
+
+	L.innerHTML = T;
+
+	L.style.top     = y;
+	L.style.left    = x + 10;
+	L.style.display = 'block';
+	document.getElementById('UserTableFocusField').focus();
+}
+function getRootQue(que)
+{
+	switch (que)
+	{
+		case 'mail' : 
+			getUserPaperWin('','mail');
+		break;
+
+		case 'msg' : 
+			getUserPaperWin('','send');
+		break;
+
+		case 'search' :
+		
+		break;
+	}
+}
+//요청
+function getIdQueToMember(que)
+{
+	switch (que)
+	{
+		case 'info' :
+			getUserInfoWin(KimsUserId,'main');
+		break;
+		case 'mail' :
+			getUserPaperWin(KimsUserId,'mail');
+		break;	
+		case 'msg' :
+			getUserPaperWin(KimsUserId,'send');
+		break;
+		case 'home' :
+			if(KimsUserUrl != '') window.open(KimsUserUrl);
+			else alert('홈페이지가 등록되어 있지 않습니다.      ');
+		break;
+		case 'friend_Y' :
+			if (!confirm('정말로 친구로 등록하시겠습니까?      '))
+			{
+				return false;
+			}
+			getUserAction(KimsUserId,'friend_in','friend');
+		break;
+		case 'black_Y' :
+			if (!confirm('정말로 블랙리스트에 등록하시겠습니까?      '))
+			{
+				return false;
+			}
+			getUserAction(KimsUserId,'friend_in','black');
+		break;
+		case 'friend_N' :
+			if (!confirm('정말로 친구에서 제외하시겠습니까?      '))
+			{
+				return false;
+			}
+			getUserAction(KimsUserId,'friend_out','friend');
+		break;
+		case 'black_N' :
+			if (!confirm('정말로 블랙리스트에서 제외하시겠습니까?      '))
+			{
+				return false;
+			}
+			getUserAction(KimsUserId,'friend_out','black');
+		break;
+		case 'search' :
+			if (KimsUserId != '')
+			{
+				document.DataForm.where.value    = 'BB_MB_ID';
+				document.DataForm.keyword.value  = KimsUserId;
+			}
+			else {
+				document.DataForm.where.value    = 'BB_NAME';
+				document.DataForm.keyword.value  = KimsUserName;
+			}
+			location.href = getThisUrl();
+		break;
+	}
+}
+
+//마우스오버
+function getIdTrOver(obj)
+{
+	obj.style.background = '#225588';
+	obj.style.color = '#EFEFEF';
+}
+
+//마우스아웃
+function getIdTrOut(obj)
+{
+	obj.style.background = '#EFEFEF';
+	obj.style.color = '#000000';
+}
+
+//BlurAct
+function getUserIdLayerBlur()
+{
+	klayer_flag  = 0;
+	setTimeout("getUserIdLayerBlurQ(document.getElementById('UserIdTable'))" , 150);
+}
+//BlurQue
+function  getUserIdLayerBlurQ(obj)
+{
+	if (klayer_flag) return false;
+	document.getElementById('UserIdLayer').innerHTML = "";
+
+	klayer_flag  = 0;
+	KimsUserName = ''
+	KimsUserUrl  = '';
+	KimsUserId   = '';
+	KimsMyId     = '';
+
+	obj.style.left = 0;
+	obj.style.top  = 0;
+	obj.style.display = 'none';
+}
+
+function getUserInfoWin(hisid,query)
+{
+	window.open('./lib/module/member/member.php?query='+query+'&id='+hisid , 'userwin' , 'left=0,top=0,width=480,height=455');
+}
+function getUserPaperWin(hisid,query)
+{
+	window.open('./lib/module/paper/paper.php?query='+query+'&id='+hisid,'msgwin','left=0,top=0,width=435,height=310');
+}
+function getUserAction(hisid,action,type)
+{
+	frames.kimsidlayerframe.location.href = './lib/module/member/member.php?action='+action+'&id='+hisid+'&type='+type+'&stop=1';
+	setTimeout("location.reload();" , 100);
+}/****************************************************************************************
+* ./lib/js/select.js
+/****************************************************************************************/
+
+//SELECT -> LAYER변환
+function getSelectToLayer(obj,lwidth,href)
+{
+    if(navigator.userAgent.indexOf('Opera') != -1 || navigator.userAgent.indexOf('MSIE') == -1) { return false; }
+
+	obj.style.display = 'none';
+	var newsb = obj.id + "_sbj";
+	var newid = obj.id + "_tmp";
+	var newim = obj.id + "_img";
+	var LayerTag = "";
+
+	LayerTag += "<TABLE WIDTH='"+lwidth+"' CELLSPACING=0 CELLPADDING=0 STYLE='position:absolute;cursor:default;'>";
+	LayerTag += "<TR HEIGHT=1><TD></TD></TR><TR><TD>";
+	LayerTag += "<TABLE BGCOLOR='#FFFFFF' HEIGHT=15 WIDTH=100% CELLSPACING=1 CELLPADDING=0 STYLE='border:1 solid #C0C0C0;line-height:117%;' onmouseover=\"getSelectLayerOver(this,document.getElementById('"+newim+"'),document.getElementById('"+newid+"'));\" onmouseout=\"getSelectLayerOut(this,document.getElementById('"+newim+"'),document.getElementById('"+newid+"'));\">";
+	
+	LayerTag += "<TR WIDTH=100% onclick=\"getSelectSubLayer(document.getElementById('"+newid+"'),document.getElementById('"+newsb+"'));\">";
+	LayerTag += "<TD ID='"+newsb+"' WIDTH=95% onblur='getSelectLayerBlur(this);'>&nbsp;" + obj.options[obj.selectedIndex].text + "</TD>";
+	LayerTag += "<TD ALIGN=RIGHT><IMG ID='"+newim+"' SRC='./image/ico/dot_select.gif' ALIGN=absmiddle STYLE='filter:gray();'></TD></TR>";
+	
+	LayerTag += "</TABLE>";
+
+	LayerTag += "<TABLE onblur='getSubLayerClose(this);' ID='"+newid+"' WIDTH=100% CELLSPACING=0 CELLPADDING=0 STYLE='display:none;border:1 solid #C0C0C0;' BGCOLOR='#FFFFFF'>";
+	for (var i = 0 ; i < obj.length; i++)
+	{
+		LayerTag += "<TR onmouseover='getSelectMoveLayer(this);' onmouseout='getSelectMoveLayer1(this);' onclick=\"getSelectChangeLayer(document.getElementById('"+obj.id+"'),document.getElementById('"+newid+"'),document.getElementById('"+newsb+"'),'"+obj.options[i].text+"','"+obj.options[i].value+"','"+href+"');\" ";
+
+		if (obj.value == obj.options[i].value)
+		{
+			LayerTag += "STYLE='background:#225588;color:#FFFFFF;'><TD>&nbsp;";
+		}
+		else {
+			LayerTag += "STYLE='background:#FFFFFF;color:#000000;'><TD>&nbsp;";
+		}
+
+		LayerTag += obj.options[i].text;
+		LayerTag += "</TD></TR>";
+	}
+	LayerTag += "</TABLE>";
+	LayerTag += "</TD></TR></TABLE><IMG SRC='' WIDTH='"+lwidth+"' HEIGHT=0>";
+
+	document.write(LayerTag);
+}
+
+//서브레이어보이기
+function getSelectSubLayer(obj,sobj)
+{
+	if(obj.style.display == 'none')
+	{
+		sobj.style.background = '#FFFFFF';
+		sobj.style.color = '#000000';	
+		obj.style.display = 'block';
+		NowSelectedLayer = obj;
+		obj.focus();
+	}
+	else {
+		sobj.style.background = '#225588';
+		sobj.style.color = '#FFFFFF';
+		obj.style.display = 'none';
+	}
+}
+
+//서브레이어체크
+function getSelectSubLayer1(obj)
+{
+	if(obj.style.display != 'none')
+	{
+		obj.style.display = 'none';
+	}
+}
+
+//타이틀레이어 MouseOver
+function getSelectLayerOver(obj,img,nobj)
+{
+	if (nobj.style.display == 'none')
+	{
+		obj.style.border = '1 solid #225588';
+		img.style.filter = '';
+	}
+}
+
+//타이틀레이어 MouseOut
+function getSelectLayerOut(obj,img)
+{
+	obj.style.border = '1 solid #C0C0C0';
+	img.style.filter = 'gray()';
+}
+
+
+//서브레이어 MouseOver
+function getSelectMoveLayer(obj)
+{
+	if (obj.style.color == '#000000')
+	{
+		obj.style.background = '#225588';
+		obj.style.color = '#FFFFFF';
+	}
+}
+//서브레이어 MouseOut
+function getSelectMoveLayer1(obj)
+{
+	obj.style.background = '#FFFFFF';
+	obj.style.color = '#000000';
+}
+
+//새레이어선택
+function getSelectChangeLayer(obj,fobj,sobj,text,value,href)
+{
+	if (href)
+	{
+		eval("document.DataForm." + href).value = value;
+		location.href = getThisUrl();
+		return false;
+	}
+	else {
+		fobj.style.display = 'none';
+		sobj.innerHTML = '&nbsp;' + text;
+		sobj.style.background = '#225588';
+		sobj.style.color = '#FFFFFF';
+		sobj.focus();
+		obj.value = value;
+	}
+	/*
+	if (href)
+	{
+		if (href.indexOf('submit()') != -1)
+		{
+			eval(href);
+		}
+		else {
+			location.href = href + value;
+		}
+		return false;
+	}
+	*/
+}
+
+//타이틀레이어 blur
+function getSelectLayerBlur(obj)
+{
+	obj.style.background = '#FFFFFF';
+	obj.style.color = '#000000';
+}
+
+//서브레이어 닫기
+function getSubLayerClose(obj)
+{
+	if (obj.style.display != 'none')
+	{
+		setTimeout("document.getElementById('" + obj.id + "').style.display = 'none';" , 150);
+	}
+}
+
+</script>
+
+
+
+
+<table width=976 height=100% cellspacing=0 cellpadding=0 border=0>
+<tr>	<td valign=top width="976" style="z-index:9">
+
+			<table width=100% cellspacing=0 cellpadding=0>
+<tr>
+<td valign=top>	
+<table width="975" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="212" align="center" valign="top">
+
+
+<script language=javascript>
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+
+
+function show_menu(cat) 
+{
+	
+	//var r = new Array();
+	var r;
+	var i = 0;
+	
+	r = document.getElementById(cat);
+	//alert(r.style.position);
+	r.style.visibility = "visible";		
+}
+
+function hidd_menu(cat)
+{
+	var r;
+	r = document.getElementById(cat);	
+	r.style.visibility = "hidden";
+}
+//-->
+</script>
+
+<STYLE TYPE='text/css'>
+.show_menu {
+	position : absolute;
+	visibility : hidden;
+	background : #FFFFFF;
+	width : 795;
+	z-index : 10;
+	left : 180;
+}
+
+.show_title01{background : 4AB634; width : 15%; color: #FFFFFF;}
+.show_title02{background : 23B8A1; width : 15%; color: #FFFFFF;}
+.show_title00{background : 58A7D5; width : 15%; color: #FFFFFF;}
+
+.show_menu_td {
+	border: 1px solid #E1E1E1; background-color: #FF5A00;
+}
+</STYLE>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td valign="top"><img src="images/main_img02.jpg" width="212" height="66"></td>
+    </tr>
+</table>
+<table width="212" height="270" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="200" valign="top"><img src="images/cate_titlw.gif" width="152" height="32">
+		  <!--카테고리 시작-->
+		  <table width="200" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="8">&nbsp;</td>
+                <td height="21" background="images/menu_bg.gif">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						 <tr onMouseOver="show_menu('c_002000000');" onMouseOut="hidd_menu('c_002000000');">
+							 <td width="34">&nbsp;</td>
+							 <td width="32"><a href="mall.php?cat=002000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image47','','images/left_m1_on.gif',1)"><img src="images/left_m1_off.gif" name="Image47" width="32" height="14" border="0"></a></td>
+		                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+				             <td width="23"><a href="mall.php?cat=007000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image49','','images/left_m2_on.gif',1)"><img src="images/left_m2_off.gif" name="Image49" width="23" height="14" border="0"></a></td>
+		                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+				            <td width="83"><a href="mall.php?cat=007000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image51','','images/left_m3_on.gif',1)"><img src="images/left_m3_off.gif" name="Image51" width="23" height="14" border="0"></a></td>
+							<td valign="top">
+<table id='c_002000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m1_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=002001000'>컴퓨터 입문·활용</a> | <a href='/mart7/mall.php?cat=002002000'>프로그램</a> | <a href='/mart7/mall.php?cat=002003000'>C·C++</a> | <a href='/mart7/mall.php?cat=002004000'>네트워크·통신·보안</a> | <a href='/mart7/mall.php?cat=002005000'>데이터베이스</a> | <a href='/mart7/mall.php?cat=002006000'>OS·윈도우</a> | <a href='/mart7/mall.php?cat=002007000'>OA·오피스</a> | <a href='/mart7/mall.php?cat=002008000'>그래픽</a> | <a href='/mart7/mall.php?cat=002009000'>3D</a> | <a href='/mart7/mall.php?cat=002010000'>CAD</a> | <a href='/mart7/mall.php?cat=002011000'>하드웨어관련</a> | <a href='/mart7/mall.php?cat=002012000'>게임·오락</a> | <a href='/mart7/mall.php?cat=002013000'>홈페이지관련</a> | <a href='/mart7/mall.php?cat=002014000'>교재·수험서</a> | </td></tr></table><table width='98%' border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+					<td background='./template/index/swnsp/image/left/line.gif' height='9'></td>
+					</tr>
+				  </table>
+				</td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m6_on.gif'><img src='./template/index/swnsp/image/left/left_m7_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=007001000'>건축설계제도</a> | <a href='/mart7/mall.php?cat=007002000'>인테리어관련</a> | <a href='/mart7/mall.php?cat=007003000'>건축설비</a> | <a href='/mart7/mall.php?cat=007004000'>건설안전</a> | <a href='/mart7/mall.php?cat=007005000'>빌딩관련</a> | <a href='/mart7/mall.php?cat=007006000'>교재·수험서</a> | </td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+			</td>
+				  </tr>
+                </table></td>
+       </tr>
+              <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr>
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr onMouseOver="show_menu('c_003000000');" onMouseOut="hidd_menu('c_003000000');">
+                    <td width="34">&nbsp;</td>
+                    <td width="23"><a href="mall.php?cat=003000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image56','','images/left_m4_on.gif',1)"><img src="images/left_m4_off.gif" name="Image56" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="23"><a href="mall.php?cat=004000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image57','','images/left_m5_on.gif',1)"><img src="images/left_m5_off.gif" name="Image57" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="23"><a href="mall.php?cat=005000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image58','','images/left_m6_on.gif',1)"><img src="images/left_m6_off.gif" name="Image58" width="23" height="14" border="0"></a></td>
+					<td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+					<td width="59"><a href="mall.php?cat=005000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image61','','images/left_m7_on.gif',1)"><img src="images/left_m7_off.gif" name="Image61" width="23" height="14" border="0"></a></td>
+          	<td valign="top">
+<table id='c_003000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m2_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=003001000'>기계3역학</a> | <a href='/mart7/mall.php?cat=003002000'>CNC설계·프로그래밍</a> | <a href='/mart7/mall.php?cat=003003000'>사출·금형관련</a> | <a href='/mart7/mall.php?cat=003004000'>자동화제어기기</a> | <a href='/mart7/mall.php?cat=003005000'>유·공기압·플라스틱기술</a> | <a href='/mart7/mall.php?cat=003006000'>항공기관련</a> | <a href='/mart7/mall.php?cat=003007000'>가공기술시리즈</a> | <a href='/mart7/mall.php?cat=003008000'>정밀측정·물류</a> | <a href='/mart7/mall.php?cat=003009000'>건설기계</a> | <a href='/mart7/mall.php?cat=003010000'>기타</a> | <a href='/mart7/mall.php?cat=003011000'>교재·수험서</a> | </td></tr></table><table width='98%' border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+					<td background='./template/index/swnsp/image/left/line.gif' height='9'></td>
+					</tr>
+				  </table>
+				</td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m3_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=004001000'>기초전기공학입문</a> | <a href='/mart7/mall.php?cat=004002000'>PLC</a> | <a href='/mart7/mall.php?cat=004003000'>자가용전기(주택·빌딩)</a> | <a href='/mart7/mall.php?cat=004004000'>시퀀스제어관련</a> | <a href='/mart7/mall.php?cat=004005000'>전기기술입문·활용</a> | <a href='/mart7/mall.php?cat=004006000'>전기보수·유지관리</a> | <a href='/mart7/mall.php?cat=004007000'>모터기술</a> | <a href='/mart7/mall.php?cat=004008000'>신경향시리즈</a> | <a href='/mart7/mall.php?cat=004009000'>기타</a> | <a href='/mart7/mall.php?cat=004010000'>교재·수험서</a> | </td></tr></table><table width='98%' border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+					<td background='./template/index/swnsp/image/left/line.gif' height='9'></td>
+					</tr>
+				  </table>
+				</td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m4_on.gif'><img src='./template/index/swnsp/image/left/left_m5_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=005001000'>유·무선설비산업</a> | <a href='/mart7/mall.php?cat=005002000'>디지탈회로설계</a> | <a href='/mart7/mall.php?cat=005003000'>통신·햄</a> | <a href='/mart7/mall.php?cat=005004000'>전자회로</a> | <a href='/mart7/mall.php?cat=005005000'>96-97규격시리즈</a> | <a href='/mart7/mall.php?cat=005006000'>기타</a> | <a href='/mart7/mall.php?cat=005007000'>방송국입사</a> | <a href='/mart7/mall.php?cat=005008000'>교재·수험서</a> | </td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+			</td>
+	   </tr>
+                </table></td>
+              </tr>
+
+
+              <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr>
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr  onMouseOver="show_menu('c_006000000');" onMouseOut="hidd_menu('c_006000000');">
+                    <td width="34">&nbsp;</td>
+                    <td width="23"><a href="mall.php?cat=006000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image62','','images/left_m8_on.gif',1)"><img src="images/left_m8_off.gif" name="Image62" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="23"><a href="mall.php?cat=006000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image63','','images/left_m9_on.gif',1)"><img src="images/left_m9_off.gif" name="Image63" width="23" height="14" border="0"></a></td>
+					<td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+					<td width="23"><a href="mall.php?cat=022000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image64','','images/left_m10_on.gif',1)"><img src="images/left_m10_off.gif" name="Image64" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="59"><a href="mall.php?cat=022000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image65','','images/left_m11_on.gif',1)"><img src="images/left_m11_off.gif" name="Image65" width="23" height="14" border="0"></a></td>
+
+	<td valign="top">
+<table id='c_006000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m8_on.gif'><img src='./template/index/swnsp/image/left/left_m9_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=006001000'>소방</a> | <a href='/mart7/mall.php?cat=006002000'>환경</a> | <a href='/mart7/mall.php?cat=006003000'>안전</a> | <a href='/mart7/mall.php?cat=006004000'>교재·수험서</a> | </td></tr></table><table width='98%' border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+					<td background='./template/index/swnsp/image/left/line.gif' height='9'></td>
+					</tr>
+				  </table>
+				</td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m10_on.gif'><img src='./template/index/swnsp/image/left/left_m11_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=022001000'>환경</a> | <a href='/mart7/mall.php?cat=022002000'>생태</a> | </td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>
+				  </tr>
+                </table></td>
+              </tr>
+  <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr>
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr onMouseOver="show_menu('c_010000000');" onMouseOut="hidd_menu('c_010000000');">
+                    <td width="34">&nbsp;</td>
+                    <td width="23"><a href="mall.php?cat=010000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image66','','images/left_m12_on.gif',1)"><img src="images/left_m12_off.gif" name="Image66" width="32" height="14" border="0"></a></td>
+					 <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+					<td width="23"><a href="mall.php?cat=010000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image103','','images/left_m13_on.gif',1)"><img src="images/left_m13_off.gif" name="Image103" width="32" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="72"><a href="mall.php?cat=011000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image72','','images/left_m14_on.gif',1)"><img src="images/left_m14_off.gif" name="Image72" width="23" height="14" border="0"></a></td>
+		<td valign="top">
+<table id='c_010000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='48' align='center'>&nbsp</td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td><a href='/mart7/mall.php?cat=010000000'><img src='./template/index/swnsp/image/left/left_m13_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=010000000'><img src='./template/index/swnsp/image/left/left_m14_on.gif'></a>&nbsp;</td></tr></table><table width='98%' border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+					<td background='./template/index/swnsp/image/left/line.gif' height='9'></td>
+					</tr>
+				  </table>
+				</td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='48' align='center'>&nbsp</td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td><a href='/mart7/mall.php?cat=011000000'><img src='./template/index/swnsp/image/left/left_m15_on.gif'></a>&nbsp;</td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>				  
+				  </tr>
+                </table></td>
+              </tr>
+
+              <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr  onMouseOver="show_menu('c_008000000');" onMouseOut="hidd_menu('c_008000000');">
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="37">&nbsp;</td>
+                  
+                    <td width="32"><a href="mall.php?cat=008000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image73','','images/left_m15_on.gif',1)"><img src="images/left_m15_off.gif" name="Image73" width="32" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+					<td width="23"><a href="mall.php?cat=012000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image76','','images/left_m16_on.gif',1)"><img src="images/left_m16_off.gif" name="Image76" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="82"><a href="mall.php?cat=001000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image77','','images/left_m17_on.gif',1)"><img src="images/left_m17_off.gif" name="Image77" width="32" height="14" border="0"></a></td>
+		<td valign="top">
+<table id='c_008000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m17_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=008001000'>기계·금속관련</a> | <a href='/mart7/mall.php?cat=008002000'>컴퓨터관련</a> | <a href='/mart7/mall.php?cat=008003000'>전자·전기관련</a> | <a href='/mart7/mall.php?cat=008004000'>국어·한자사전</a> | <a href='/mart7/mall.php?cat=008005000'>환경·안전</a> | <a href='/mart7/mall.php?cat=008006000'>건축·토목</a> | </td></tr></table><table width='98%' border='0' cellspacing='0' cellpadding='0'>
+					<tr>
+					<td background='./template/index/swnsp/image/left/line.gif' height='9'></td>
+					</tr>
+				  </table>
+				</td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m12_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=001001000'>영어</a> | <a href='/mart7/mall.php?cat=001002000'>일본어</a> | <a href='/mart7/mall.php?cat=001003000'>중국어</a> | <a href='/mart7/mall.php?cat=001004000'>교재·수험서</a> | </td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>				  
+				  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr  onMouseOver="show_menu('c_009000000');" onMouseOut="hidd_menu('c_009000000');">
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="37">&nbsp;</td>
+			       <td width="23"><a href="mall.php?cat=009000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image78','','images/left_m18_on.gif',1)"><img src="images/left_m18_off.gif" name="Image78" width="23" height="14" border="0"></a></td>
+                   <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+				   <td width="23"><a href="mall.php?cat=009000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image79','','images/left_m19_on.gif',1)"><img src="images/left_m19_off.gif" name="Image79" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="23"><a href="mall.php?cat=009000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image80','','images/left_m20_on.gif',1)"><img src="images/left_m20_off.gif" name="Image80" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="62"><a href="mall.php?cat=009000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image81','','images/left_m21_on.gif',1)"><img src="images/left_m21_off.gif" name="Image81" width="23" height="14" border="0"></a></td>
+<td valign="top">
+<table id='c_009000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m18_on.gif'><img src='./template/index/swnsp/image/left/left_m19_on.gif'><img src='./template/index/swnsp/image/left/left_m20_on.gif'><img src='./template/index/swnsp/image/left/left_m40_on.gif'></td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=009001000'>요리</a> | <a href='/mart7/mall.php?cat=009002000'>가정</a> | <a href='/mart7/mall.php?cat=009003000'>건강</a> | <a href='/mart7/mall.php?cat=009004000'>취미</a> | </td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>				  
+				  </tr>
+                </table></td>
+              </tr>
+<tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr  onMouseOver="show_menu('c_013000000');" onMouseOut="hidd_menu('c_013000000');">
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="34">&nbsp;</td>
+                    <td width="23"><a href="mall.php?cat=013000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image86','','images/left_m22_on.gif',1)"><img src="images/left_m22_off.gif" name="Image86" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="23"><a href="mall.php?cat=013000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image87','','images/left_m23_on.gif',1)"><img src="images/left_m23_off.gif" name="Image87" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="92"><a href="mall.php?cat=013000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image88','','images/left_m24_on.gif',1)"><img src="images/left_m24_off.gif" name="Image88" width="40" height="14" border="0"></a></td>
+			<td valign="top">
+<table id='c_013000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='48' align='center'>&nbsp</td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td><a href='/mart7/mall.php?cat=013000000'><img src='./template/index/swnsp/image/left/left_m21_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=013000000'><img src='./template/index/swnsp/image/left/left_m22_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=013000000'><img src='./template/index/swnsp/image/left/left_m23_on.gif'></a>&nbsp;</td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>				  
+				  </tr>
+                </table></td>
+              </tr>
+   <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr onMouseOver="show_menu('c_014000000');" onMouseOut="hidd_menu('c_014000000');">
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="34">&nbsp;</td>
+                    <td width="23"><a href="mall.php?cat=014000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image90','','images/left_m25_on.gif',1)"><img src="images/left_m25_off.gif" name="Image90" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="12"><a href="mall.php?cat=014000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image91','','images/left_m26_on.gif',1)"><img src="images/left_m26_off.gif" name="Image91" width="12" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="32"><a href="mall.php?cat=014000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image92','','images/left_m27_on.gif',1)"><img src="images/left_m27_off.gif" name="Image92" width="32" height="14" border="0"></a></td>
+					<td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+					<td width="58"><a href="mall.php?cat=014000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image95','','images/left_m28_on.gif',1)"><img src="images/left_m28_off.gif" name="Image95" width="23" height="14" border="0"></a></td>
+			<td valign="top">
+<table id='c_014000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='48' align='center'>&nbsp</td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td><a href='/mart7/mall.php?cat=014000000'><img src='./template/index/swnsp/image/left/left_m24_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=014000000'><img src='./template/index/swnsp/image/left/left_m26_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=014000000'><img src='./template/index/swnsp/image/left/left_m27_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=014000000'><img src='./template/index/swnsp/image/left/left_m28_on.gif'></a>&nbsp;</td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>				  
+				  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+			  <tr onMouseOver="show_menu('c_019000000');" onMouseOut="hidd_menu('c_019000000');">
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="39">&nbsp;</td>
+                    <td width="12"><a href="mall.php?cat=019000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image96','','images/left_m29_on.gif',1)"><img src="images/left_m29_off.gif" name="Image96" width="32" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="23"><a href="mall.php?cat=016000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image97','','images/left_m30_on.gif',1)"><img src="images/left_m30_off.gif" name="Image97" width="23" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+				   <td width="90"><a href="mall.php?cat=016000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image100','','images/left_m31_on.gif',1)"><img src="images/left_m31_off.gif" name="Image100" width="23" height="14" border="0"></a></td>
+<td valign="top">
+<table id='c_019000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+<tr><td width='25'></td><td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td></tr>
+<tr><td></td><td><table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'><tr><td width='1%' bgcolor='FF8D00'>&nbsp;</td><td width='50' align='center'><img src='./template/index/swnsp/image/left/left_m32_on.gif'><a href='/mart7/mall.php?cat=016000000'><img src='./template/index/swnsp/image/left/left_m33_on.gif'></a>&nbsp;<a href='/mart7/mall.php?cat=016000000'><img src='./template/index/swnsp/image/left/left_m34_on.gif'></a>&nbsp;</td><td width='20'><img src='./template/index/swnsp/image/left/m_point.gif'></td><td>
+<a href='/mart7/mall.php?cat=019001000'>교재·수험서</a> | </td></tr></table></td><td background='./template/index/swnsp/image/left/ca_box3.gif'>&nbsp;</td></tr><tr><td></td><td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+			  <td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			  </tr></table>
+</td>
+</tr>
+</table></td>
+		  </tr>
+		       <tr>
+                <td height="2" colspan="2"></td>
+              </tr>
+		  <tr onMouseOver="show_menu('c_021000000');" onMouseOut="hidd_menu('c_021000000');">
+
+                <td width="8">&nbsp;</td>
+                <td width="192" height="21" background="images/menu_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="39">&nbsp;</td>
+                   <td width="12"><a href="/mart7/mall.php?cat=021000000&kss=1" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image101','','images/left_m32_on.gif',1)"><img src="images/left_m32_off.gif" name="Image101" width="32" height="14" border="0"></a></td>
+                    <td width="10"><img src="images/left_m_line.gif" width="7" height="14"></td>
+                    <td width="123"><a href="mall.php?cat=018000000" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image102','','images/left_m33_on.gif',1)"><img src="images/left_m33_off.gif" name="Image102" width="23" height="14" border="0"></a></td>
+                  <td valign="top">
+
+
+			 <table id='c_021000000' class='show_menu' cellpadding='0' cellspacing='0' border=0>
+			 <tr>
+				<td width='25'></td>
+				<td background='./template/index/swnsp/image/left/ca_box2.gif'></td>
+				<td width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box1.gif'></td>
+			 </tr>
+			 <tr>
+				<td></td>
+				<td>			
+					<table width='98%' height='39' border='0' cellpadding='0' cellspacing='0'>
+						<tr>
+						<td width='1%' bgcolor='FF8D00'>&nbsp;</td>
+						<td width='48' align='center'></td>
+						<td><a href='/mart7/mall.php?cat=021000000&kss=1"'>건설기계기술사외 기술사 정보</a><!-- | <a href=''>건설안전기술사</a--></td>
+						</tr>
+					</table>
+				</td>
+				<td></td>
+			 </tr>
+			 <tr>
+				<td></td>
+				<td background='./template/index/swnsp/image/left/ca_box5.gif'></td>
+				<td  width='9' height='9'><img src='./template/index/swnsp/image/left/ca_box4.gif'></td>
+			 </tr>
+			 </table>  
+</td>
+              </tr>
+</td>			  
+			  </tr>
+            </table>
+			</td>			  
+			  </tr>
+            </table></td>
+          <td width="12" valign="top"><img src="images/cate_right.gif" width="12" height="270"></td>
+        </tr>
+      </table>
+
+<!-------  카테고리 끝 ----->
+
+		  <!--booklife-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="center"><img src="images/b_life.gif" width="194" height="22"></td>
+        </tr>
+</table>
+<table width="194" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="49"><img src="images/b_life2.gif" width="48" height="73"></td>
+          <td width="145">
+		  
+
+		  <table width="100%" border="0" cellspacing="0" cellpadding="2">
+<tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=life&query=view&uid=11&p=1>행운을 부르는 여덞 가..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=life&query=view&uid=10&p=1>일이 즐거은 사람은 행..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=life&query=view&uid=9&p=1>하루 48시간처럼 활용..</a></td></tr>                      </table>
+
+		   
+	      </td>
+        </tr>
+</table>
+		   <!--booklife-->
+ 
+ <!------------ 기술잡지 안내 ----->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="center"><img src="images/t_life.gif" width="194" height="22"></td>
+        </tr>
+      </table>
+      <table width="194" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="42"><img src="images/t_life2.gif" width="38" height="61"></td>
+          <td width="152"><script>setFlash("./template/index/swnsp/image/skill3.swf",152 ,84);</script></td>
+        </tr>
+</table>
+
+<!-------기술잡지 안내 끝 --->
+ 
+
+
+  <br>
+
+  <table width="190" border="0" cellspacing="0" cellpadding="2" align='center'>
+	<tr>
+	  <td><a href='#도서문의전화'><img src="./template/index/swnsp/image/phone.gif" vspace="5"></a></td>
+	</tr>
+	<tr>
+	  <td><a href="http://www.adobe.com/kr/products/acrobat/readstep2.html" target="_blank"><img src="./template/index/swnsp/image/acrobat.gif" vspace="2"></a></td>
+	</tr>
+	<tr>
+	  <td><a href="/mart7/cyber.php"><img src="./template/index/swnsp/image/help.gif" vspace="2"></a></td>
+	</tr>
+  </table> 
+  
+  <!----고객님께 알려드립니다.------------------------->
+  <table width="190" border="0" cellspacing="0" cellpadding="0" align='center'>
+	<tr>
+	  <td><img src="./template/index/swnsp/image/service_title.gif"></td>
+	</tr>
+	<tr>
+	  <td><a href="http://www.microsoft.com/korea//windowsxp/sp2/default.asp" target="_blank"><img src="./template/index/swnsp/image/service_02.gif"></a></td>
+	</tr>
+	<tr>
+	  <td><a href="cyber.php?query=card"><img src="./template/index/swnsp/image/service_03.gif"></a></td>
+	</tr>
+	<!--tr>
+	  <td><a href="#고객5"><img src="./template/index/swnsp/image/left/service_04.gif"></a></td>
+	</tr-->
+  </table>
+  </div>
+  <script language='javascript'>
+  function open_explorer()
+  {
+	var Url = "/mart7/lib/module/explorer/explorer.php";
+	var name='explorer';
+
+  var opt = "width=800,height=675,scrollbars=no,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,copyhistory=yes,top=10,left=10" ;
+  popup = window.open( Url, name, opt);
+  popup.focus();
+  }
+
+
+  </script>
+		</td>
+		<td width="763" valign="top" >
+<!------------------------------- 메인 시작 ----------------------------------------------->
+
+<!------------------------------- 인기검색어 -----------------------------------------------> 
+	  <!--도서검색 시작-->
+<table width="763" height="75"  border="0" cellpadding="0" cellspacing="0" background="./template/index/swnsp/image/search_bg.jpg">
+    <tr>
+          <td height="9" colspan="2"></td>
+          <td width="2%" rowspan="2"><div align="right"><img src="./template/index/swnsp/image/search_right.jpg" width="5" height="75"></div></td>
+    </tr>
+    <tr>
+          <td width="4%">&nbsp;</td>
+          <td width="94%">
+           <table cellSpacing=0 cellPadding=0 border=0>
+				 <FORM style="DISPLAY: inline" onsubmit="return msearchCheck(this)" action=./search.php>
+				<tbody>
+                <TR height=25>
+                  <td width="51" rowspan="2" valign="top"><IMG 
+                              src="./template/index/swnsp/image/search_t1.gif" width="51" height="45"></TD>
+                  <td width="15" rowspan="2">&nbsp;</TD>
+                  <td width="86"><select name=where>
+                      <option value=GD_NAME selected>도서명</option>
+                      <option value=GD_MEMO>저자(역자)</option>
+                      <option value=GD_CODE>ISBN</option>
+                      <option value=all>설명</option></select></TD>
+                  <!--td height="25"><img src="./template/index/mir_01/image/search_t1.gif"></td-->
+                  <!--td><input type="checkbox" name="where" value="GD_NAME" checked><img src="./template/index/mir_01/image/search_t2.gif" align="absmiddle"></td>
+			<td><input type="checkbox" name="where" value="all"><img src="./template/index/mir_01/image/search_t3.gif" align="absmiddle"></td-->
+                  <td width="116" 
+                            style="PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px"><INPUT 
+                              class=box1 size=16 name=keyword></TD>
+
+                  <td width="55"><select name=orAnd>
+                      <option value=OR selected>OR
+                        <option value=AND >AND</option>
+                    </select>
+                  </TD>
+                  <td width="70" style="PADDING-TOP: 4px">&nbsp;
+                      <INPUT type=image src="./template/index/swnsp/image/search_btn.gif" width="49" height="19">
+&nbsp;
+          <!--img src="./template/index/mir_01/image/search.gif" Onclick="open_explorer()" style="cursor:hand"--></TD>
+                  <td width="84" style="CURSOR: pointer" onclick=addfavorites()><IMG src="./template/index/swnsp/image/favor_btn.gif" width="81" height="19"></TD>
+                </tr>
+                <TR height=25>
+                  <td height="30" colspan="5"><img src="./template/index/swnsp/image/search_title.gif" width="66" height="10"> <a href='./search.php?where=GD_NAME&keyword=소방설비기사'>소방설비기사 &nbsp;&nbsp;  <a href='./search.php?where=GD_NAME&keyword=토목기사'>토목기사 &nbsp;&nbsp;  <a href='./search.php?where=GD_NAME&keyword=지적'>지적 &nbsp;&nbsp; </TD>
+                  </tr>
+              </FORM>
+          </TABLE>
+		    <!--도서검색 끝-->
+<script language="JavaScript1.2">
+var favoriteurl="http://www.cyber.co.kr"
+var favoritetitle=document.title;
+function addfavorites(){
+	if (document.all) {
+//		alert(favoriteurl + " " + favoritetitle);
+		window.external.AddFavorite(favoriteurl,favoritetitle)
+	}
+}
+</script>
+
+<table width="50%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td height="4">
+  </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!------------------------------- 인기검색어 -----------------------------------------------> 	  
+	  
+
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td width=573 align=center><!-- 중앙 시작 -->
+	  <table width="550" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="85"><img src="images/best_title.gif" width="85" height="195"></td>
+              <td>			  
+			  
+			   <!--추천도서-->
+			   <table width="100%" border=0 cellpadding=0 cellspacing=0>
+                <tbody>
+                  <tr>
+                    <td align="right">
+			  <table width="10" border=0 cellspacing="0" cellpadding="0">
+			  <tr>				
+				<td width="10" align="center"><table width="10" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td><a href='./mall.php?cat=002002000&query=view&no=2136'><img src="./upload/mall/s-4918-1.jpg" width=110 hight=110></a></td>
+					</tr>
+					<tr>
+					  <td background="./template/index/swnsp/image/point7.gif" height="7"></td>
+					</tr>
+					<tr>
+					<td align="center">
+			 <a href='./mall.php?cat=002002000&query=view&no=2136'><strong><font color="#009900">12,600원</font></strong></a></td>
+			  </tr>
+			  </table></td>
+			  </tr>
+			</table>						
+			</td>
+		<td align="right">
+			  <table width="10" border=0 cellspacing="0" cellpadding="0">
+			  <tr>				
+				<td width="10" align="center"><table width="10" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td><a href='./mall.php?cat=019001000&query=view&no=2137'><img src="./upload/mall/S-7194-1.jpg" width=110 hight=110></a></td>
+					</tr>
+					<tr>
+					  <td background="./template/index/swnsp/image/point7.gif" height="7"></td>
+					</tr>
+					<tr>
+					<td align="center">
+			 <a href='./mall.php?cat=019001000&query=view&no=2137'><strong><font color="#009900">8,820원</font></strong></a></td>
+			  </tr>
+			  </table></td>
+			  </tr>
+			</table>						
+			</td>
+		<td align="right">
+			  <table width="10" border=0 cellspacing="0" cellpadding="0">
+			  <tr>				
+				<td width="10" align="center"><table width="10" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td><a href='./mall.php?cat=002008001&query=view&no=2132'><img src="./upload/mall/S-4923-1.jpg" width=110 hight=110></a></td>
+					</tr>
+					<tr>
+					  <td background="./template/index/swnsp/image/point7.gif" height="7"></td>
+					</tr>
+					<tr>
+					<td align="center">
+			 <a href='./mall.php?cat=002008001&query=view&no=2132'><strong><font color="#009900">22,500원</font></strong></a></td>
+			  </tr>
+			  </table></td>
+			  </tr>
+			</table>						
+			</td>
+		<td align="right">
+			  <table width="10" border=0 cellspacing="0" cellpadding="0">
+			  <tr>				
+				<td width="10" align="center"><table width="10" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td><a href='./mall.php?cat=018000000&query=view&no=2117'><img src="./upload/mall/S-7189-1.jpg" width=110 hight=110></a></td>
+					</tr>
+					<tr>
+					  <td background="./template/index/swnsp/image/point7.gif" height="7"></td>
+					</tr>
+					<tr>
+					<td align="center">
+			 <a href='./mall.php?cat=018000000&query=view&no=2117'><strong><font color="#009900">8,820원</font></strong></a></td>
+			  </tr>
+			  </table></td>
+			  </tr>
+			</table>						
+			</td>
+		                  </tr>
+                </tbody>
+              </table>  
+			  <!--추천도서-->
+			  
+			  
+			  </td>
+            </tr>
+          </table>
+<table cellspacing=0 cellpadding=0 border=0><tr><td height=5></td></tr></table>
+<!-- 이벤트 -->
+
+<script language="javascript">
+<!--
+	// 플래쉬 메뉴 링크
+	// main : 메인메뉴순번
+
+	function flashlink060630() { //FlashLink20060613_main(main){
+//		window.location.href="/mart7/cyber.php?query=event&nm=200606&ev=event8";
+		w = window.open("http://edu.cyber.co.kr/pop_200606C.html","notice3","width=420,height=430,top=0,left=0,scrollbars=YES");
+		w.focus();
+	}
+
+//-->
+</script>
+<table cellspacing=0 cellpadding=0 border=0><tr><td height=5></td></tr></table>
+
+
+				 <!--신간도서-->
+<table width="550" height="162" border="0" cellpadding="0" cellspacing="0" background="images/product_bg.jpg">
+              <tr>
+                <td width="33">&nbsp;</td>
+                <td width="500">
+				
+				
+
+				 <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                  <tr>
+                   
+                    <td width="468">
+	<script language=javascript>
+
+	var goods=new Array()
+goods[0] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2165'><img src=./upload/mall/G-126-2.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2165'><span style='color:#7550B2;font:11pt;font:bold'>36인의 아틀라스</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2165'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2165'>숨겨진 놀라운 예언과 지구의 종말을 앞당기려는 자들의 음모. 의문의 납치와 계속되는 살인 사건의 공통점에 숨겨진 놀라운 비밀 !</a></td></tr></table>";
+goods[1] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2160'><img src=./upload/mall/G-123-2.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2160'><span style='color:#7550B2;font:11pt;font:bold'>논술 공부 99%는 잘못됐다</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2160'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2160'>대다수의 학생과 학부모가 논술에 대한 정보 부족으로 잘못된 공부 방법을 선택한다. 고액의 족집게 과외를 받고, 유명 학원을 반복해서 보내더라도 잘못된 방법으로는 논술 실력이 절대로 늘지 않는다. 99%가 잘못 공부하고..</a></td></tr></table>";
+goods[2] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2060'><img src=./upload/mall/S-4883-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2060'><span style='color:#7550B2;font:11pt;font:bold'>최신 정보처리기사.산업기사 필기</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2060'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2060'>이 책은 수년간 정보처리 강의를 담당했던 전문 강사들이 집필한 책으로 최소한의 시간 투자로 누구나 쉽게 합격할 수 있도록 핵심이론과 기출문제 및 예상문제, 그리고 해당 문제에 대한 상세한 해설을 수록하였습니다..</a></td></tr></table>";
+goods[3] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2166'><img src=./upload/mall/S-7201-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2166'><span style='color:#7550B2;font:11pt;font:bold'>아름다운 리본공예</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2166'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2166'>[ 내손으로 빚어내는 아름다운 리본공예 ]리본을 이용하면 머리띠, 코사지 등의 다양한 액세서리나 생활 소품부터 인테리어, 선물포장, 웨딩 선물이나 크리스마스 선물에 이르기까지 생활에 폭넓게 활용할 수 있습니다..</a></td></tr></table>";
+goods[4] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2164'><img src=./upload/mall/G-87-2.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2164'><span style='color:#7550B2;font:11pt;font:bold'>따끈따끈 맛있는 떡 만들기</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2164'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2164'>이 책은 남녀노소 누구나 좋아하는 떡에 대한 모든 것을 쉬운 방법으로 알려줍니다. 또한, 특별한 날 소중한 분을 위해 떡으로 만든 케이크도 소개합니다. 새콤한 과일을 넣어 만든 사과망고 케이크, 달콤한 고구마케이크..</a></td></tr></table>";
+goods[5] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=601'><img src=./upload/mall/S-0521-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=601'><span style='color:#7550B2;font:11pt;font:bold'>(기계 가공 기술 시리즈 1) 구멍 가공용 공구의 모든 것</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=601'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=601'>이 책은 드릴, 리머, 보링 공구, 탭, 볼트 등 구멍가공에 관련된 공구의 종류와 사용 방법 등을 자세히 설명하였습니다.</a></td></tr></table>";
+goods[6] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=605'><img src=./upload/mall/S-0524-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=605'><span style='color:#7550B2;font:11pt;font:bold'>(기계 가공기술 시리즈 5) 기계도면의 그리는 법ㆍ 읽는 법</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=605'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=605'>이 책은 기계 제도에 대한 접근, 형상 표시, 치수 표시, 가공 정밀도 표시, 기계도면의 노하우, 자동화로 되어 가는 기계 제도 등 도면의 기능과 역할, 제도 용구의 종류와 사용법, 그리는 법, 읽는 법 등 도면의 모든..</a></td></tr></table>";
+goods[7] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2109'><img src=./upload/mall/s-3192-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2109'><span style='color:#7550B2;font:11pt;font:bold'>정보통신기술사</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2109'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2109'> 최근 IT839 대책 등 정부의 IT 분야 활성화 정책과 기술사 권익보호를 위한 다양한 입법 활동으로 인해 정보통신 기술사에 대한 관심이 집중되고 있습니다. 본 서는 저자의 다년간의 정보통신 기술사 강의 경험과 실무..</a></td></tr></table>";
+goods[8] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=1745'><img src=./upload/mall/S-0440-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=1745'><span style='color:#7550B2;font:11pt;font:bold'>신편 토양환경기사 - 2007년 최신판/동영상강의 교재</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=1745'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=1745'>* 각 단원 족집게 핵심 이론과 쪽지 용어 해설 수록!!* 철저한 개념위주의 풀이와 노하우 암기법 수록!!* 28년 강의기법을 토대로 독자와의 완전한 커뮤니케이션 시도이 책은 한국산업인력공단의 출제기준에 의거하여..</a></td></tr></table>";
+goods[9] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2163'><img src=./upload/mall/S-7197-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2163'><span style='color:#7550B2;font:11pt;font:bold'>맛짱의 3Step으로 끝내는 스피드쿠킹</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2163'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2163'>‘맛있는 요리, 간단하고 즐거운 요리, 행복한 시간입니다.’란 신조로 음식을 만드는 맛짱～이 자신만의 노하우를 모두 공개합니다. 누구라도 탄성을 지를 만한 요리를 단 3Step로 완성할 수 있게 구성하였다. 요리..</a></td></tr></table>";
+goods[10] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2162'><img src=./upload/mall/S-4932-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2162'><span style='color:#7550B2;font:11pt;font:bold'>직장인을 위한 컴퓨터 생활백서</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2162'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2162'>직장 생활을 하면서 꼭 알아두어야 할 데이터 저장부터 관리, 전송, 출력, 문제 발생시 클리닉까지 체계적으로 설명하고 있습니다.</a></td></tr></table>";
+goods[11] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2159'><img src=./upload/mall/S_7198-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2159'><span style='color:#7550B2;font:11pt;font:bold'>만화로 쉽게 배우는 데이터베이스</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2159'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2159'>고드왕국은 과일의 나라이다. 과일이 풍족하여 수출을 하는데 여러 가지 어려운 상황이 발생한다. 앵두의 가격이 내려가 있는 부서도 있고 올라가 있는 부서도 있어서 그것을 수정하는데 무척 힘들게 일한다.</a></td></tr></table>";
+goods[12] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2153'><img src=./upload/mall/G-117-2.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2153'><span style='color:#7550B2;font:11pt;font:bold'>워렌 베니스 & 로버트 타운센드 리더를 말하다</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2153'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2153'>이 책은 세계 최고의 리더십 전문가 워렌 베니스와 아메리칸 익스프레스의 초기 총괄감독이자 에이비스(AVIS) 초기 CEO인 로버트 타운센드가 리더란 무엇이며, 리더의 역할과 권한위양에 대한 자신의 입장과 생각에 대해..</a></td></tr></table>";
+goods[13] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2156'><img src=./upload/mall/S-4929-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2156'><span style='color:#7550B2;font:11pt;font:bold'>실제 제작된 단편영화 한 편으로 정복하는 프로미어 프로 2.0</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2156'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2156'>단편영화를 제작하였던 촬영 소스를 사용하여 직접 실무에서 편집하는 과정들로 만들었습니다. 하나의 신(Scene)을 하나의 시퀀스(Sequence)로 작업하는 네스팅 기능, 서로 대화하는 신(Scene)을 멀티 캠 편집으로 컷을..</a></td></tr></table>";
+goods[14] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2157'><img src=./upload/mall/G-119-2.JPG width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2157'><span style='color:#7550B2;font:11pt;font:bold'>웹 2.0 경제학</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2157'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2157'>이 책에서는 웹 2.0을 세 가지 측면에서 경제학적으로 접근한다. 수익 모델이 없던 웹상에서 구글이 어떻게 돈을 벌어 ‘구글 경제권’을 형성할 수 있게 되었는지, 80대 20의 법칙에 따라 지금까지 무시해 왔던 80%의..</a></td></tr></table>";
+goods[15] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2155'><img src=./upload/mall/G118_1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2155'><span style='color:#7550B2;font:11pt;font:bold'>면역력을 높이면 질병은 반드시 낫는다</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2155'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2155'>면역이란 우리 몸을 질병으로부터 보호하는 방어시스템이다. 면역력에 관한 여러 이론 중 ‘후쿠다-아보’ 이론은 ‘백혈구 자율신경지배의 법칙’으로 요약되는데, 이 이론에 따르면 자율신경이 면역력의 향상을 좌우한다..</a></td></tr></table>";
+goods[16] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2154'><img src=./upload/mall/S-4931-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2154'><span style='color:#7550B2;font:11pt;font:bold'>Illustrator Design(일러스트레이터 디자인 실무 테크닉 61)</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2154'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2154'>「일러스트레이터 디자인 실무 테크닉 61」은 일러스트레이터의 툴을 다루는 것 이상을 원하는 분들을 위해 만들어졌습니다. 이 책을 통해 여러분의 반짝이는 아이디어를 현실로 만들어 보세요.</a></td></tr></table>";
+goods[17] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2035'><img src=./upload/mall/S-4886-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2035'><span style='color:#7550B2;font:11pt;font:bold'>2007 합격비법 사무자동화산업기사 실기</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2035'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2035'>『2007 합격비법 사무자동화산업기사 실기』는 최신 기출문제의 따라하기식 분석으로 시험유형을 정확히 파악할 수 있도록 하였을 뿐만 아니라 실기 시험에서 수험생들이 가장 많이 궁금해 하는 부분과 반드시 알아야..</a></td></tr></table>";
+goods[18] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2158'><img src=./upload/mall/U-265-1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2158'><span style='color:#7550B2;font:11pt;font:bold'>병나기 전에 꼭 읽어야 할 책</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2158'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2158'>찬바람을 잠깐 쐬었을 뿐인데 콜록콜록 기침을 하는 사람이 있다. 젊은 사람 중에도 감기에 잘 걸리는 사람이 있는가 하면 나이가 든 사람이라도 감기에 잘 걸리지 않는 사람이 있다. 이러한 저항력의 차이는 단순히..</a></td></tr></table>";
+goods[19] = "<table border=0><tr><td width=90 rowspan=2><a href='./mall.php?cat=020005000&&no=2161'><img src=./upload/mall/G-108_1.jpg width=100 height=100 align=absmiddle border=0></a></td><td><table width=100% border=0 cellspacing=0 cellpadding=2><tr><td class=title width=''><a href='./mall.php?cat=020005000&&no=2161'><span style='color:#7550B2;font:11pt;font:bold'>바이오 클락</span></a></td><td rowspan=2><a href='./mall.php?cat=020005000&&no=2161'><img src=./template/index/swnsp/image/new_title.gif></a></td></tr><tr><td class=small><font color=834D8F><a href=/mart7/mall.php?cat=016000000&query=view&no=1841></a></font></td></tr></table></td></tr><tr><td class=small><a href='./mall.php?cat=020005000&&no=2161'>이른 아침에 심장마비에 더 잘 걸리는 이유는 무엇일까? 벌은 어떻게 시간을 알까? 순록은 어떻게 이동할 때를 알까? 왜 10대들은 아침에 잠자리에서 벌떡 일어나지 못하고 헤맬까? 종달새형(아침형) 인간과 올빼미형..</a></td></tr></table>";
+	if (goods.length < 1 ) goods[0] = "등록된 상품이 없습니다.";
+
+	document.writeln("<style>");
+	document.writeln(" #goods_layer1 { position:absolute; width:'+goods_width+'; height:'+goods_height+'; top:0; left:0;}");
+	document.writeln(" #goods_layer2 { position:absolute; width:'+goods_width+'; height:'+goods_height+'; top:0; left:0;}");
+	document.writeln("</style>");
+	document.writeln('<span style="position:relative;width:'+goods_width+';height:'+goods_height+';top:0;left:0;background-color:'+goods_bgcolor+'">');
+	document.writeln('<div onMouseOver="goods_mouseover()" onMouseOut="goods_mouseout()" style="position:absolute;width:'+goods_width+';height:'+goods_height+';top:0;left:0;clip:rect(0 '+goods_width+' '+goods_height+' 0);overflow:hidden;">');
+	document.writeln("<div id='goods_layer1'>");
+	document.write(goods[0]);
+	document.writeln("</div><div id='goods_layer2'>");
+	if(goods.length == 1) goods[1] = goods[0];
+	goods_cnt = goods.length;
+	document.write(goods[1]);
+	document.writeln("</div></div></span>");
+
+	goods_StartScroll();
+	//goods_Start_Move(-1)
+	</script>
+ </td>
+                    <td width="11">
+                      <table width="11" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><img src="images/new_n1.gif" width="11" height="53" Onclick='goods_move(-1)'></td>
+                        </tr>
+                        <tr>
+                          <td><img src="images/new_n2.gif" width="11" height="58" Onclick='goods_move(1)'></td>
+                        </tr>
+                    </table></td>
+               
+                  </tr>
+                </table>
+
+				
+				</td>
+                <td width="17">&nbsp;</td>
+              </tr>
+			  </table>  
+<!--신간도서-->
+
+
+	  
+      <table width="50%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td height="4"></td>
+        </tr>
+      </table>
+	  
+	  
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="280" valign="top">
+		  
+		  <!---교재/수험서--------------------------->
+		  <table width="279" border="0" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="275"><a href='mall.php?cat=020001000'><img src="./template/index/swnsp/image/board_title1.gif"></a></td>
+              </tr>
+              <tr>
+                <td height="1" bgcolor="E4E4E4"></td>
+              </tr>
+<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020001000&query=view&no=2074"><img src="./upload/mall/S-4901-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020001000&query=view&no=2074'>합격비법 정보처리기사 필기</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>20,000원 → <strong><font color="#FF6600">18,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020001000&query=view&no=2075"><img src="./upload/mall/S-4902-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020001000&query=view&no=2075'>합격비법 정보처리산업기사 필기</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>20,000원 → <strong><font color="#FF6600">18,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020001000&query=view&no=1927"><img src="./upload/mall/1132215816-S-7162-S.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020001000&query=view&no=1927'>조리기능사 필기 - 2006 최신판</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>19,000원 → <strong><font color="#FF6600">17,100원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020001000&query=view&no=2063"><img src="./upload/mall/S-4900-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020001000&query=view&no=2063'>e-런닝으로 확실하게 합격하는 정보처리기능사 실기</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>14,000원 → <strong><font color="#FF6600">12,600원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020001000&query=view&no=2012"><img src="./upload/mall/S-4888-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020001000&query=view&no=2012'>합격비법 컴퓨터그래픽스운용기능사 실기</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>23,000원 → <strong><font color="#FF6600">20,700원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020001000&query=view&no=1959"><img src="./upload/mall/1136969292-S-4879-S.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020001000&query=view&no=1959'>합격가이드 컴퓨터그래픽스 운용기능사 필기</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>10,000원 → <strong><font color="#FF6600">9,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		            </table></td>
+          <td width="7">&nbsp;</td>
+          <td width="280" valign="top">
+		  
+		  <!---동영상강좌------------------------------>
+		  <table width="279" border="0" cellspacing="0" cellpadding="2">
+              <tr> 
+                <td width="275"><a href='mall.php?cat=020002000'><img src="./template/index/swnsp/image/board_title2.gif"></a></td>
+              </tr>
+              <tr> 
+                <td height="1" bgcolor="E4E4E4"></td>
+              </tr>
+<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020002000&query=view&no=1745"><img src="./upload/mall/S-0440-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020002000&query=view&no=1745'>신편 토양환경기사 - 2007년 최신판/동영상강의 교재</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>25,000원 → <strong><font color="#FF6600">22,500원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020002000&query=view&no=665"><img src="./upload/mall/S-0420-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020002000&query=view&no=665'>품질경영기사ㆍ산업기사 실기 - 2006년 최신판 / 동영상강의 교재</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>30,000원 → <strong><font color="#FF6600">27,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020002000&query=view&no=2019"><img src="./upload/mall/S-0496-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020002000&query=view&no=2019'>품질경영기사 ．산업기사-2006년 최신판 / 동영상강의 교재</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>30,000원 → <strong><font color="#FF6600">27,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020002000&query=view&no=1789"><img src="./upload/mall/S-0447-1.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020002000&query=view&no=1789'>신경향 산업안전기사·산업기사 실기-동영상강의 교재</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>25,000원 → <strong><font color="#FF6600">22,500원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020002000&query=view&no=1936"><img src="./upload/mall/1133535085-S-0479-S.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020002000&query=view&no=1936'>신경향 건설안전기사ㆍ산업기사 - 2006 최신개정판 / 동영상강의 교재</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>30,000원 → <strong><font color="#FF6600">27,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+			  <td width="70"><table width="67" height="77" border="0" cellpadding="0" cellspacing="1" bgcolor="C1C1C1">
+				  <tr>
+		<td align="center" bgcolor="#FFFFFF"><a href="./mall.php?cat=020002000&query=view&no=1937"><img src="./upload/mall/1133535521-S-0480-S.jpg" width="54" height="54"></a></td></tr>
+				</table></td>
+			  <td><table width="100%" border="0" cellspacing="0" cellpadding="1">
+				  <tr>
+			<td class="pro"><a href='./mall.php?cat=020002000&query=view&no=1937'>신경향 산업안전기사ㆍ산업기사 - 2006 최신개정판 / 동영상강의 교재</a></td>	  </tr>
+				  <tr>
+					<td height="5"></td>
+				  </tr>
+				  <tr>
+					  <td>30,000원 → <strong><font color="#FF6600">27,000원</font></strong></td>
+					  </tr>
+					</table></td>
+				</tr>
+			  </table></td>
+		  </tr>
+
+		  <tr>
+			<td height="1" bgcolor="E4E4E4"></td>
+		  </tr>
+		            </table></td>
+          <td width="7">&nbsp;</td>
+	        </tr>
+      </table>
+      <table width="50%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td height="10"></td>
+        </tr>
+      </table>
+
+</td>
+<td valign=top align=right>
+
+<!-- 레프트 베너 시작 -->
+
+<table cellspacing=0 cellpadding=0 border=0><tr><td height=15></td></tr></table>
+
+<!-- 과장님 요기다 넣으시면 됩니다. 테이블로 해서 넣으세요-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25">&nbsp;</td>
+              </tr>
+              <tr>
+                <td><a href="http://edu.cyber.co.kr" target="_blank"><img src="/mart7/images/edu_mall.jpg"  align=right border="0"></a></td>
+              </tr>
+               <tr>
+                <td height="10"></td>
+              </tr>
+            </table>
+
+
+<!-- 요기까지 ㅎㅎ -->
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="right" valign="top" background="">
+		  
+		  <!---공지사항-------------------->
+		  
+            <table width="95%" border="0" cellpadding="3" cellspacing="0">
+				<tr>
+				<td><a href="bbs.php?table=notice&query=list&p=1"><img src="./template/index/swnsp/image/notice_title.gif" align=right></a></td>
+				</tr>
+				<tr>
+				<td align=center><table cellspacing=0 cellpadding=0 border=0 width="95%">
+<tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=notice&query=view&uid=29&p=1>국가기술자격 응시자격 중 관..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=notice&query=view&uid=28&p=1>추석 연휴 배송 및 고객센터..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=notice&query=view&uid=27&p=1>2006년 제6회 제한경쟁특별임..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=notice&query=view&uid=26&p=1>2006년도 서울특별시지방공무..</a></td></tr>
+			            </table></td></tr>
+				<tr>
+			    <td align="center" valign="top">
+		  
+		  <!---이슈&뉴스------------------>
+<table cellspacing=0 cellpadding=0 border=0><tr><td height=13></td></tr></table>
+		  
+            <table width="95%" border="0" cellspacing="0" cellpadding="3">
+			<tr>
+				<td><a href="bbs.php?table=news&query=list&p=1"><img src="./template/index/swnsp/image/news_title.gif"></a></td>
+			</tr>
+			<tr>
+				<td align=center><table cellspacing=0 cellpadding=0 border=0 width="95%">
+			
+<tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=news&query=view&uid=40&p=1>사무직인 그가 중장비학원 간..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=news&query=view&uid=39&p=1>초등학생까지 자격증 취득 열..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=news&query=view&uid=38&p=1>우린 이런 학과 좋아한다..업..</a></td></tr><tr><td class="text" height="24" background="./template/index/swnsp/image/dot_bg.gif"><img src="./template/index/swnsp/image/board_icon1.gif" align="absmiddle"> <a href=./bbs.php?table=news&query=view&uid=37&p=1>소방관이 순직.부상하면 불이..</a></td></tr>            </table></td>
+
+
+        </tr>
+		</table>
+</td>
+</tr>
+		<tr>
+		<td align=right>
+	<table cellspacing=0 cellpadding=0 border=0><tr><td height=15></td></tr></table>
+  <table width="190" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><a href="http://www.cyber.co.kr/company/index.html?mode=company8" target="_blank"><img src="images/book_m2.gif" width="190" height="57" border="0"></a></td>
+            </tr>
+            <tr>
+              <td height="3"></td>
+            </tr>
+            <tr>
+                          <td><img src="images/book_m3.gif" width="190" height="57" border='0' style="cursor:hand;" Onclick="window.open('/mart7/lib/module/goods/goods.php?query=qnawrite&parent=-3&cy_notitle=1','gwin','left=0,top=0,width=650,height=600,scrollbars=yes').focus();"></td>
+            </tr>
+            <tr>
+              <td height="3"></td>
+            </tr>
+			<tr>
+              <td><a href="/mart7/mall.php?cat=020001000"><img src="images/edu_book.gif" width="190" height="84" border="0"></a></td>
+            </tr>
+            <tr>
+              <td height="3"></td>
+            </tr>
+			<tr>
+              <td><a href="http://edu.cyber.co.kr/" target="_blank"><img src="images/edu_m.gif" width="190" height="69" border="0"></a></td>
+            </tr>
+            <tr>
+              <td height="3"></td>
+            </tr>
+			<tr>
+              <td><a href="/mart7/bbs.php?table=pds"><img src="images/data_banner.gif" width="190" height="65" border="0"></a></td>
+            </tr>
+            <tr>
+              <td height="3"></td>
+            </tr>
+			<tr>
+              <td><a href="/mart7/cyber.php?query=suhum"><img src="images/suhum_banner.gif" width="190" height="65" border="0"></a></td>
+            </tr>
+            <tr>
+              <td height="3"></td>
+            </tr>
+          </table>
+      </table></td>
+  </tr>
+</table>
+
+
+
+
+
+<!--------------------------------- 메인 끝 --------------------------------------------->
+
+
+
+		</td>
+	</tr>
+</table>
+</td>
+	</tr>
+</table>
+
+</div>
+	</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body><FORM NAME='pass_check_form' ACTION='./bbs.php' METHOD=POST onsubmit="return PassInputCheck();" style='display:inline;'>
+<INPUT TYPE=HIDDEN NAME='table' VALUE=''>
+<INPUT TYPE=HIDDEN NAME='action' VALUE=''>
+<INPUT TYPE=HIDDEN NAME='uid' VALUE=''>
+<INPUT TYPE=HIDDEN NAME='ruid' VALUE=''>
+<INPUT TYPE=HIDDEN NAME='p' VALUE=''>
+<INPUT TYPE=HIDDEN NAME='Nparam' VALUE=''>
+
+<TABLE background='./bbs/image/bg_pw.gif' CELLSPACING='0' CELLPADDING='0' ID='PassCheckLayer' STYLE='display:none;position:absolute;left:0;top:0;'>
+<TR><TD background='./bbs/image/bg_pw.gif'><IMG SRC='./bbs/image/top_pw.gif'></TD></TR>
+<TR><TD height=25 background='./bbs/image/bg_pw.gif'>&nbsp;&nbsp;<IMG SRC='./bbs/image/ico_pw.gif' align=absmiddle><SPAN ID='PwLayTitle'></SPAN></TD></TR>
+<TR><TD><IMG SRC='./bbs/image/line_pw.gif'></TD></TR>
+<TR><TD height=18 background='./bbs/image/bg_pw.gif'>&nbsp;&nbsp;&nbsp;<IMG SRC='./bbs/image/dot_pw.gif' align=absmiddle>
+<FONT COLOR='#415D5D'>비밀번호를 입력해 주세요.</FONT></TD></TR>
+<TR><TD background='./bbs/image/input_pw.gif' height=40>
+&nbsp;&nbsp;&nbsp;<INPUT TYPE=PASSWORD NAME='COMP_PASS' SIZE=15 STYLE='border:1 solid #C0C0C0;'>
+<INPUT TYPE=IMAGE SRC='./bbs/image/btn_pw_submit.gif' BORDER=0 align=absmiddle>
+<IMG SRC='./bbs/image/btn_pw_cancel.gif' BORDER=0 align=absmiddle onclick="PassInputClose();" STYLE='cursor:pointer;'>
+</TD></TR>
+<TR><TD><IMG SRC='./bbs/image/bottom_pw.gif'></TD></TR>
+</TABLE>
+
+</FORM>
+<FORM NAME='DataForm' style='display:inline;'>
+<INPUT TYPE=HIDDEN NAME=table		VALUE="">
+<INPUT TYPE=HIDDEN NAME=query		VALUE="">
+<INPUT TYPE=HIDDEN NAME=p		VALUE="">
+<INPUT TYPE=HIDDEN NAME=uid		VALUE="">
+<INPUT TYPE=HIDDEN NAME=where		VALUE="">
+<INPUT TYPE=HIDDEN NAME=keyword		VALUE="">
+<INPUT TYPE=HIDDEN NAME=search_type	VALUE="">
+<INPUT TYPE=HIDDEN NAME=search_step	VALUE="">
+<INPUT TYPE=HIDDEN NAME=category	VALUE="">
+<INPUT TYPE=HIDDEN NAME=sort		VALUE="">
+<INPUT TYPE=HIDDEN NAME=orderby		VALUE="">
+<INPUT TYPE=HIDDEN NAME=write_type	VALUE="">
+<INPUT TYPE=HIDDEN NAME=grecnum		VALUE="">
+</FORM>
+
+<INPUT TYPE=HIDDEN ID='CookieSecret' VALUE="">
+<INPUT TYPE=HIDDEN ID='isRoot' VALUE="0">
+<INPUT TYPE=HIDDEN ID='isAdmin' VALUE="0">
+<INPUT TYPE=HIDDEN ID='mbid' VALUE="">
+<INPUT TYPE=HIDDEN ID='LastPage' VALUE="">
+
+<script language=javascript>
+function PassInputCheck()
+{
+	var f = document.pass_check_form;
+
+	if (f.COMP_PASS.value == "")
+	{
+		alert('\n비밀번호를 입력해 주세요.     \n');
+		f.COMP_PASS.focus();
+		return false;
+	}
+}
+function PassInputClose()
+{
+	document.getElementById('PassCheckLayer').style.display = 'none';
+}
+</script>
+
+<DIV ID='UserIdLayer' STYLE='display:none;position:absolute;left:0;top:0;'></DIV>
+<DIV ID='tmp_Upfile_Show_Layer'></DIV><table width="100%" height="133"  border="0" cellpadding="0" cellspacing="0" background="images/footer_bg.gif">
+  <tr> 
+    <td valign="top"><table width="975" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="212" height="32">&nbsp;</td>
+          <td width="55"><a href="http://www.cyber.co.kr/company/index.html" target="_blank"><img src="images/footer_m1.gif" width="55" height="14" border="0"></a></td>
+          <td width="68"><a href="http://www.cyber.co.kr/company/index.html?mode=mozip&gb=company" target="_blank"><img src="images/footer_m2.gif" width="63" height="14" border="0"></a></td>
+          <td width="52"><a href="http://www.cyber.co.kr/company/index.html?mode=mozip&gb=company" target="_blank"><img src="images/footer_m3.gif" width="52" height="11" border="0"></a></td>
+          <td width="60"><a href="/mart7/inc.php?inc=shop/guide"><img src="images/footer_m4.gif" width="60" height="14" border="0"></a></td>
+          <td width="70"><a href="http://www.cyber.co.kr/company/index.html?mode=mozip&gb=employee" target="_blank"><img src="images/footer_m5.gif" width="61" height="14" border="0"></a></td>
+          <td width="72"><a href="/mart7/inc.php?inc=shop/private"><img src="images/footer_m6.gif" width="72" height="11" border="0"></a></td>
+          <td width="77"><a href="/mart7/inc.php?inc=shop/sitemap"><img src="images/footer_m7.gif" width="66" height="14" border="0"></a></td>
+          <td width="309">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <table width="975" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="58">&nbsp;</td>
+          <td width="157"><img src="images/footer_logo.gif" width="149" height="22"> 
+            <select name="select" onchange=go_company(this)>
+              <option 
+                    selected>관계사 
+              <option 
+                    value=http://www.chomdan.co.kr>(주)첨단 
+              <option 
+                    value=http://www.goldenowl.co.kr>(주)황금 부엉이</option>
+            </select></td>
+          <td width="5" rowspan="3" background="images/line_bg.gif">&nbsp;</td>
+          <td width="760" rowspan="3"><img src="images/fa.gif"><br> 
+            <img src="images/fooer.gif"> </td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<!--풋터 끝-->
+</body>
+</html>
+<iframe name='logiframe' src='./lib/sys_check.php?referer=' width=0 height=0 frameborder=0 scrolling=0></iframe>
+
+
+<!-- 서버실행시간 : 0.261537075043 --><script src="/event/cyberPopUp.js"></script>	
+<script language='javascript'>
+function WinEvent200606(must, endDate)
+{
+	if(isPast(endDate) == false) return; // 날짜가 지났으면 must에 상관없이 보여주지 않음
+
+	var name = 'popup200606'; // 
+
+	var url;
+	if ( must==true || GetCookie( name ) != 'done'  ) {
+		url = '/event/200606/popup.html';
+
+		w =window.open(url,name,'left=50,top=50,width=340,height=420,scrollbars=no');
+		w.focus();
+	}
+}
+
+//WinEvent200606(false,"2006-12-31"); // 이벤트 
+</script><iframe name='logiframe' src='./lib/sys_check.php?referer=' width=0 height=0 frameborder=0 scrolling=0></iframe>
+
+
+<!-- 서버실행시간 : 0.234924077988 --><script src="/event/cyberPopUp.js"></script>	
+<script language='javascript'>
+function WinEvent200606(must, endDate)
+{
+	if(isPast(endDate) == false) return; // 날짜가 지났으면 must에 상관없이 보여주지 않음
+
+	var name = 'popup200606'; // 
+
+	var url;
+	if ( must==true || GetCookie( name ) != 'done'  ) {
+		url = '/event/200606/popup.html';
+
+		w =window.open(url,name,'left=50,top=50,width=340,height=420,scrollbars=no');
+		w.focus();
+	}
+}
+
+//WinEvent200606(false,"2006-12-31"); // 이벤트 
+</script>
+
+<script language="JavaScript">
+function newwin(url) {
+POP = window.open( url, "WIN_SUB", "status=0,scrollbars=no,resizable=0,width=600,height=890" );
+POP.focus();
+}
+</script>
+<!--<script language="JavaScript">
+
+
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+
+function notice_getCookie( name )
+{
+        var nameOfCookie = name + "=";
+        var x = 0;
+        while ( x <= document.cookie.length )
+        {
+                var y = (x+nameOfCookie.length);
+                if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+                        if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+                                endOfCookie = document.cookie.length;
+                        return unescape( document.cookie.substring( y, endOfCookie ) );
+                }
+                x = document.cookie.indexOf( " ", x ) + 1;
+                if ( x == 0 )
+                        break;
+        }
+        return "";
+}
+
+if ( notice_getCookie( "Notice" ) != "done" )
+{
+        window.open('/popup/pop_0922.htm','','width=450,height=510,top=20,left=20'); // 팝업윈도우의 경로와 크기를 설정하세요
+}
+
+
+
+//
+</script>-->

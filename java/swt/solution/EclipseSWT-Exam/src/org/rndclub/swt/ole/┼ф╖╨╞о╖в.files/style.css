@@ -1,0 +1,87 @@
+BODY {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+SELECT {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+INPUT {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+DIV {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+FORM {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+TEXTAREA {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+OPTION {
+	FONT-SIZE: 9pt; COLOR: #666666; LINE-HEIGHT: 180%; FONT-FAMILY: µ¸¿ò,±¼¸²,verdana
+}
+A:link {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #ffffff; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #ffffff; SCROLLBAR-3DLIGHT-COLOR: #ffffff; SCROLLBAR-ARROW-COLOR: #666666; SCROLLBAR-TRACK-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #ffffff
+}
+.head {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 19px
+}
+.textarea {
+	BORDER-RIGHT: #eeeeee 1px solid; BORDER-TOP: #eeeeee 1px solid; BORDER-LEFT: #eeeeee 1px solid; BORDER-BOTTOM: #eeeeee 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.input {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; BORDER-BOTTOM: #dddddd 1px solid; HEIGHT: 19px; BACKGROUND-COLOR: #ffffff
+}
+.input_search {
+	BORDER-RIGHT: #eeeeee 1px solid; BORDER-TOP: #eeeeee 1px solid; BORDER-LEFT: #eeeeee 1px solid; BORDER-BOTTOM: #eeeeee 1px solid; HEIGHT: 18px; BACKGROUND-COLOR: #ffffff
+}
+.submit {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; FONT-SIZE: 7pt; BORDER-LEFT: #dddddd 1px solid; BORDER-BOTTOM: #dddddd 1px solid; FONT-FAMILY: verdana; HEIGHT: 19px; BACKGROUND-COLOR: #ffffff
+}
+.thm7 {
+	FONT-SIZE: 7pt; FONT-FAMILY: tahoma
+}
+.ver7 {
+	FONT-SIZE: 7pt; FONT-FAMILY: verdana
+}
+.ver8 {
+	FONT-SIZE: 8pt; FONT-FAMILY: verdana
+}
+.ver9 {
+	FONT-SIZE: 8pt; FONT-FAMILY: verdana
+}
+.margin {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; TEXT-ALIGN: justify
+}
+.margin_comment {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-TOP: 10px; TEXT-ALIGN: justify
+}
+.register {
+	PADDING-LEFT: 10px
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #555555; LINE-HEIGHT: 18px; FONT-FAMILY: "µ¸¿ò"
+}
+TD A:link {
+	COLOR: #5e5e5e; TEXT-DECORATION: none
+}
+TD A:visited {
+	COLOR: #5e5e5e; TEXT-DECORATION: none
+}
+TD A:active {
+	COLOR: #5e5e5e; TEXT-DECORATION: none
+}
+TD A:hover {
+	COLOR: #5e5e5e; TEXT-DECORATION: underline
+}

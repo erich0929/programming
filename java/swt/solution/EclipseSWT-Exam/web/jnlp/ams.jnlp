@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Java Web Start Test Application -->
+<jnlp  spec="1.0"  codebase="http://10.160.55.140:9090/ams"  href="jnlp/ams.jnlp">  
+    <information>
+        <title>RealTimeTracingClient Application</title>
+        <vendor>Penta Systems Technology</vendor>
+        <offline-allowed/>     
+        <homepage href="jsp/ams.jsp"/>
+        <description>Description - RealTimeTracingClient Application</description>
+        <description kind="short">Description</description>
+        <icon href="jsp/images/idea.jpg"/>    
+        <icon kind="splash" href="/jsp/images/idea.jpg"/>
+        <association mime-type="application-x/ams-file" extensions="ams"/>    
+        <shortcut online="false">      
+            <desktop/>
+            <menu submenu="Penta Apps"/>    
+        </shortcut>
+    </information> 
+    <security>
+        <all-permissions/>
+    </security>  
+    <resources>    
+<!--
+	    <j2se version="1.4"/>
+-->
+        <j2se version="1.3+" 
+                href="http://java.sun.com/products/autodl/j2se"
+                java-vm-args="-esa -Xnoclassgc -Xms64m -Xmx256m"/>
+        <jar href="lib/ams.jar"/>
+        <jar href="lib/swt.jar"/>
+        <jar href="lib/registry.jar"/>
+        <jar href="lib/ojdbc14.zip"/>
+        <nativelib href="lib/nativelib.jar"/>
+    </resources>
+    <application-desc main-class="com.penta.ams.main.RealTimeTracingClient"/>
+</jnlp>

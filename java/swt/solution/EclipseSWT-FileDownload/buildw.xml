@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+
+<project name="FileDownload_web_start" default="default">
+
+	<!-- Load generally common properties, such as javac.debug -->
+	<property file="common.properties" />
+
+	<patternset id="java.files.pattern" includes="**/*.java" />
+
+	<target name="clean" description="Removes build artifacts">
+		<echo level="info">Removes build artifacts...</echo>
+		<delete dir="${temp.dir}" />
+		<mkdir dir="${temp.dir}" />
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.web.dir}" />
+	</target>
+
+	<target name="init" depends="clean" description="Initialize condition and path">
+		<echo level="info">Initialize condition and path...</echo>
+		<condition property="os.family" value="unix">
+			<os family="unix" />
+		</condition>
+		<condition property="os.family" value="windows">
+			<os family="windows" />
+		</condition>
+
+		<path id="compile.classpath">
+			<fileset dir="${lib.dir}" includes="*.jar" />
+			<fileset dir="${lib.dir}/${os.family}" includes="*.jar" />
+		</path>
+	</target>
+
+	<target name="build" depends="init">
+		<echo level="info">Makes all directories and compile % build ${project.name}.jar file...</echo>
+
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/classes" />
+		<javac srcdir="src" destdir="${build.dir}/classes" debug="${javac.debug}" classpathref="compile.classpath" />
+
+		<mkdir dir="${dist.web.dir}/lib" />
+		<jar destfile="${dist.web.dir}/lib/${project.name}.jar">
+			<fileset dir="${build.dir}/classes" />
+
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</jar>
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="package" depends="build">
+		<echo level="info">Packages standalone application...</echo>
+		<copy todir="${dist.web.dir}/lib">
+			<fileset dir="${lib.dir}">
+				<filename name="**/*.jar" />
+			</fileset>
+			<fileset dir="${lib.dir}">
+				<filename name="**/*.zip" />
+			</fileset>
+		</copy>
+
+		<jar destfile="${dist.web.dir}/lib/nativelib.jar">
+			<fileset dir="${lib.dir}/windows">
+				<filename name="**/*.dll" />
+			</fileset>
+			<!--
+			<fileset dir="${lib.dir}/unix">
+				<filename name="**/*.so" />
+			</fileset>
+-->
+		</jar>
+	</target>
+
+	<target name="sign-jars" depends="package">
+		<echo level="info">Signing JARS...</echo>
+		<signjar keystore="${keystore}" alias="ywoopark" storepass="ywp1234">
+			<fileset dir="${dist.web.dir}/lib">
+				<include name="**/*.jar" />
+				<include name="**/*.zip" />
+			</fileset>
+		</signjar>
+	</target>
+
+	<target name="deploy" depends="sign-jars" description="Package WAR">
+		<war destfile="${dist.web.dir}/${project.name}.war" webxml="${web.dir}/web.xml" compress="true">
+			<fileset dir="${dist.web.dir}">
+				<include name="**/*.jar" />
+				<include name="**/*.zip" />
+			</fileset>
+			<fileset dir="${web.dir}">
+				<exclude name="**/*.xml" />
+			</fileset>
+		</war>
+<!--
+		<delete dir="${webapp.dir}/${project.name}" />
+-->
+		<delete file="${webapp.dir}/${project.name}.war" />
+		<copy file="${dist.web.dir}/${project.name}.war" todir="${webapp.dir}" />
+		<delete dir="${dist.web.dir}">
+			<exclude name="**/*.war" />
+		</delete>
+	</target>
+
+	<!-- Convenience targets -->
+	<target name="default" depends="deploy" />
+
+</project>
+

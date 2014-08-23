@@ -1,0 +1,4 @@
+DB Driver : oracle.jdbc.driver.OracleDriver
+DB Url : jdbc:oracle:thin:@172.19.99.1:1521:openview
+DB User : wilysfg
+DB Password : wilysfg123

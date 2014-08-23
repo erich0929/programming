@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Java Web Start File Upload Application -->
+<jnlp spec="1.0" codebase="http://localhost:8080/FileUpload" href="index.jnlp">
+    <information>
+        <title>File Upload</title>
+        <vendor>J Consulting</vendor>
+        <homepage href="index.html"/>
+        <description>File Upload</description>
+        <description kind="short">J File Upload</description>
+        
+        <offline-allowed/>     
+        <icon href="images/idea.jpg"/>    
+        <icon kind="splash" href="images/idea.jpg"/>
+<!--
+        <association mime-type="application-x/fu-file" extensions="fu"/>    
+ -->
+        <shortcut online="false">      
+            <desktop/>
+            <menu submenu="J Consulting"/>    
+        </shortcut>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.4+" 
+            href="http://java.sun.com/products/autodl/j2se"
+            java-vm-args="-esa -Xnoclassgc -Xms256m -Xmx512m"/>
+        <jar href="lib/FileUpload.jar"/>
+        <nativelib href="lib/nativelib.jar"/>
+    </resources>
+    <resources os="Windows"> 
+        <jar href="lib/swt.jar"/>
+    </resources>
+    <resources os="Linux"> 
+        <jar href="lib/swt-linux.jar"/>
+        <jar href="lib/swt-pi.jar"/> 	
+    </resources>
+    <application-desc main-class="com.penta.lgepims.main.FileUploadUi"/>
+</jnlp>

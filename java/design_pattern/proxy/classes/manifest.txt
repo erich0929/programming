@@ -1,0 +1,2 @@
+Class-Path: headfirst/proxy/virtualproxy
+Main-Class: headfirst.proxy.virtualproxy.ImageProxyTestDrive

@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+
+<project name="ams_client" default="default">
+
+	<!-- Load generally common properties, such as javac.debug -->
+	<property file="common.properties" />
+
+	<patternset id="java.files.pattern" includes="**/*.java" />
+
+	<target name="clean" description="Removes build artifacts">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${web.dir}">
+			<include name="**/*.jar" />
+		</delete>
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<target name="init" depends="clean">
+		<condition property="os.family" value="unix">
+			<os family="unix" />
+		</condition>
+		<condition property="os.family" value="windows">
+			<os family="windows" />
+		</condition>
+
+		<path id="common.compile.classpath">
+			<fileset dir="${lib.dir}" includes="*.jar" />
+			<fileset dir="${lib.dir}/${os.family}" includes="*.jar" />
+		</path>
+	</target>
+
+	<target name="compile-common" depends="init" description="Compile common module">
+		<antcall target="compile-module" inheritAll="true">
+			<param name="module" value="" />
+			<reference refid="common.compile.classpath" torefid="compile.classpath" />
+		</antcall>
+	</target>
+
+	<target name="package-common" depends="compile-common">
+		<jar destfile="${dist.dir}/ams.jar">
+			<fileset dir="${build.dir}/classes" />
+			<fileset dir="src">
+				<include name="**/*.properties" />
+				<include name="**/*.gif" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</jar>
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="package-nativelib" depends="package-common">
+		<jar destfile="${dist.dir}/nativelib.jar">
+			<fileset dir="${lib.dir}/windows">
+				<filename name="**/*.dll" />
+			</fileset>
+			<fileset dir="${lib.dir}/unix">
+				<filename name="**/*.so" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="sign-jars" depends="package-nativelib">
+		<echo level="info">Signing JARS...</echo>
+		<copy todir="${dist.dir}">
+			<fileset dir="${lib.dir}">
+				<filename name="**/*.jar" />
+				<filename name="**/*.zip" />
+			</fileset>
+		</copy>
+
+		<signjar keystore="${keystore}" alias="ywoopark" storepass="ywp1234">
+			<fileset dir="${dist.dir}">
+				<filename name="**/*.jar" />
+				<filename name="**/*.zip" />
+			</fileset>
+		</signjar>
+		<!--
+		<signjar jar="${dist.dir}/nativelib.jar" keystore="${keystore}" alias="ywoopark" storepass="ywp1234" />
+		<signjar jar="${dist.dir}/ams.jar" keystore="${keystore}" alias="ywoopark" storepass="ywp1234" />
+		<signjar jar="${dist.dir}/swt.jar" keystore="${keystore}" alias="ywoopark" storepass="ywp1234" />
+		<signjar jar="${dist.dir}/registry.jar" keystore="${keystore}" alias="ywoopark" storepass="ywp1234" />
+		<signjar jar="${dist.dir}/ojdbc14.zip" keystore="${keystore}" alias="ywoopark" storepass="ywp1234" />
+-->
+		<!--
+				<copy file="${lib.dir}/swt.jar" todir="${dist.dir}" />
+				<copy file="${lib.dir}/registry.jar" todir="${dist.dir}" />
+				<copy file="${lib.dir}/ojdbc14.zip" todir="${dist.dir}" />
+		-->
+	</target>
+
+	<target name="package-web-copy-jar" description="Copy jar files into jnlp directory">
+		<copy file="${dist.dir}/ams.jar" todir="${web.dir}/lib" />
+		<copy file="${dist.dir}/swt.jar" todir="${web.dir}/lib" />
+		<copy file="${dist.dir}/nativelib.jar" todir="${web.dir}/lib" />
+		<copy file="${dist.dir}/registry.jar" todir="${web.dir}/lib" />
+		<copy file="${dist.dir}/ojdbc14.zip" todir="${web.dir}/lib" />
+	</target>
+
+	<target name="package-web" depends="sign-jars" description="Package WAR">
+		<antcall target="package-web-copy-jar" inheritAll="true" />
+		<war destfile="${dist.dir}/ams.war" webxml="${web.dir}/web.xml" compress="true">
+			<fileset dir="${web.dir}">
+				<exclude name="**/*.xml" />
+			</fileset>
+		</war>
+		<delete dir="${dist.dir}">
+			<exclude name="**/*.war" />
+		</delete>
+		<delete file="${webapp.dir}/ams.war" />
+		<delete dir="${webapp.dir}/ams" />
+
+		<delete dir="${web.dir}/lib" />
+		<copy file="${dist.dir}/ams.war" todir="${webapp.dir}" />
+	</target>
+
+	<target name="package-standalone" depends="package-common">
+		<echo level="info">Packing JARS...</echo>
+
+		<echo level="info">Deleting... dirs...</echo>
+		<delete dir="${dist.dir}" />
+
+		<echo level="info">Making... dirs...</echo>
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/cache" />
+		<mkdir dir="${dist.dir}/lib" />
+
+		<echo level="info">Jar... ams.jar...</echo>
+		<jar destfile="${dist.dir}/lib/ams.jar">
+			<fileset dir="${build.dir}/classes" />
+			<fileset dir="src">
+				<include name="**/*.properties" />
+				<include name="**/*.gif" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</jar>
+
+		<echo level="info">Jar... *.jar...</echo>
+		<copy file="${lib.dir}/swt.jar" todir="${dist.dir}/lib" />
+		<copy file="${lib.dir}/registry.jar" todir="${dist.dir}/lib" />
+		<copy file="${lib.dir}/ojdbc14.zip" todir="${dist.dir}/lib" />
+
+		<echo level="info">Copy... native libraries...</echo>
+		<copy todir="${dist.dir}/lib">
+			<fileset dir="${lib.dir}/windows">
+				<filename name="**/*.dll" />
+			</fileset>
+			<fileset dir="${lib.dir}/unix">
+				<filename name="**/*.so" />
+			</fileset>
+		</copy>
+
+		<echo level="info">Copy... images...</echo>
+		<copy todir="${dist.dir}">
+			<fileset dir="${basedir}/images">
+				<include name="**/*.jpg" />
+				<include name="**/*.gif" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Reusable targets invoked using antcall -->
+	<target name="compile-module">
+		<!-- Inputs: module, compile.classpath, test.classpath -->
+		<echo level="info">Compiling ${module}...</echo>
+		<mkdir dir="${build.dir}/${module}" />
+		<mkdir dir="${build.dir}/${module}/classes" />
+		<property name="additional.src.dirs" value="" />
+		<javac srcdir="src/${module};${additional.src.dirs}" destdir="${build.dir}/${module}/classes" debug="${javac.debug}" classpathref="compile.classpath" />
+	</target>
+
+	<!-- Convenience targets -->
+	<target name="default" depends="package-web" />
+
+	<target name="run" depends="package-nativelib">
+
+		<echo message="${lib.dir}/${os.family}" />
+
+		<java classname="com.penta.ams.main.RealTimeTracingClient" fork="true">
+			<jvmarg value="-Djava.library.path=${lib.dir}/${os.family}" />
+			<classpath>
+				<pathelement location="${dist.dir}/ams.jar" />
+				<fileset dir="${lib.dir}" includes="*.jar" />
+				<fileset dir="${lib.dir}" includes="*.zip" />
+				<fileset dir="${lib.dir}/${os.family}" includes="*.jar" />
+			</classpath>
+		</java>
+		<delete file="${dist.dir}/ams.war" />
+
+	</target>
+
+</project>
+

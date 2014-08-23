@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+
+<project name="File Viewer Application" default="default">
+	<property file="common.properties" />
+
+	<target name="clean" description="Clean...">
+		<echo level="info">Cleaning...</echo>
+		<delete dir="${dir.temp}" />
+	</target>
+
+	<target name="init" depends="clean" description="Initializing...">
+		<condition property="os.family" value="unix">
+			<os family="unix" />
+		</condition>
+		<condition property="os.family" value="windows">
+			<os family="windows" />
+		</condition>
+		<path id="compile.classpath">
+			<fileset dir="${dir.lib}" includes="*.jar" />
+			<fileset dir="${dir.lib}/${os.family}" includes="*.jar" />
+		</path>
+	</target>
+
+	<target name="build" depends="init" description="Build...">
+		<echo level="info">Building...</echo>
+		<mkdir dir="${dir.build}" />
+		<mkdir dir="${dir.build}/classes" />
+		<mkdir dir="${dir.dist}" />
+		<mkdir dir="${dir.dist}/lib" />
+		<mkdir dir="${dir.dist}/lib/nativelib" />
+
+		<javac srcdir="${dir.src}" destdir="${dir.build}/classes" debug="${javac.debug}" classpathref="compile.classpath" />
+
+		<jar destfile="${dir.dist}/lib/fileviewer.ori.jar">
+			<fileset dir="${dir.build}/classes" />
+			<fileset dir="${dir.src}">
+				<include name="**/*.properties" />
+				<include name="**/*.gif" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</jar>
+		<delete dir="${dir.build}" />
+	</target>
+
+	<target name="obfuscate" depends="build" description="Obfuscate...">
+		<taskdef resource="proguard/ant/task.properties" 
+			classpath="lib/proguard.jar" />
+
+		<proguard printseeds="on">
+
+			<!-- Specify the input jars, output jars, and library jars. -->
+
+			<injar file="${dir.dist}/lib/fileviewer.ori.jar" />
+			<outjar file="${dir.dist}/lib/fileviewer.jar" />
+
+			<libraryjar file="${java.home}/lib/rt.jar" />
+			<libraryjar file="${dir.lib}/${os.family}/swt-win32.jar" />
+			<!-- libraryjar file="junit.jar"           / -->
+			<!-- libraryjar file="servlet.jar"         / -->
+			<!-- libraryjar file="jai_core.jar"        / -->
+			<!-- ...                                   / -->
+
+			<!-- Preserve all public applications. -->
+
+			<keepclasseswithmembers access="public">
+				<method access="public static" type="void" name="main" parameters="java.lang.String[]" />
+			</keepclasseswithmembers>
+
+			<!-- Preserve all annotations. -->
+
+			<keepattribute name="*Annotation*" />
+
+			<!-- Preserve all native method names and the names of their classes. -->
+
+			<keepclasseswithmembernames>
+				<method access="native" />
+			</keepclasseswithmembernames>
+
+			<!-- Preserve the methods that are required in all enumeration classes. -->
+
+			<keepclassmembers extends="java.lang.Enum">
+				<method access="public static" type="**[]" name="values" parameters="" />
+				<method access="public static" type="**" name="valueOf" parameters="java.lang.String" />
+			</keepclassmembers>
+
+			<!-- Explicitly preserve all serialization members. The Serializable
+	         interface is only a marker interface, so it wouldn't save them.
+	         You can comment this out if your library doesn't use serialization.
+	         If your code contains serializable classes that have to be backward
+	         compatible, please refer to the manual. -->
+
+			<keepclassmembers implements="java.io.Serializable">
+				<field access="final" type="long" name="serialVersionUID" />
+				<method access="private" type="void" name="writeObject" parameters="java.io.ObjectOutputStream" />
+				<method access="private" type="void" name="readObject" parameters="java.io.ObjectOutputStream" />
+				<method type="java.lang.Object" name="writeReplace" parameters="" />
+				<method type="java.lang.Object" name="readResolve" parameters="" />
+			</keepclassmembers>
+
+			<!-- Your application may contain more items that need to be preserved;
+	         typically classes that are dynamically created using Class.forName -->
+
+		</proguard>
+	</target>
+
+	<target name="package" depends="obfuscate" description="Package Apps">
+		<copy todir="${dir.dist}/lib">
+			<fileset dir="${dir.lib}/${os.family}">
+				<filename name="**/*.jar" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.dist}/lib/nativelib">
+			<fileset dir="${dir.lib}/${os.family}">
+				<filename name="**/*.*" />
+				<!--
+				<filename name="**/*.dll" />
+-->
+			</fileset>
+		</copy>
+
+		<zip destfile="${dir.temp}/fileviewer.zip" compress="true">
+			<fileset dir="${dir.client}">
+				<filename name="**/*.*" />
+			</fileset>
+			<fileset dir="${dir.dist}">
+				<filename name="**/*.*" />
+			</fileset>
+		</zip>
+
+		<delete dir="${dir.dist}" />
+	</target>
+
+	<target name="run" depends="obfuscate">
+		<echo message="${dir.lib}/${os.family}" />
+		<java classname="org.eclipse.swt.examples.fileviewer.FileViewer" fork="true">
+			<jvmarg value="-Djava.library.path=${dir.lib}/${os.family}" />
+			<classpath>
+				<pathelement location="${dir.dist}/lib/fileviewer.jar" />
+				<fileset dir="${dir.lib}/${os.family}" includes="*.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="default" depends="run" />
+</project>

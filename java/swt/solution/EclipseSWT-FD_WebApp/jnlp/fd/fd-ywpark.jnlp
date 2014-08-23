@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Java Web Start Test Application -->
+<jnlp
+	spec="1.0"
+	codebase="http://127.0.0.1:8080/fd/jnlp"
+	href="fd/fd-ywpark.jnlp">
+    <information>
+        <title>FileDownload</title>
+        <vendor>RndClub</vendor>
+        <offline-allowed/>
+        <homepage href="FileDownload.html"/>
+        <description>Eclipse SWT FileDownload</description>
+        <description kind="short">Description</description>
+        <icon href="images/fd.jpg"/>
+        <icon kind="splash" href="images/idea.jpg"/>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.3+"
+                href="http://java.sun.com/products/autodl/j2se"
+                java-vm-args="-esa -Xnoclassgc -Xms128m -Xmx256m"/>
+        <jar href="fd/FileDownload.jar"/>
+        <jar href="fd/avalon-framework-4.1.4.jar"/>
+        <jar href="fd/commons-codec-1.3.jar"/>
+        <jar href="fd/commons-httpclient-3.0.1.jar"/>
+        <jar href="fd/commons-logging-1.1.jar"/>
+        <jar href="fd/swt.jar"/>
+        <nativelib href="fd/nativelib.jar"/>
+    </resources>
+    <application-desc main-class="org.rndclub.fd.main.FileDownload">
+	    <argument>id=ywpark</argument>
+	    <argument>sessionId=A2A467F38903BDF5275BBD38C588D014</argument>
+	    <argument>serverUrl=http://127.0.0.1:8080/fd</argument>
+	    <argument>downUrl=/jsp/DownloadList.jsp?id=ywpark&sessionId=A2A467F38903BDF5275BBD38C588D014</argument>
+	    <argument>labelUrl=/jsp/LabelList.jsp?id=ywpark&sessionId=A2A467F38903BDF5275BBD38C588D014</argument>
+	    <argument>loginUrl=/jsp/Login.jsp</argument>
+    </application-desc>
+</jnlp>
+

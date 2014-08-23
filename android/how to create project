@@ -7,5 +7,5 @@
 --activity <MainActivity name> \
 --package <package name>
 
-./ant debug // 프로젝트 빌드
+./ant debug [install] // 프로젝트 빌드
 ./adb install <./bin/apk file name> // install app into device.

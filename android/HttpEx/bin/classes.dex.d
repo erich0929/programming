@@ -1,0 +1,21 @@
+/home/erich0929/programming/android/HttpEx/bin/classes.dex : \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/HttpEx$1.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/R$layout.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/httptool.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/R$drawable.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/ClientWithResponseHandler$1.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/R$attr.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/R$string.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/ClientWithResponseHandler.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/HttpEx.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/BuildConfig.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/com/erich0929/www/R.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/org/apache/http/examples/client/ClientWithResponseHandler$1.class \
+/home/erich0929/programming/android/HttpEx/bin/classes/org/apache/http/examples/client/ClientWithResponseHandler.class \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/commons-logging-1.1.3-8218b937b8296458b5c4dd547466f6ae.jar \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/httpclient-cache-4.3.5-89c5dfc6b51bbc4423a87d7ca55821c2.jar \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/httpmime-4.3.5-76c2293ed82ec641e54bc7e328a5e905.jar \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/httpclient-4.3.5-522b9d5b1be25e241ca5bf78e157e281.jar \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/fluent-hc-4.3.5-004c6b460ed24be09c7b55d0a4d10c26.jar \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/commons-codec-1.6-9d7a2354ae939669a11c7a60523c669c.jar \
+/home/erich0929/programming/android/HttpEx/bin/dexedLibs/httpcore-4.3.2-d47603afeae2e7a273a7152369b12cb6.jar \

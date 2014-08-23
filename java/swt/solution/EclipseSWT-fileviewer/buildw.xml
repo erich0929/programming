@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+
+<project name="File Viewer Web" default="default">
+	<property file="common.properties" />
+
+	<target name="clean" description="Clean...">
+		<delete dir="${dir.temp}" />
+	</target>
+
+	<target name="init" depends="clean" description="Initializing...">
+		<mkdir dir="${dir.dist}" />
+		<condition property="os.family" value="unix">
+			<os family="unix" />
+		</condition>
+		<condition property="os.family" value="windows">
+			<os family="windows" />
+		</condition>
+		<path id="compile.classpath">
+			<fileset dir="${dir.lib}" includes="*.jar" />
+			<fileset dir="${dir.lib}/${os.family}" includes="*.jar" />
+		</path>
+	</target>
+
+	<target name="build" depends="init" description="Build...">
+		<mkdir dir="${dir.build}" />
+		<mkdir dir="${dir.build}/classes" />
+
+		<javac srcdir="${dir.src}" destdir="${dir.build}/classes" 
+			debug="${javac.debug}" classpathref="compile.classpath" />
+
+		<mkdir dir="${dir.dist}" />
+		<mkdir dir="${dir.dist}/lib" />
+		<mkdir dir="${dir.dist}/lib/nativelib" />
+
+		<jar destfile="${dir.dist}/lib/fileviewer.jar">
+			<fileset dir="${dir.build}/classes" />
+			<fileset dir="${dir.src}">
+				<include name="**/*.properties" />
+				<include name="**/*.gif" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</jar>
+		<jar destfile="${dir.dist}/lib/nativelib/nativelib.jar">
+			<fileset dir="${dir.lib}/windows">
+				<filename name="**/*.dll" />
+			</fileset>
+			<fileset dir="${dir.lib}/unix">
+				<filename name="**/*.so" />
+			</fileset>
+		</jar>
+		<copy todir="${dir.dist}/lib">
+			<fileset dir="${dir.lib}/windows">
+				<filename name="**/*.jar" />
+			</fileset>
+			<fileset dir="${dir.lib}/unix">
+				<filename name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="sign" depends="build" description="Sign JAR">
+		<echo level="info">Signing JARS...</echo>
+		<signjar jar="${dir.dist}/lib/fileviewer.jar" keystore="${keystore}" alias="ywoopark" storepass="ywoo1234" />
+		<signjar jar="${dir.dist}/lib/swt-win32.jar" keystore="${keystore}" alias="ywoopark" storepass="ywoo1234" />
+		<signjar jar="${dir.dist}/lib/swt-linux.jar" keystore="${keystore}" alias="ywoopark" storepass="ywoo1234" />
+		<signjar jar="${dir.dist}/lib/swt-pi.jar" keystore="${keystore}" alias="ywoopark" storepass="ywoo1234" />
+		<signjar jar="${dir.dist}/lib/nativelib/nativelib.jar" keystore="${keystore}" alias="ywoopark" storepass="ywoo1234" />
+	</target>
+
+	<target name="package" depends="sign" description="Package WAR">
+		<war destfile="${dir.temp}/fileviewer.war" webxml="${dir.web}/web.xml" compress="true">
+			<fileset dir="${dir.web}">
+				<include name="**/*.html" />
+				<include name="**/*.jnlp" />
+				<exclude name="**/*.xml" />
+			</fileset>
+			<fileset dir="${dir.dist}">
+				<filename name="**/*.jar" />
+			</fileset>
+		</war>
+		<delete dir="${dir.build}" />
+		<delete dir="${dir.dist}" />
+	</target>
+
+	<target name="deploy" depends="package" description="Deploly WAR">
+		<delete file="${dir.webapps}/fileviewer.war" />
+		<copy file="${dir.temp}/fileviewer.war" todir="${dir.webapps}" />
+	</target>
+
+	<target name="default" depends="package" />
+</project>
